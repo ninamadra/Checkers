@@ -8,17 +8,18 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-//TODO implement runnnable
+//TODO implement runnable and getting input
 public class Client implements Observer {
     private Socket socket;
     private BufferedReader input;
     private PrintWriter output;
-    private GameRoomController gameRoomController;
+    private GameRoom gameRoom;
     private Color color;
 
-    public Client(Socket socket, GameRoomController gameRoomController) throws IOException {
+    public Client(Socket socket, GameRoom gameRoom) throws IOException {
         this.socket = socket;
-        this.gameRoomController = gameRoomController;
+        this.gameRoom = gameRoom;
+        this.gameRoom.attachObserver(this);
         input = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
         output = new PrintWriter(this.socket.getOutputStream(), true);
     }

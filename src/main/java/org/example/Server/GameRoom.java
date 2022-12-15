@@ -1,35 +1,48 @@
 package org.example.Server;
 
-import org.example.model.board.AbstractBoard;
-import org.example.model.factory.AbstractVarFactory;
-import org.example.model.factory.ClassicFactory;
-import org.example.model.factory.PolishFactory;
-import org.example.model.factory.ThaiFactory;
-import org.example.model.rules.AbstractRules;
+import org.example.model.Game;
 
-public class GameRoom {
-    private AbstractBoard board;
-    private AbstractRules rules;
-    private GameRoomController gameRoomController;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-    public GameRoom(GameRoomController gameRoomController) {
-        this.gameRoomController = gameRoomController;
+
+public class GameRoom implements GameRoomMediator{
+    private Game game;
+    ArrayList<Observer> clients;
+
+    public void createGame(String gameType) {
+        game = new Game();
+        game.setVariant(gameType);
     }
 
-    public void setVariant(String variant) {
-        AbstractVarFactory factory = null;
-        switch (variant) {
-            case "CLASSIC":
-                factory = new ClassicFactory();
-                break;
-            case "THAI":
-                factory = new ThaiFactory();
-                break;
-            case "POLISH":
-                factory = new PolishFactory();
-                break;
+    @Override
+    public void attachObserver(Observer client) {
+        clients.add(client);
+    }
+
+    @Override
+    public void detachObserver(Observer client) {
+        clients.remove(client);
+        try {
+            client.getSocket().close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-        board = factory.createBoard();
-        rules = factory.createRules();
     }
+
+    @Override
+    public void noticeAction(String command) {
+        for (Observer client: clients) {
+            client.updateObserver(command);
+        }
+    }
+
+    //TODO implement executing a proper method
+    public String performAction(String command) {
+        List<String> items = Arrays.asList(command.split("\\s*,\\s*"));
+        return " ";
+    }
+
 }

@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed7992c-e56c-4ea6-be0b-4e9901cbecd9" name="Changes" comment="added GameRoomController as mediator between gameRoom and Clients. Classes for client, gameroom and their interfaces have been created.">
+    <list default="true" id="5ed7992c-e56c-4ea6-be0b-4e9901cbecd9" name="Changes" comment="dodano przekazywanie stringa do clientów dotyczącego wykoanengo ruchu">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Server/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Server/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Server/GameRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Server/GameRoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Server/Observer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Server/Observer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Server/GameRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Server/GameRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Server/GameRoomController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Server/GameRoomMediator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Server/GameRoomMediator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/board/ThaiBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/ThaiBoard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +78,7 @@
       <option name="presentableId" value="Default" />
       <updated>1671030496651</updated>
       <workItem from="1671030497993" duration="10156000" />
-      <workItem from="1671126895137" duration="1866000" />
+      <workItem from="1671126895137" duration="7651000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1671030585078</created>
@@ -103,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671117790056</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="dodano przekazywanie stringa do clientów dotyczącego wykoanengo ruchu">
+      <created>1671129472584</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1671129472584</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -137,6 +149,7 @@
     <MESSAGE value="work branches" />
     <MESSAGE value="added GameRoomController as mediator between gameRoom and Clients. Classes for client, gameroom and their interfaces have been created." />
     <MESSAGE value="dodano metode tworzaca odpowiedni typ gry na podstawie stringa od klienta" />
-    <option name="LAST_COMMIT_MESSAGE" value="dodano metode tworzaca odpowiedni typ gry na podstawie stringa od klienta" />
+    <MESSAGE value="dodano przekazywanie stringa do clientów dotyczącego wykoanengo ruchu" />
+    <option name="LAST_COMMIT_MESSAGE" value="dodano przekazywanie stringa do clientów dotyczącego wykoanengo ruchu" />
   </component>
 </project>

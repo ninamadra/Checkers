@@ -32,6 +32,7 @@ public class Server {
 
             while(true) {
                 Socket socket = serverSocket.accept();
+                Client client = new Client(socket, gameRoomController);
             }
         }
         catch(IOException ex) {}

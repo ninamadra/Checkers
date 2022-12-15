@@ -6,6 +6,7 @@ import java.net.Socket;
 public class Server {
     private static Server instance = null;
     private ServerSocket serverSocket;
+    private GameRoomController gameRoomController;
 
 
     public Server() {
@@ -27,6 +28,7 @@ public class Server {
 
         try {
             serverSocket = new ServerSocket(2137);
+            gameRoomController = new GameRoomController();
 
             while(true) {
                 Socket socket = serverSocket.accept();

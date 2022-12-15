@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed7992c-e56c-4ea6-be0b-4e9901cbecd9" name="Changes" comment="added GameRoomController as mediator between gameRoom and Clients. Classes for client, gameroom and their interfaces have been created.">
+    <list default="true" id="5ed7992c-e56c-4ea6-be0b-4e9901cbecd9" name="Changes" comment="dodano input i output, który zostanie wykorzystany do komunikacji z zewnetrznym klientem.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Server/GameRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Server/GameRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Server/GameRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Server/GameRoomController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +25,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Client" />
+        <entry key="$PROJECT_DIR$" value="Server" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -65,6 +67,7 @@
       <option name="presentableId" value="Default" />
       <updated>1671030496651</updated>
       <workItem from="1671030497993" duration="10156000" />
+      <workItem from="1671120577747" duration="371000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1671030585078</created>
@@ -111,13 +114,33 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="Server" />
+                        <option value="origin/Server" />
                       </list>
                     </value>
                   </entry>
                 </map>
               </option>
             </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/Server" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/master" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
       </map>

@@ -27,7 +27,7 @@ public class GameRoomController implements GameRoomMediator{
     }
 
     @Override
-    public void noticeAboutMove(Observer player, int oldX, int oldRow, int newX, int newRow) {
+    public void noticeAboutMove(Observer player, int oldX, int oldY, int newX, int newY) {
 
     }
 

@@ -1,6 +1,8 @@
 package org.example.model;
 
+import org.example.Server.Server;
 import org.example.model.board.AbstractBoard;
+import org.example.model.board.illegalMoveException;
 import org.example.model.factory.AbstractVarFactory;
 import org.example.model.factory.ClassicFactory;
 import org.example.model.factory.PolishFactory;
@@ -28,7 +30,7 @@ public class Game {
         rules = factory.createRules();
     }
     //TODO implement makeMove via part of chain of responsibility
-    public void makeMove() {
-
+    public String makeMove(int oldX, int oldY, int newX, int newY, Color color) {
+       return "FAIL";
     }
 }

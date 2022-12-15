@@ -20,7 +20,6 @@ public class Server {
                 }
             }
         }
-
         return instance;
     }
 
@@ -28,7 +27,7 @@ public class Server {
 
         try {
             serverSocket = new ServerSocket(2137);
-            gameRoom = new GameRoom();
+            gameRoom = GameRoom.getInstance();
 
             while(true) {
                 Socket socket = serverSocket.accept();

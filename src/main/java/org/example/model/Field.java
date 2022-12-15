@@ -6,10 +6,20 @@ public class Field {
     private final int column;
     private boolean isOccupied;
     private Color color;
+    private boolean isKing = false;
 
-    public Field(int row, int column) {
+    public Field(int row, int column, boolean isOccupied, Color color) {
         this.row = row;
         this.column = column;
+        this.isOccupied = isOccupied;
+        this.color = color;
+    }
+
+    public  Field(int row, int column) {
+        this.row = row;
+        this.column = column;
+        isOccupied = false;
+        color = Color.NONE;
     }
 
     public boolean getIsOccupied() {

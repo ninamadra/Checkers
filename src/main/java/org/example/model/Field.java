@@ -7,28 +7,28 @@ public class Field {
     private boolean isOccupied;
     private Color color;
 
-    Field(int row, int column) {
+    public Field(int row, int column) {
         this.row = row;
         this.column = column;
     }
 
-    boolean getIsOccupied() {
+    public boolean getIsOccupied() {
         return isOccupied;
     }
 
-    Color getColor() {
+    public Color getColor() {
         return color;
     }
 
-    void setIsOccupied(boolean isOccupied) {
+    public void setIsOccupied(boolean isOccupied) {
         this.isOccupied = isOccupied;
     }
 
-    void setColor(Color color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 
-    int getRow() {
+    public int getRow() {
         return this.row;
     }
 }

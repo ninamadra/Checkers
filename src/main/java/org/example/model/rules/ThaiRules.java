@@ -1,13 +1,22 @@
 package org.example.model.rules;
 
+import org.example.model.Color;
+import org.example.model.Field;
+
 public class ThaiRules extends AbstractRules {
+
     @Override
-    public boolean isMoveValid() {
+    public boolean isWin() {
         return false;
     }
 
     @Override
-    public boolean isWin() {
+    protected boolean isInRange(Field oldField, Field newField) {
+        return false;
+    }
+
+    @Override
+    protected boolean isInCaptureRange(Field oldField, Field newField) {
         return false;
     }
 }

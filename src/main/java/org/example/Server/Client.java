@@ -1,5 +1,7 @@
 package org.example.Server;
 
+import org.example.model.Color;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -12,6 +14,7 @@ public class Client implements Observer {
     private BufferedReader input;
     private PrintWriter output;
     private GameRoomController gameRoomController;
+    private Color color;
 
     public Client(Socket socket, GameRoomController gameRoomController) throws IOException {
         this.socket = socket;
@@ -27,5 +30,10 @@ public class Client implements Observer {
     @Override
     public Socket getSocket() {
         return socket;
+    }
+
+    @Override
+    public Color getColor() {
+        return color;
     }
 }

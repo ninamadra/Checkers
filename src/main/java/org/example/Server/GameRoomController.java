@@ -28,7 +28,16 @@ public class GameRoomController implements GameRoomMediator{
 
     @Override
     public void noticeAboutMove(Observer player, int oldX, int oldY, int newX, int newY) {
+        StringBuilder builder = new StringBuilder("MOVED ");
+        builder.append(player.getColor().toString());
+        builder.append(oldX);
+        builder.append(oldY);
+        builder.append(newX);
+        builder.append(newY);
 
+        for (Observer client: clients) {
+            client.updateObserver(builder.toString());
+        }
     }
 
     @Override

@@ -5,17 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ed7992c-e56c-4ea6-be0b-4e9901cbecd9" name="Changes" comment="added GameRoomController as mediator between gameRoom and Clients. Classes for client, gameroom and their interfaces have been created.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/illegalMoveException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Field.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/board/AbstractBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/AbstractBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/board/ClassicBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/ClassicBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/board/PolishBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/PolishBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/board/ThaiBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/ThaiBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/rules/AbstractRules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/rules/AbstractRules.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/rules/ClassicRules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/rules/ClassicRules.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/rules/PolishRules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/rules/PolishRules.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/rules/ThaiRules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/rules/ThaiRules.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Server/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Server/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Server/GameRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Server/GameRoomController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Server/Observer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Server/Observer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +73,7 @@
       <option name="presentableId" value="Default" />
       <updated>1671030496651</updated>
       <workItem from="1671030497993" duration="10156000" />
+      <workItem from="1671126895137" duration="1866000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1671030585078</created>
@@ -142,6 +136,7 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value="work branches" />
     <MESSAGE value="added GameRoomController as mediator between gameRoom and Clients. Classes for client, gameroom and their interfaces have been created." />
-    <option name="LAST_COMMIT_MESSAGE" value="added GameRoomController as mediator between gameRoom and Clients. Classes for client, gameroom and their interfaces have been created." />
+    <MESSAGE value="dodano metode tworzaca odpowiedni typ gry na podstawie stringa od klienta" />
+    <option name="LAST_COMMIT_MESSAGE" value="dodano metode tworzaca odpowiedni typ gry na podstawie stringa od klienta" />
   </component>
 </project>

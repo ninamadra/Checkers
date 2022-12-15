@@ -1,0 +1,61 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"5ed7992c-e56c-4ea6-be0b-4e9901cbecd9\" name=\"Changes\" comment=\"stworzenie szkieletu singletona serwera (double-checked locking i prowizoryczny run)\">\n      <change afterPath=\"$PROJECT_DIR$/.idea/checkstyle-idea.xml\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/.idea/git_toolbox_prj.xml\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/.idea/uiDesigner.xml\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/org/example/model/Color.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/org/example/model/Field.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/org/example/model/board/AbstractBoard.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/org/example/model/board/Var1Board.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/org/example/model/board/Var2Board.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/org/example/model/board/Var3Board.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/org/example/model/factory/AbstractVarFactory.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/org/example/model/factory/Var1Factory.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/org/example/model/factory/Var2Factory.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/org/example/model/factory/Var3Factory.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/org/example/model/rules/AbstractRules.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/org/example/model/rules/Var1Rules.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/org/example/model/rules/Var2Rules.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/org/example/model/rules/Var3Rules.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Interface\" />\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitToolBoxStore\">\n    <option name=\"recentBranches\">\n      <RecentBranches>\n        <option name=\"branchesForRepo\">\n          <list>\n            <RecentBranchesForRepo>\n              <option name=\"branches\">\n                <list>\n                  <RecentBranch>\n                    <option name=\"branchName\" value=\"Model\" />\n                    <option name=\"lastUsedInstant\" value=\"1671114307\" />\n                  </RecentBranch>\n                  <RecentBranch>\n                    <option name=\"branchName\" value=\"Server\" />\n                    <option name=\"lastUsedInstant\" value=\"1671032612\" />\n                  </RecentBranch>\n                  <RecentBranch>\n                    <option name=\"branchName\" value=\"master\" />\n                    <option name=\"lastUsedInstant\" value=\"1671032611\" />\n                  </RecentBranch>\n                </list>\n              </option>\n              <option name=\"repositoryRootUrl\" value=\"file://$PROJECT_DIR$\" />\n            </RecentBranchesForRepo>\n          </list>\n        </option>\n      </RecentBranches>\n    </option>\n  </component>\n  <component name=\"MavenImportPreferences\">\n    <option name=\"importingSettings\">\n      <MavenImportingSettings>\n        <option name=\"workspaceImportEnabled\" value=\"true\" />\n      </MavenImportingSettings>\n    </option>\n  </component>\n  <component name=\"ProjectId\" id=\"2IuTVdLP0Uuj9zE3wupTj2HiEhd\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\n    \"WebServerToolWindowFactoryState\": \"false\",\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\n    \"vue.rearranger.settings.migration\": \"true\"\n  }\n}]]></component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"5ed7992c-e56c-4ea6-be0b-4e9901cbecd9\" name=\"Changes\" comment=\"\" />\n      <created>1671030496651</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1671030496651</updated>\n    </task>\n    <servers />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State>\n              <option name=\"FILTERS\">\n                <map>\n                  <entry key=\"branch\">\n                    <value>\n                      <list>\n                        <option value=\"origin/Model\" />\n                      </list>\n                    </value>\n                  </entry>\n                </map>\n              </option>\n            </State>\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 88a6cea3785a9fd1050542ee6ef80ef1a0dfad54)
++++ b/.idea/workspace.xml	(date 1671118603078)
+@@ -4,24 +4,7 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="5ed7992c-e56c-4ea6-be0b-4e9901cbecd9" name="Changes" comment="stworzenie szkieletu singletona serwera (double-checked locking i prowizoryczny run)">
+-      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Color.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Field.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/AbstractBoard.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/Var1Board.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/Var2Board.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/Var3Board.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/factory/AbstractVarFactory.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/factory/Var1Factory.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/factory/Var2Factory.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/factory/Var3Factory.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/rules/AbstractRules.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/rules/Var1Rules.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/rules/Var2Rules.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/rules/Var3Rules.java" afterDir="false" />
++    <list default="true" id="5ed7992c-e56c-4ea6-be0b-4e9901cbecd9" name="Changes" comment="Stworzenie Abstract Factory dla roznych wariantow gry: planszy i zasad, oraz czesciowa implementacja. Stworzenie i implementacja komponentu planszy- Field oraz enumu Color.">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -101,6 +84,14 @@
+       <option name="presentableId" value="Default" />
+       <updated>1671030496651</updated>
+     </task>
++    <task id="LOCAL-00001" summary="Stworzenie Abstract Factory dla roznych wariantow gry: planszy i zasad, oraz czesciowa implementacja. Stworzenie i implementacja komponentu planszy- Field oraz enumu Color.">
++      <created>1671118023514</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1671118023514</updated>
++    </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -126,4 +117,8 @@
+       </map>
+     </option>
+   </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="Stworzenie Abstract Factory dla roznych wariantow gry: planszy i zasad, oraz czesciowa implementacja. Stworzenie i implementacja komponentu planszy- Field oraz enumu Color." />
++    <option name="LAST_COMMIT_MESSAGE" value="Stworzenie Abstract Factory dla roznych wariantow gry: planszy i zasad, oraz czesciowa implementacja. Stworzenie i implementacja komponentu planszy- Field oraz enumu Color." />
++  </component>
+ </project>
+\ No newline at end of file

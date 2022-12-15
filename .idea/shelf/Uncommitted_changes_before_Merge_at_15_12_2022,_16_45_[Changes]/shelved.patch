@@ -1,0 +1,165 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"5ed7992c-e56c-4ea6-be0b-4e9901cbecd9\" name=\"Changes\" comment=\"added GameRoomController as mediator between gameRoom and Clients. Classes for client, gameroom and their interfaces have been created.\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/example/Server/Client.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/example/Server/Client.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/example/Server/Server.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/example/Server/Server.java\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n        <option value=\"Interface\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"Client\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"MavenImportPreferences\">\n    <option name=\"importingSettings\">\n      <MavenImportingSettings>\n        <option name=\"workspaceImportEnabled\" value=\"true\" />\n      </MavenImportingSettings>\n    </option>\n  </component>\n  <component name=\"ProjectId\" id=\"2IuTVdLP0Uuj9zE3wupTj2HiEhd\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"WebServerToolWindowFactoryState\": \"false\",\n    \"node.js.detected.package.eslint\": \"true\",\n    \"node.js.detected.package.tslint\": \"true\",\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\n    \"vue.rearranger.settings.migration\": \"true\"\n  }\n}]]></component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"5ed7992c-e56c-4ea6-be0b-4e9901cbecd9\" name=\"Changes\" comment=\"\" />\n      <created>1671030496651</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1671030496651</updated>\n      <workItem from=\"1671030497993\" duration=\"10156000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"initial commit\">\n      <created>1671030585078</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1671030585078</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"work branches\">\n      <created>1671030752715</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1671030752715</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"work branches\">\n      <created>1671030845677</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1671030845677</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"added GameRoomController as mediator between gameRoom and Clients. Classes for client, gameroom and their interfaces have been created.\">\n      <created>1671117790056</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1671117790056</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"5\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State>\n              <option name=\"FILTERS\">\n                <map>\n                  <entry key=\"branch\">\n                    <value>\n                      <list>\n                        <option value=\"Server\" />\n                      </list>\n                    </value>\n                  </entry>\n                </map>\n              </option>\n            </State>\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"initial commit\" />\n    <MESSAGE value=\"work branches\" />\n    <MESSAGE value=\"added GameRoomController as mediator between gameRoom and Clients. Classes for client, gameroom and their interfaces have been created.\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"added GameRoomController as mediator between gameRoom and Clients. Classes for client, gameroom and their interfaces have been created.\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 9f6ae2a05630da564fbb02aa4e45c98381e7085c)
++++ b/.idea/workspace.xml	(date 1671119048936)
+@@ -4,10 +4,25 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="5ed7992c-e56c-4ea6-be0b-4e9901cbecd9" name="Changes" comment="added GameRoomController as mediator between gameRoom and Clients. Classes for client, gameroom and their interfaces have been created.">
++    <list default="true" id="5ed7992c-e56c-4ea6-be0b-4e9901cbecd9" name="Changes" comment="stworzenie szkieletu singletona serwera (double-checked locking i prowizoryczny run)">
++      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Color.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Field.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/AbstractBoard.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/Var1Board.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/Var2Board.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/Var3Board.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/factory/AbstractVarFactory.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/factory/Var1Factory.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/factory/Var2Factory.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/factory/Var3Factory.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/rules/AbstractRules.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/rules/Var1Rules.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/rules/Var2Rules.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/rules/Var3Rules.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Server/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Server/Client.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Server/Server.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -17,21 +32,42 @@
+   <component name="FileTemplateManagerImpl">
+     <option name="RECENT_TEMPLATES">
+       <list>
+-        <option value="Class" />
+         <option value="Interface" />
++        <option value="Class" />
+       </list>
+     </option>
+   </component>
+   <component name="Git.Settings">
+-    <option name="RECENT_BRANCH_BY_REPOSITORY">
+-      <map>
+-        <entry key="$PROJECT_DIR$" value="Client" />
+-      </map>
+-    </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+-  <component name="MarkdownSettingsMigration">
+-    <option name="stateVersion" value="1" />
++  <component name="GitToolBoxStore">
++    <option name="recentBranches">
++      <RecentBranches>
++        <option name="branchesForRepo">
++          <list>
++            <RecentBranchesForRepo>
++              <option name="branches">
++                <list>
++                  <RecentBranch>
++                    <option name="branchName" value="Model" />
++                    <option name="lastUsedInstant" value="1671114307" />
++                  </RecentBranch>
++                  <RecentBranch>
++                    <option name="branchName" value="Server" />
++                    <option name="lastUsedInstant" value="1671032612" />
++                  </RecentBranch>
++                  <RecentBranch>
++                    <option name="branchName" value="master" />
++                    <option name="lastUsedInstant" value="1671032611" />
++                  </RecentBranch>
++                </list>
++              </option>
++              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
++            </RecentBranchesForRepo>
++          </list>
++        </option>
++      </RecentBranches>
++    </option>
+   </component>
+   <component name="MavenImportPreferences">
+     <option name="importingSettings">
+@@ -50,10 +86,8 @@
+   "keyToString": {
+     "RunOnceActivity.OpenProjectViewOnStart": "true",
+     "RunOnceActivity.ShowReadmeOnStart": "true",
++    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+     "WebServerToolWindowFactoryState": "false",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.detected.package.tslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+     "node.js.selected.package.tslint": "(autodetect)",
+     "vue.rearranger.settings.migration": "true"
+   }
+@@ -66,41 +100,8 @@
+       <option name="number" value="Default" />
+       <option name="presentableId" value="Default" />
+       <updated>1671030496651</updated>
+-      <workItem from="1671030497993" duration="10156000" />
+     </task>
+-    <task id="LOCAL-00001" summary="initial commit">
+-      <created>1671030585078</created>
+-      <option name="number" value="00001" />
+-      <option name="presentableId" value="LOCAL-00001" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1671030585078</updated>
+-    </task>
+-    <task id="LOCAL-00002" summary="work branches">
+-      <created>1671030752715</created>
+-      <option name="number" value="00002" />
+-      <option name="presentableId" value="LOCAL-00002" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1671030752715</updated>
+-    </task>
+-    <task id="LOCAL-00003" summary="work branches">
+-      <created>1671030845677</created>
+-      <option name="number" value="00003" />
+-      <option name="presentableId" value="LOCAL-00003" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1671030845677</updated>
+-    </task>
+-    <task id="LOCAL-00004" summary="added GameRoomController as mediator between gameRoom and Clients. Classes for client, gameroom and their interfaces have been created.">
+-      <created>1671117790056</created>
+-      <option name="number" value="00004" />
+-      <option name="presentableId" value="LOCAL-00004" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1671117790056</updated>
+-    </task>
+-    <option name="localTasksCounter" value="5" />
+     <servers />
+-  </component>
+-  <component name="TypeScriptGeneratedFilesManager">
+-    <option name="version" value="3" />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+     <option name="TAB_STATES">
+@@ -113,7 +114,7 @@
+                   <entry key="branch">
+                     <value>
+                       <list>
+-                        <option value="Server" />
++                        <option value="origin/Model" />
+                       </list>
+                     </value>
+                   </entry>
+@@ -125,10 +126,4 @@
+       </map>
+     </option>
+   </component>
+-  <component name="VcsManagerConfiguration">
+-    <MESSAGE value="initial commit" />
+-    <MESSAGE value="work branches" />
+-    <MESSAGE value="added GameRoomController as mediator between gameRoom and Clients. Classes for client, gameroom and their interfaces have been created." />
+-    <option name="LAST_COMMIT_MESSAGE" value="added GameRoomController as mediator between gameRoom and Clients. Classes for client, gameroom and their interfaces have been created." />
+-  </component>
+ </project>
+\ No newline at end of file

@@ -5,11 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ed7992c-e56c-4ea6-be0b-4e9901cbecd9" name="Changes" comment="uproszczono architekturę serwera. Usunieto niepotrzebny controller i wproawadzono szkielet łańcucha odpowiedzialności dla obsługi zadań przychodzących do serwera i jego odpwoiedzi zwrotnych.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Server/creationException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Server/GameRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Server/GameRoom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Color.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Field.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/board/AbstractBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/AbstractBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/board/ClassicBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/ClassicBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/rules/AbstractRules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/rules/AbstractRules.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/rules/ClassicRules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/rules/ClassicRules.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/rules/PolishRules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/rules/PolishRules.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/rules/ThaiRules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/rules/ThaiRules.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +36,9 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />

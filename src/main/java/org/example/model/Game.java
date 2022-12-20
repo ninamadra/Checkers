@@ -26,8 +26,8 @@ public class Game {
                 factory = new PolishFactory();
                 break;
         }
-        board = factory.createBoard();
         rules = factory.createRules();
+        board = factory.createBoard();
     }
     //TODO implement makeMove via part of chain of responsibility
     public String makeMove(int oldX, int oldY, int newX, int newY, Color color) {

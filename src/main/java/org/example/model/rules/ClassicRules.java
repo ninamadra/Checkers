@@ -3,13 +3,9 @@ package org.example.model.rules;
 import org.example.model.Color;
 import org.example.model.Field;
 
+import java.util.ArrayList;
+
 public class ClassicRules extends AbstractRules {
-
-    @Override
-    public boolean isWin() {
-        return false;
-    }
-
     @Override
     protected boolean isInRange(Field oldField, Field newField) {
         return false;

@@ -23,7 +23,7 @@ public class Server {
         return instance;
     }
 
-    public void run() throws InterruptedException {
+    public void run() {
 
         try {
             serverSocket = new ServerSocket(2137);
@@ -32,12 +32,15 @@ public class Server {
             while(true) {
                 Socket socket = serverSocket.accept();
                 Client client = new Client(socket, gameRoom);
+                client.updateObserver("COLOR " + client.getColor());
             }
         }
-        catch(IOException ex) {}
+        catch(IOException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         getInstance().run();
     }
 }

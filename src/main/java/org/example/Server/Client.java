@@ -8,13 +8,12 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-//TODO implement runnable and getting input
-public class Client implements Observer {
-    private Socket socket;
-    private BufferedReader input;
-    private PrintWriter output;
-    private GameRoom gameRoom;
-    private Color color;
+public class Client implements Observer, Runnable {
+    private final Socket socket;
+    private final BufferedReader input;
+    private final PrintWriter output;
+    private final GameRoom gameRoom;
+    private final Color color;
 
     public Client(Socket socket, GameRoom gameRoom) throws IOException {
         this.socket = socket;
@@ -22,6 +21,7 @@ public class Client implements Observer {
         this.gameRoom.attachObserver(this);
         input = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
         output = new PrintWriter(this.socket.getOutputStream(), true);
+        color = gameRoom.getColorToSet();
     }
     @Override
     public void updateObserver(String message) {
@@ -36,5 +36,24 @@ public class Client implements Observer {
     @Override
     public Color getColor() {
         return color;
+    }
+
+    @Override
+    public void run() {
+        while(true) {
+
+            try {
+                String command = input.readLine();
+                gameRoom.performAction(command, this);
+            }
+            catch (IOException e) {
+                try {
+                    socket.close();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+                gameRoom.detachObserver(this);
+            }
+        }
     }
 }

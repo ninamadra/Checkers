@@ -1,11 +1,7 @@
 package org.example.model.board;
 
-import org.example.model.Color;
-import org.example.model.Field;
-import org.example.model.rules.AbstractRules;
-
-
 public class ClassicBoard extends AbstractBoard {
+    //TODO zaimplementowac tworzenie planszy o odpowiednich wymiarach i ustawieniu pionow
     public ClassicBoard() {
         //this.rules = rules;
         for (int i = 0; i < 8; i++) {
@@ -13,11 +9,6 @@ public class ClassicBoard extends AbstractBoard {
 
             }
         }
-    }
-    @Override
-    public void move(int oldX, int oldY, int newX, int newY, Color color) throws illegalMoveException {
-
-
     }
 
 }

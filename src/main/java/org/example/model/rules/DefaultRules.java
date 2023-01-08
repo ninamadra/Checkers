@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import static java.lang.Math.abs;
 
-public abstract class AbstractRules {
+public class DefaultRules implements Rules {
     public boolean isMoveValid(Field oldField, Field newField, ArrayList<Field> capturedFields, Color playerColor) {
         if (oldField == null || newField == null) {
             return false;
@@ -32,6 +32,11 @@ public abstract class AbstractRules {
         }
         //TODO sprawdzenie bicia krola (czy robi dobry skok, tj miedzy biciami jest jedno pole przerwy itd
 
+        return true;
+    }
+
+    @Override
+    public boolean isCapturingObligatory() {
         return true;
     }
 

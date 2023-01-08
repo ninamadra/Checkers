@@ -2,7 +2,7 @@ package org.example.model.board;
 
 import org.example.model.Color;
 import org.example.model.Field;
-import org.example.model.rules.AbstractRules;
+import org.example.model.rules.Rules;
 
 import java.util.ArrayList;
 
@@ -11,7 +11,7 @@ import static java.lang.Math.min;
 
 public abstract class AbstractBoard {
 
-    protected AbstractRules rules;
+    protected Rules rules;
     protected ArrayList<Field> fields;
     protected Color turn = Color.WHITE;
 
@@ -41,10 +41,11 @@ public abstract class AbstractBoard {
             throw new illegalMoveException();
         }
 
-
-        ArrayList<Field> obligatoryNewFields = findObligatoryMoves(oldField, color);
-        if(obligatoryNewFields.size() > 0 && !obligatoryNewFields.contains(newField)) {
-            throw new illegalMoveException();
+        if(rules.isCapturingObligatory()) {
+            ArrayList<Field> obligatoryNewFields = findObligatoryMoves(oldField, color);
+            if (obligatoryNewFields.size() > 0 && !obligatoryNewFields.contains(newField)) {
+                throw new illegalMoveException();
+            }
         }
 
         newField.setColor(oldField.getColor());
@@ -79,10 +80,29 @@ public abstract class AbstractBoard {
         //TODO sprawdzenie czy gracz ma kolejne bicie w swoim ruchu
         //sprawdz bicie na lewej i prawej przekatnej czy ktores jest valid
         //albo wszytskie inne mozliwe dla damki
+        if(!oldField.getIsKing()) {
+            Field field1 = fields.stream().filter(f -> f.getColumn() == oldField.getColumn() + 2 && f.getRow() == oldField.getRow() + 2).findFirst().orElse(null);
+            Field captured1 = fields.stream().filter(f -> f.getColumn() == oldField.getColumn() + 1 && f.getRow() == oldField.getRow() + 1).findFirst().orElse(null);
+            ArrayList<Field> capturedList = new ArrayList<>();
+            capturedList.add(captured1);
+
+            Field field2 = fields.stream().filter(f -> f.getColumn() == oldField.getColumn() - 2 && f.getRow() == oldField.getRow() + 2).findFirst().orElse(null);
+            Field captured2 = fields.stream().filter(f -> f.getColumn() == oldField.getColumn() - 1 && f.getRow() == oldField.getRow() + 1).findFirst().orElse(null);
+            ArrayList<Field> capturedList2 = new ArrayList<>();
+            capturedList2.add(captured2);
+            if (rules.isMoveValid(oldField, field1, capturedList, color) || rules.isMoveValid(oldField, field2, capturedList2, color))
+                return true;
+            return false;
+        }
+
+
+
+
         return false;
     }
     protected boolean isGameOver() {
         //TODO sprawdzenie czy przeciwnik nie ma juz swojego koloru na planszy albo zadnego ruchu dla kazdego piona
+
         return false;
     }
 
@@ -92,13 +112,3 @@ public abstract class AbstractBoard {
         return false;
     }
 }
-
-//TODO IMPORTANT!!!!!!!!!!!!!!!
-// trzeba sie zastanwoic czy nie wywalic fabryki abstrakcyjnej na rzecz metody wytworczej dla Board,
-//         -> wtedy Abstract Rules zamienic na interfejs a obecna implementacje na defaultRules
-//         -> przypisanie defaultRules w konstruktorze konkretnej planszy
-//         -> spoko wyjscie, bo w tych co wybralismy wariantach te same zasady, a nawet jesli by nie byly mozna nadpisac
-//                  i nwm mozna dodac jakies pole static czy bicie obowiazkoawe i wtedy w board.move(..) jesli rules.getIsCapturingObligatory to sprawdzac tylko ale idk
-//            QUESTION: czy to ze w intefejsie rules sprawdza sie tylko poprawnosc ruchu i static obowiazek bicia jest ok???
-//                  imo chyba tak, bo zasady tylko sprawdzaja czy cos jest poprawne wtedy jak to zasady,
-//                  a to board mowi jakie obowiazkowe ruchy sa bo on ma wiedze jak wyglada plansza (nwm imo irl jest tak wlasnie wiec chyba moze byc)

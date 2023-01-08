@@ -13,12 +13,6 @@ public class Field {
         this.color = color;
     }
 
-    public  Field(int row, int column) {
-        this.row = row;
-        this.column = column;
-        color = Color.NONE;
-    }
-
     public Color getColor() {
         return color;
     }

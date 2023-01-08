@@ -10,7 +10,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-
 public class GameRoom implements GameRoomMediator{
     private static GameRoom gameRoom = null;
     private Game game = null;
@@ -27,7 +26,6 @@ public class GameRoom implements GameRoomMediator{
         }
         return gameRoom;
     }
-
     public GameRoom() {
         //arrange colors list
         colors = new ArrayList<>();

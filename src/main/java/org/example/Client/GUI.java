@@ -1,11 +1,8 @@
 package org.example.Client;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -24,8 +21,8 @@ public class GUI extends Application
 
             //Button btn1=new Button("Join game");
             //Button btn2=new Button("Start game");
-            System.out.println(getClass().getResource("boardGUI.fxml"));
-            BorderPane board = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("boardGUI.fxml")));
+            System.out.println(getClass().getResource("/org.example/boardGUI.fxml"));
+            BorderPane board = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/org.example/boardGUI.fxml")));
 
             root.getChildren().addAll(board);
             board.getStylesheets().add(Objects.requireNonNull(getClass().getResource("Application.css")).toExternalForm());

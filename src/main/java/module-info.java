@@ -7,4 +7,6 @@ module Checkers {
 
     opens org.example.Client to javafx.fxml;
     exports org.example.Client;
+    exports org.example.Client.Connection;
+    opens org.example.Client.Connection to javafx.fxml;
 }

@@ -1,7 +1,7 @@
-package org.example.Client;
+package org.example.Client.Connection;
 
 import javafx.application.Platform;
-import org.example.model.Color;
+import org.example.Client.Game;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,7 +13,7 @@ public class Connection {
     private BufferedReader clientInput;
     private PrintWriter clientOutput;
     private Socket clientSocket;
-    private Color color;
+    private Game game;
     public Connection() {
         try {
             clientSocket = new Socket("localhost",2137);
@@ -31,15 +31,25 @@ public class Connection {
         } catch (IOException e) {
 
         }
+        game = new Game();
+        try {
+            game.setClientColor(clientInput.readLine());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void listen() {
         new Thread(() -> {
             while(true) {
+                String command;
                 try {
-                    String command = clientInput.readLine();
+                    command = clientInput.readLine();
                 } catch (IOException e) {
                     throw new RuntimeException(e);
+                }
+                if(command.startsWith("MOVED ")) {
+                    // TODO: 08.01.2023 implementacja ruchu na planszy 
                 }
             }
         }).start();

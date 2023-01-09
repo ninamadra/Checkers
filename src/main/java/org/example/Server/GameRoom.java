@@ -39,7 +39,10 @@ public class GameRoom implements GameRoomMediator{
         return col;
     }
     //Important to execute one method at the time
-    public synchronized void createGame(String gameType) throws creationException {
+    public synchronized void createGame(String gameType) throws creationException, capacityException {
+        if(clients.size() < 2) {
+            throw new capacityException();
+        }
         if(game == null) {
             game = new Game();
             game.setVariant(gameType);
@@ -72,7 +75,7 @@ public class GameRoom implements GameRoomMediator{
 
 
     public void performAction(String command, Observer observer) {
-        List<String> items = Arrays.asList(command.split("\\s*,\\s*"));
+        List<String> items = Arrays.asList(command.split(" "));
         switch (items.get(0)) {
             case "START" -> {
                 try {
@@ -80,6 +83,9 @@ public class GameRoom implements GameRoomMediator{
                     noticeAction("STARTED");
                 } catch (creationException e) {
                     observer.updateObserver("FAIL GAME_EXISTS");
+                }
+                catch (capacityException e) {
+                    observer.updateObserver("FAIL TOO_LITTLE_PLAYERS");
                 }
             }
             case "MOVE" -> {

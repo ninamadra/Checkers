@@ -15,6 +15,7 @@ public class PolishGUIBoard extends AbstractGUIBoard {
                 rectangle.setFill(Color.WHITESMOKE);
                 if (count % 2 == 0) {
                     rectangle = new Square(i, 9-j, size);
+                    squares.add((Square)rectangle);
                 }
                 add(rectangle, i, j);
                 count++;

@@ -5,6 +5,8 @@ import javafx.scene.shape.Rectangle;
 import org.example.Client.GUIBoard.AbstractGUIBoard;
 import org.example.Client.Square;
 
+import java.util.ArrayList;
+
 public class ClassicGUIBoard extends AbstractGUIBoard {
 
     public ClassicGUIBoard() {
@@ -17,12 +19,11 @@ public class ClassicGUIBoard extends AbstractGUIBoard {
                 rectangle.setFill(Color.WHITESMOKE);
                 if (count % 2 == 0) {
                     rectangle = new Square(i, 7-j, size);
+                    squares.add((Square)rectangle);
                 }
                 add(rectangle, i, j);
                 count++;
             }
-
-
         }
     }
 }

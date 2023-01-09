@@ -1,18 +1,25 @@
 package org.example.Client;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.example.Client.GUIBoard.AbstractGUIBoard;
 import org.example.Client.GUIBoard.ClassicGUIBoard;
 import org.example.Client.GUIBoard.PolishGUIBoard;
 import org.example.Client.GUIBoard.ThaiGUIBoard;
+import org.example.model.board.AbstractBoard;
+import org.example.model.board.ClassicBoard;
+
+import java.io.IOException;
+import java.util.Objects;
 
 public class GUI extends Application
 {
-    AbstractGUIBoard board;
+    AbstractGUIBoard board = new PolishGUIBoard();
     GameController gameController;
     @Override
     public void start(final Stage primaryStage) {

@@ -4,8 +4,8 @@ import org.example.model.Color;
 
 
 public class GameController {
-    private Game game;
-    private Connection con;
+    private final Game game;
+    private final Connection con;
     
     public GameController() {
         game = new Game();

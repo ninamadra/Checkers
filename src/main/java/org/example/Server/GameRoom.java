@@ -80,7 +80,7 @@ public class GameRoom implements GameRoomMediator{
             case "START" -> {
                 try {
                     createGame(items.get(1));
-                    noticeAction("STARTED");
+                    noticeAction("STARTED " + items.get(1));
                 } catch (creationException e) {
                     observer.updateObserver("FAIL GAME_EXISTS");
                 }
@@ -107,5 +107,4 @@ public class GameRoom implements GameRoomMediator{
             }
         }
     }
-
 }

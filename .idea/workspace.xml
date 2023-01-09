@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed7992c-e56c-4ea6-be0b-4e9901cbecd9" name="Changes" comment="Rozpoczecie pracy nad klientem. Stworzenie struktury oraz podstawowa implementacja polaczenia.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/Game.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Server/capacityException.java" afterDir="false" />
+    <list default="true" id="5ed7992c-e56c-4ea6-be0b-4e9901cbecd9" name="Changes" comment="Wykonanie przykładowej szachownicy. Poprawa serwera i dodanie wyjątku za małej ilości graczy przy próbie rozpoczęcia">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/Connection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/Connection/Connection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/Connection/Connection.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/boardController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Server/GameRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Server/GameRoom.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +83,7 @@
       <module name="Checkers" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.Client.Connection.*" />
+          <option name="PATTERN" value="org.example.Client.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -105,7 +107,7 @@
       <updated>1671030496651</updated>
       <workItem from="1671030497993" duration="10156000" />
       <workItem from="1671126895137" duration="13384000" />
-      <workItem from="1673261578342" duration="5570000" />
+      <workItem from="1673261578342" duration="9541000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1671030585078</created>
@@ -149,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671135448982</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Wykonanie przykładowej szachownicy. Poprawa serwera i dodanie wyjątku za małej ilości graczy przy próbie rozpoczęcia">
+      <created>1673287157356</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1673287157356</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -185,6 +194,7 @@
     <MESSAGE value="dodano metode tworzaca odpowiedni typ gry na podstawie stringa od klienta" />
     <MESSAGE value="dodano przekazywanie stringa do clientów dotyczącego wykoanengo ruchu" />
     <MESSAGE value="uproszczono architekturę serwera. Usunieto niepotrzebny controller i wproawadzono szkielet łańcucha odpowiedzialności dla obsługi zadań przychodzących do serwera i jego odpwoiedzi zwrotnych." />
-    <option name="LAST_COMMIT_MESSAGE" value="uproszczono architekturę serwera. Usunieto niepotrzebny controller i wproawadzono szkielet łańcucha odpowiedzialności dla obsługi zadań przychodzących do serwera i jego odpwoiedzi zwrotnych." />
+    <MESSAGE value="Wykonanie przykładowej szachownicy. Poprawa serwera i dodanie wyjątku za małej ilości graczy przy próbie rozpoczęcia" />
+    <option name="LAST_COMMIT_MESSAGE" value="Wykonanie przykładowej szachownicy. Poprawa serwera i dodanie wyjątku za małej ilości graczy przy próbie rozpoczęcia" />
   </component>
 </project>

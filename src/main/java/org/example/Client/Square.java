@@ -28,6 +28,7 @@ public class Square extends Rectangle {
         });
     }
 
+
     private void setEmpty() {
         setFill(Color.BLACK);
     }

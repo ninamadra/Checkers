@@ -21,6 +21,7 @@ public class ClassicGUIBoard extends AbstractGUIBoard {
                     rectangle = new Square(i, 7-j, size);
                     squares.add((Square)rectangle);
                 }
+
                 add(rectangle, i, j);
                 count++;
             }

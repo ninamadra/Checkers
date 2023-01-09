@@ -19,6 +19,7 @@ public class ThaiGUIBoard extends AbstractGUIBoard {
                 }
                 add(rectangle, i, j);
                 count++;
+
             }
         }
     }

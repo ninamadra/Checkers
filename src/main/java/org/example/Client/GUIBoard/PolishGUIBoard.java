@@ -18,6 +18,7 @@ public class PolishGUIBoard extends AbstractGUIBoard {
                     squares.add((Square)rectangle);
                 }
                 add(rectangle, i, j);
+
                 count++;
             }
         }

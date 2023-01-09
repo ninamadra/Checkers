@@ -4,10 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed7992c-e56c-4ea6-be0b-4e9901cbecd9" name="Changes" comment="Implementacja łączności klient-serwer. Doprecyzowanie arichitektury klienta oraz początek pracy nad logiką klienta.">
+    <list default="true" id="5ed7992c-e56c-4ea6-be0b-4e9901cbecd9" name="Changes" comment="Wykonanie przykładowej szachownicy. Poprawa serwera i dodanie wyjątku za małej ilości graczy przy próbie rozpoczęcia">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org.example/RedPiece.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org.example/blackPiece.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org.example/blackQueen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org.example/redQueen.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/GUIBoard/ClassicGUIBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GUIBoard/ClassicGUIBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/Square.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org.example/Application.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org.example/boardGUI.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,25 +56,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/zuraw/java/patterns/Checkers/src/main/java/org/example/Client&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/nina/studia/designpatterns/trunk/Checkers/src/main/resources/org.example",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.example.Server" />
       <recent name="org.example.model.board" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/org.example" />
       <recent name="$PROJECT_DIR$/src/main/java/org/example/Client" />
     </key>
   </component>
@@ -190,6 +198,26 @@
                 </map>
               </option>
             </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="Server" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
       </map>

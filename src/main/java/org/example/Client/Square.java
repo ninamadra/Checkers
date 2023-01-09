@@ -1,7 +1,9 @@
 package org.example.Client;
 
 
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 
@@ -23,6 +25,14 @@ public class Square extends Rectangle {
         setOnMouseClicked(e -> {
             System.out.println(row+" "+column);
         });
+    }
+
+    private void setEmpty() {
+        setFill(Color.BLACK);
+    }
+
+    public void setWhitePawn() {
+        setFill(new ImagePattern(new Image("blackPiece.png")));
     }
 
     public int getColumn() {

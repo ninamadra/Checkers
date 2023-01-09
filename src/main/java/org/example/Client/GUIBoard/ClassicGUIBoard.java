@@ -22,7 +22,7 @@ public class ClassicGUIBoard extends AbstractGUIBoard {
                 count++;
             }
 
-            //getChildren().stream().filter(f -> f.getClass()== Square.class && ((Square) f).getRow())
+
         }
     }
 }

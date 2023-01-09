@@ -1,25 +1,18 @@
 package org.example.Client;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.example.Client.GUIBoard.AbstractGUIBoard;
 import org.example.Client.GUIBoard.ClassicGUIBoard;
 import org.example.Client.GUIBoard.PolishGUIBoard;
 import org.example.Client.GUIBoard.ThaiGUIBoard;
-import org.example.model.board.AbstractBoard;
-import org.example.model.board.ClassicBoard;
-
-import java.io.IOException;
-import java.util.Objects;
 
 public class GUI extends Application
 {
-    AbstractGUIBoard board = new PolishGUIBoard();
+    AbstractGUIBoard board;
     GameController gameController;
     @Override
     public void start(final Stage primaryStage) {
@@ -29,20 +22,22 @@ public class GUI extends Application
         MenuItem classic = new MenuItem("classic");
         classic.setOnAction(e -> {
             board = new ClassicGUIBoard();
+            root.setCenter(board);
         });
         MenuItem thai = new MenuItem("thai");
         thai.setOnAction(e -> {
             board = new ThaiGUIBoard();
+            root.setCenter(board);
         });
         MenuItem polish = new MenuItem("polish");
         polish.setOnAction(e -> {
             board = new PolishGUIBoard();
+            root.setCenter(board);
         });
         Menu type = new Menu("type");
         type.getItems().addAll(classic, thai, polish);
         MenuBar menuBar = new MenuBar(type);
         root.setTop(menuBar);
-        root.setCenter(board);
         Scene scene = new Scene(root, 800, 825);
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);

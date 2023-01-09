@@ -6,10 +6,12 @@ import org.example.Client.GUIBoard.AbstractGUIBoard;
 import org.example.Client.Square;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class ClassicGUIBoard extends AbstractGUIBoard {
 
     public ClassicGUIBoard() {
+        super();
         int count = 0;
         double size = 800 / 8;
         for (int j = 0; j < 8; j++) {
@@ -20,8 +22,13 @@ public class ClassicGUIBoard extends AbstractGUIBoard {
                 if (count % 2 == 0) {
                     rectangle = new Square(i, 7-j, size);
                     squares.add((Square)rectangle);
+                    if(j < 3) {
+                        ((Square) rectangle).setWhitePawn();
+                    }
+                    if(j > 4) {
+                        ((Square) rectangle).setBlackPawn();
+                    }
                 }
-
                 add(rectangle, i, j);
                 count++;
             }

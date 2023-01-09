@@ -21,13 +21,11 @@ public class Square extends Rectangle {
         this.column = column;
         setWidth(size);
         setHeight(size);
-        //setFill(Color.BLACK);
-        setFill(new ImagePattern(new Image("/org.example/blackPiece.png")));
+        setFill(Color.BLACK);
         setOnMouseClicked(e -> {
             System.out.println(row+" "+column);
         });
     }
-
 
     private void setEmpty() {
         setFill(Color.BLACK);
@@ -47,6 +45,7 @@ public class Square extends Rectangle {
     public void setBlackKing() {
         setFill(new ImagePattern(new Image("/org.example/blackQueen.png")));
     }
+
 
     public int getColumn() {
         return column;

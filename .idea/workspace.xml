@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed7992c-e56c-4ea6-be0b-4e9901cbecd9" name="Changes" comment="obrazki pionkow">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/Square.java" afterDir="false" />
-    </list>
+    <list default="true" id="5ed7992c-e56c-4ea6-be0b-4e9901cbecd9" name="Changes" comment="Dodanie pionów do planszy i tworzenia odpowiednich typów gier" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -173,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673299004041</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Dodanie pionów do planszy i tworzenia odpowiednich typów gier">
+      <created>1673302450681</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1673302450681</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,6 +235,7 @@
     <MESSAGE value="uproszczono architekturę serwera. Usunieto niepotrzebny controller i wproawadzono szkielet łańcucha odpowiedzialności dla obsługi zadań przychodzących do serwera i jego odpwoiedzi zwrotnych." />
     <MESSAGE value="Wykonanie przykładowej szachownicy. Poprawa serwera i dodanie wyjątku za małej ilości graczy przy próbie rozpoczęcia" />
     <MESSAGE value="wybor szachownicy, zmiany w square, obrazki" />
-    <option name="LAST_COMMIT_MESSAGE" value="wybor szachownicy, zmiany w square, obrazki" />
+    <MESSAGE value="Dodanie pionów do planszy i tworzenia odpowiednich typów gier" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dodanie pionów do planszy i tworzenia odpowiednich typów gier" />
   </component>
 </project>

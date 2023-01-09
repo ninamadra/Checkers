@@ -6,6 +6,7 @@ import org.example.Client.Square;
 
 public class PolishGUIBoard extends AbstractGUIBoard {
     public PolishGUIBoard() {
+        super();
         int count = 0;
         double size = 800 / 10;
         for (int j = 0; j < 10; j++) {
@@ -16,9 +17,14 @@ public class PolishGUIBoard extends AbstractGUIBoard {
                 if (count % 2 == 0) {
                     rectangle = new Square(i, 9-j, size);
                     squares.add((Square)rectangle);
+                    if(j < 4) {
+                        ((Square) rectangle).setWhitePawn();
+                    }
+                    if(j > 5) {
+                        ((Square) rectangle).setBlackPawn();
+                    }
                 }
                 add(rectangle, i, j);
-
                 count++;
             }
         }

@@ -5,7 +5,10 @@ import org.example.Client.Square;
 
 import java.util.ArrayList;
 
-
 public abstract class AbstractGUIBoard extends GridPane  {
     protected ArrayList<Square> squares;
+
+    public AbstractGUIBoard() {
+        squares = new ArrayList<>();
+    }
 }

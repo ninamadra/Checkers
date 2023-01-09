@@ -6,6 +6,7 @@ import org.example.Client.Square;
 
 public class ThaiGUIBoard extends AbstractGUIBoard {
     public ThaiGUIBoard() {
+        super();
         int count = 0;
         double size = 800 / 8;
         for (int j = 0; j < 8; j++) {
@@ -16,10 +17,15 @@ public class ThaiGUIBoard extends AbstractGUIBoard {
                 if (count % 2 == 0) {
                     rectangle = new Square(i, 7-j, size);
                     squares.add((Square)rectangle);
+                    if(j < 2) {
+                        ((Square) rectangle).setWhitePawn();
+                    }
+                    if(j > 5) {
+                        ((Square) rectangle).setWhitePawn();
+                    }
                 }
                 add(rectangle, i, j);
                 count++;
-
             }
         }
     }

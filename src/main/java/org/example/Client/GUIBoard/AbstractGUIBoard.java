@@ -1,4 +1,4 @@
-package org.example.Client;
+package org.example.Client.GUIBoard;
 
 import javafx.scene.layout.GridPane;
 

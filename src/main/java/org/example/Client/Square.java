@@ -13,15 +13,23 @@ public class Square extends Rectangle {
     private int column;
     
 
-    public Square(int row, int column) {
+    public Square(int row, int column, double size) {
 
         this.row = row;
         this.column = column;
-        setWidth(100);
-        setHeight(100);
+        setWidth(size);
+        setHeight(size);
         setFill(Color.BLACK);
         setOnMouseClicked(e -> {
             System.out.println(row+" "+column);
         });
+    }
+
+    public int getColumn() {
+        return column;
+    }
+
+    public int getRow() {
+        return row;
     }
 }

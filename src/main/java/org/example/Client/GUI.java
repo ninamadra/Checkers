@@ -15,8 +15,12 @@ import java.util.Objects;
 
 public class GUI extends Application
 {
+    AbstractGUIBoard board;
+    GameController gameController;
     @Override
     public void start(final Stage primaryStage) {
+        gameController = new GameController();
+        
 
         BorderPane root = new BorderPane();
         MyMenuItem classic = new MyMenuItem("classic");
@@ -25,7 +29,7 @@ public class GUI extends Application
         Menu type = new Menu("type");
         type.getItems().addAll(classic, thai, polish);
         MenuBar menuBar = new MenuBar(type);
-        AbstractGUIBoard board = new ClassicGUIBoard();
+        board = new ClassicGUIBoard();
         root.setTop(menuBar);
         root.setCenter(board);
         Scene scene = new Scene(root, 800, 825);
@@ -33,6 +37,8 @@ public class GUI extends Application
         primaryStage.setScene(scene);
         primaryStage.show();
 
+
+        System.out.println(gameController.getColor());
 
     }
 

@@ -15,18 +15,23 @@ public class ThaiGUIBoard extends AbstractGUIBoard {
                 Rectangle rectangle = new Rectangle(size, size, size, size);
                 rectangle.setFill(Color.WHITESMOKE);
                 if (count % 2 == 0) {
-                    rectangle = new Square(i, 7-j, size);
+                    rectangle = new Square(i, 7-j, size, this);
                     squares.add((Square)rectangle);
                     if(j < 2) {
                         ((Square) rectangle).setWhitePawn();
                     }
                     if(j > 5) {
-                        ((Square) rectangle).setWhitePawn();
+                        ((Square) rectangle).setBlackPawn();
                     }
                 }
                 add(rectangle, i, j);
                 count++;
             }
         }
+    }
+
+    @Override
+    protected int getNoRows() {
+        return 8;
     }
 }

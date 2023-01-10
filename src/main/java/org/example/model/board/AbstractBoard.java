@@ -26,6 +26,7 @@ public abstract class AbstractBoard {
         Field oldField = fields.stream().filter(f -> f.getColumn() == oldX && f.getRow() == oldY).findFirst().orElse(null);
         Field newField = fields.stream().filter(f -> f.getColumn() == newX && f.getRow() == newY).findFirst().orElse(null);
 
+        //TODO:  zle zrobiona array lista captured do poprawy ( mozna zerznac z gui)
         ArrayList <Field> capturedFields = new ArrayList<>();
         int i = min(oldX, newX) + 1;
         int j = min(oldY, newY) + 1;

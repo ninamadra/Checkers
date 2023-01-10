@@ -15,7 +15,7 @@ public class PolishGUIBoard extends AbstractGUIBoard {
                 Rectangle rectangle = new Rectangle(size, size, size, size);
                 rectangle.setFill(Color.WHITESMOKE);
                 if (count % 2 == 0) {
-                    rectangle = new Square(i, 9-j, size);
+                    rectangle = new Square(i, 9-j, size, this);
                     squares.add((Square)rectangle);
                     if(j < 4) {
                         ((Square) rectangle).setWhitePawn();
@@ -28,5 +28,10 @@ public class PolishGUIBoard extends AbstractGUIBoard {
                 count++;
             }
         }
+    }
+
+    @Override
+    protected int getNoRows() {
+        return 10;
     }
 }

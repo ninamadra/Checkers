@@ -2,11 +2,7 @@ package org.example.Client.GUIBoard;
 
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import org.example.Client.GUIBoard.AbstractGUIBoard;
 import org.example.Client.Square;
-
-import java.util.ArrayList;
-import java.util.stream.Collectors;
 
 public class ClassicGUIBoard extends AbstractGUIBoard {
 
@@ -20,8 +16,8 @@ public class ClassicGUIBoard extends AbstractGUIBoard {
                 Rectangle rectangle = new Rectangle(size, size, size, size);
                 rectangle.setFill(Color.WHITESMOKE);
                 if (count % 2 == 0) {
-                    rectangle = new Square(i, 7-j, size);
-                    squares.add((Square)rectangle);
+                    rectangle = new Square(i, 7-j, size, this);
+                    //squares.add((Square)rectangle);
                     if(j < 3) {
                         ((Square) rectangle).setWhitePawn();
                     }
@@ -33,5 +29,10 @@ public class ClassicGUIBoard extends AbstractGUIBoard {
                 count++;
             }
         }
+    }
+
+    @Override
+    protected int getNoRows() {
+        return 8;
     }
 }

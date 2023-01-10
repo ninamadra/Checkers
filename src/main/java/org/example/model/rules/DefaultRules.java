@@ -18,19 +18,20 @@ public class DefaultRules implements Rules {
         if (newField.getColor() != Color.NONE) {
             return false;
         }
-        if (!isInRange(oldField, newField) || !isInCaptureRange(oldField, newField) || (oldField.getIsKing() && (!isInKingRange(oldField, newField) || !isInKingCaptureRange(oldField, newField)))) {
+        if (!(isInRange(oldField, newField, playerColor) || isInCaptureRange(oldField, newField) || (oldField.getIsKing() && (isInKingRange(oldField, newField) || isInKingCaptureRange(oldField, newField))))) {
             return false;
         }
 
-        for ( Field field: capturedFields) {
-            if(field.getColor() == playerColor) {
+        if (capturedFields.size() == 1 && capturedFields.get(0).getColor() != playerColor.getOppositeColor()) {
+            return false;
+        }
+
+        for ( int i = 0; i < capturedFields.size()-1; i++) {
+            if(capturedFields.get(i).getColor() == playerColor) { return false; }
+            if (capturedFields.get(i).getColor() == playerColor.getOppositeColor() && capturedFields.get(i+1).getColor() != Color.NONE) {
                 return false;
             }
         }
-        if (capturedFields.size() == 1 && capturedFields.get(0).getColor() != playerColor.getOppositeColor()) {
-            return false; //moze da sie za jednym zamachecehm
-        }
-        //TODO sprawdzenie bicia krola (czy robi dobry skok, tj miedzy biciami jest jedno pole przerwy itd
 
         return true;
     }
@@ -40,17 +41,20 @@ public class DefaultRules implements Rules {
         return true;
     }
 
-    protected boolean isInRange(Field oldField, Field newField) {
-        return oldField.getRow() + 1 == newField.getRow() && abs(oldField.getColumn() - newField.getColumn()) == 1;
+    protected boolean isInRange(Field oldField, Field newField, Color color) {
+        if(color == Color.BLACK) {
+            return oldField.getRow() + 1 == newField.getRow() && abs(oldField.getColumn() - newField.getColumn()) == 1;
+        }
+        else return oldField.getRow() - 1 == newField.getRow() && abs(oldField.getColumn() - newField.getColumn()) == 1;
     }
     protected boolean isInCaptureRange(Field oldField, Field newField) {
         return abs(oldField.getRow() - newField.getRow()) == 2 && abs(oldField.getColumn() - newField.getColumn()) == 2;
     }
 
     protected boolean isInKingRange(Field oldField, Field newField) {
-        return abs(oldField.getRow() - newField.getRow()) == 1 && abs(oldField.getColumn() - newField.getColumn()) == 1;
+        return abs(oldField.getRow() - newField.getRow()) == abs(oldField.getColumn() - newField.getColumn());
     }
     protected boolean isInKingCaptureRange(Field oldField, Field newField) {
-        return abs(oldField.getRow() - newField.getRow()) == 2 && abs(oldField.getColumn() - newField.getColumn()) == 2;
+        return abs(oldField.getRow() - newField.getRow()) == abs(oldField.getColumn() - newField.getColumn());
     }
 }

@@ -4,30 +4,34 @@ package org.example.Client;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
-
-import static javafx.scene.paint.Color.DARKSALMON;
+import org.example.Client.GUIBoard.GUIBoard;
 
 public class Square extends Rectangle {
 
-    private int row;
-    private int column;
+    private final int row;
+    private final int column;
+    private boolean isKing = false;
+    private final GUIBoard board;
     
 
-    public Square(int row, int column, double size) {
+    public Square(int column, int row, double size, GUIBoard board) {
 
         this.row = row;
         this.column = column;
-        setWidth(size);
-        setHeight(size);
+        this.board = board;
+
+        setWidth(size-2);
+        setHeight(size-2);
+        setStrokeWidth(2);
+        setStroke(Color.BLACK);
         setFill(Color.BLACK);
         setOnMouseClicked(e -> {
-            System.out.println(row+" "+column);
+            board.respondToClick(this);
         });
     }
 
-    private void setEmpty() {
+    public void setEmpty() {
         setFill(Color.BLACK);
     }
 
@@ -46,6 +50,13 @@ public class Square extends Rectangle {
         setFill(new ImagePattern(new Image("/org.example/blackQueen.png")));
     }
 
+    public void highlight() {
+        setStroke(Color.GOLD);
+    }
+
+    public void unhighlight() {
+        setStroke(Color.BLACK);
+    }
 
     public int getColumn() {
         return column;
@@ -53,5 +64,12 @@ public class Square extends Rectangle {
 
     public int getRow() {
         return row;
+    }
+
+    public boolean isKing() {
+        return isKing;
+    }
+    public void setKing(boolean king) {
+        isKing = king;
     }
 }

@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed7992c-e56c-4ea6-be0b-4e9901cbecd9" name="Changes" comment="Dodanie pionów do planszy i tworzenia odpowiednich typów gier" />
+    <list default="true" id="5ed7992c-e56c-4ea6-be0b-4e9901cbecd9" name="Changes" comment="obrazki pionkow">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GUIBoard/GUIBoard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/model/board/AbstractBoardTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/model/rules/DefaultRulesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/GUIBoard/AbstractGUIBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GUIBoard/AbstractGUIBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/GUIBoard/ClassicGUIBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GUIBoard/ClassicGUIBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/GUIBoard/PolishGUIBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GUIBoard/PolishGUIBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/GUIBoard/ThaiGUIBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GUIBoard/ThaiGUIBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/Square.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/board/AbstractBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/AbstractBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/rules/DefaultRules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/rules/DefaultRules.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,8 +29,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -27,6 +44,25 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitToolBoxStore">
+    <option name="branchesCleanupHistory">
+      <BranchesCleanupHistory>
+        <option name="history">
+          <list>
+            <BranchCleanupEntry>
+              <option name="deletions">
+                <list>
+                  <BranchDeletion>
+                    <option name="hash" value="88a6cea3785a9fd1050542ee6ef80ef1a0dfad54" />
+                    <option name="name" value="Model" />
+                  </BranchDeletion>
+                </list>
+              </option>
+              <option name="timestamp" value="1673302606443" />
+            </BranchCleanupEntry>
+          </list>
+        </option>
+      </BranchesCleanupHistory>
+    </option>
     <option name="projectConfigVersion" value="5" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -45,19 +81,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/nina/studia/designpatterns/trunk/Checkers/src/main/resources/org.example&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_opened_file_path": "/home/nina/studia/designpatterns/trunk/Checkers/src/main/resources/org.example",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.example.Server" />
@@ -66,6 +105,14 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/org.example" />
       <recent name="$PROJECT_DIR$/src/main/java/org/example/Client" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.example.Client.GUIBoard" />
+      <recent name="org.example.model.board" />
+      <recent name="org.example.model.rules" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -95,10 +142,60 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DefaultRulesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Checkers" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.model.rules.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.model.rules" />
+      <option name="MAIN_CLASS_NAME" value="org.example.model.rules.DefaultRulesTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DefaultRulesTest.isInRange" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Checkers" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.model.rules.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.model.rules" />
+      <option name="MAIN_CLASS_NAME" value="org.example.model.rules.DefaultRulesTest" />
+      <option name="METHOD_NAME" value="isInRange" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DefaultRulesTest.isMoveValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Checkers" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.model.rules.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.model.rules" />
+      <option name="MAIN_CLASS_NAME" value="org.example.model.rules.DefaultRulesTest" />
+      <option name="METHOD_NAME" value="isMoveValid" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Server" />
+        <item itemvalue="JUnit.DefaultRulesTest.isMoveValid" />
+        <item itemvalue="JUnit.DefaultRulesTest" />
+        <item itemvalue="JUnit.DefaultRulesTest.isInRange" />
       </list>
     </recent_temporary>
   </component>
@@ -170,14 +267,7 @@
       <option name="project" value="LOCAL" />
       <updated>1673299004041</updated>
     </task>
-    <task id="LOCAL-00009" summary="Dodanie pionów do planszy i tworzenia odpowiednich typów gier">
-      <created>1673302450681</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1673302450681</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,7 +325,6 @@
     <MESSAGE value="uproszczono architekturę serwera. Usunieto niepotrzebny controller i wproawadzono szkielet łańcucha odpowiedzialności dla obsługi zadań przychodzących do serwera i jego odpwoiedzi zwrotnych." />
     <MESSAGE value="Wykonanie przykładowej szachownicy. Poprawa serwera i dodanie wyjątku za małej ilości graczy przy próbie rozpoczęcia" />
     <MESSAGE value="wybor szachownicy, zmiany w square, obrazki" />
-    <MESSAGE value="Dodanie pionów do planszy i tworzenia odpowiednich typów gier" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodanie pionów do planszy i tworzenia odpowiednich typów gier" />
+    <option name="LAST_COMMIT_MESSAGE" value="wybor szachownicy, zmiany w square, obrazki" />
   </component>
 </project>

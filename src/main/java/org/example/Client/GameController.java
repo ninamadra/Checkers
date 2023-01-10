@@ -18,4 +18,10 @@ public class GameController {
     public void setColor(String color) {
         game.setClientColor(color);
     }
+
+    public void startGame(String variant) {
+
+    }
 }
+
+// TODO: metoda do startgame: odebranie wariantu i connect do serwera

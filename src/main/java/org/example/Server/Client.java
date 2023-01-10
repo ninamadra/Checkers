@@ -44,6 +44,7 @@ public class Client implements Observer, Runnable {
 
             try {
                 String command = input.readLine();
+                System.out.println(command);
                 gameRoom.performAction(command, this);
             }
             catch (IOException e) {

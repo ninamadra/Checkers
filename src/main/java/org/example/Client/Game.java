@@ -17,4 +17,9 @@ public class Game {
     public Color getClientColor() {
         return clientColor;
     }
+
+    public Color getTurn() {
+        return turn;
+    }
+
 }

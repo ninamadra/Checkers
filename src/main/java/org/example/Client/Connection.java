@@ -42,6 +42,7 @@ public class Connection {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        listen();
     }
 
     public void listen() {
@@ -49,15 +50,17 @@ public class Connection {
             while(true) {
                 try {
                     String command = clientInput.readLine();
+                    System.out.println(command);
                     List<String> items = Arrays.asList(command.split(" "));
                     switch(items.get(0)) {
                         case "FAIL" -> {
                             switch (items.get(1)) {
                                 case "GAME_EXISTS" -> {
-                                    // TODO: 09.01.2023 zobaczymy czy potrzebne 
+                                    // TODO: 09.01.2023 zobaczymy czy potrzebne
                                 }
                                 case "TOO_LITTLE_PLAYERS" -> {
                                     // TODO: 09.01.2023 informuj GUI, wyswietlnie komunikatu
+                                    Platform.exit();
                                 }
                                 case "WRONG_MOVE" -> {
 
@@ -68,18 +71,7 @@ public class Connection {
                             }
                         }
                         case "STARTED" -> {
-                            // TODO: 09.01.2023 informuj gui o starcie konkretny typ 
-                            switch(items.get(1)) {
-                                case "THAI" -> {
-                                    // TODO: 09.01.2023 Stworzenie thai gui
-                                }
-                                case "CLASSIC" -> {
-                                    // TODO: 09.01.2023 Stworzenie classic gui
-                                }
-                                case "POLISH" -> {
-                                    // TODO: 09.01.2023 Stworzenie polish gui
-                                }
-                            }
+                            gameController.setType(items.get(1));
                         }
                         case "MOVED" -> {
                             // TODO: 08.01.2023 implementacja ruchu na planszy
@@ -99,5 +91,15 @@ public class Connection {
                 }
             }
         }).start();
+    }
+
+    public void makeMove(int row, int column, int newRow, int newColumn, Color turn) {
+        String command = "MOVE " + row + " " + column + " " + newRow + " " + newColumn + " " + turn;
+        clientOutput.println(command);
+    }
+
+    public void startGame(String variant) {
+        String command = "START " + variant;
+        clientOutput.println(command);
     }
 }

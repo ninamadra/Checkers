@@ -1,6 +1,7 @@
 package org.example.Client.GUIBoard;
 
 import javafx.scene.layout.GridPane;
+import org.example.Client.GameController;
 import org.example.Client.Square;
 import org.example.model.Color;
 
@@ -9,9 +10,11 @@ import java.util.ArrayList;
 public abstract class AbstractGUIBoard extends GridPane implements GUIBoard {
     protected ArrayList<Square> squares;
     protected Square clicked;
+    protected GameController gameController;
 
-    public AbstractGUIBoard() {
+    public AbstractGUIBoard(GameController gc) {
         squares = new ArrayList<>();
+        gameController = gc;
     }
     public void updateBoard(int oldX, int oldY, int newX, int newY, Color color) {
         Square oldSquare = squares.stream().filter(f -> f.getRow() == oldX && f.getColumn() == oldY).findFirst().orElse(null);
@@ -73,10 +76,15 @@ public abstract class AbstractGUIBoard extends GridPane implements GUIBoard {
         }
         else {
             if(this.clicked != null) {
-                // TODO: notify about move Game czy gameController
-                //game.notifyAboutMove(this.clicked.getRow(), this.clicked.getColumn(), clicked.getRow(), clicked.getColumn());
-                this.clicked.unhighlight();
-                this.clicked = null;
+                if(gameController.getColor() == gameController.getTurn()) {
+                    gameController.notifyAboutMove(this.clicked.getRow(), this.clicked.getColumn(), clicked.getRow(), clicked.getColumn());
+                    this.clicked.unhighlight();
+                    this.clicked = null;
+
+                }
+                else {
+                    // TODO: 10.01.2023 popup?
+                }
             }
             else {
                 clicked.highlight();

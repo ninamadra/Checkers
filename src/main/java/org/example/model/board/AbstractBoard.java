@@ -12,7 +12,7 @@ import static java.lang.Math.min;
 public abstract class AbstractBoard {
 
     protected Rules rules;
-    protected ArrayList<Field> fields;
+    protected ArrayList<Field> fields = new ArrayList<>();
     protected Color turn = Color.WHITE;
 
     public Color getTurn() { return turn; }

@@ -31,8 +31,10 @@ public class Server {
 
             while(true) {
                 Socket socket = serverSocket.accept();
-                Client client = new Client(socket, gameRoom);
-                client.updateObserver("COLOR " + client.getColor());
+                Runnable client = new Client(socket, gameRoom);
+                ((Client)client).updateObserver("COLOR " + ((Client)client).getColor());
+                Thread thread = new Thread(client);
+                thread.start();
             }
         }
         catch(IOException ex) {

@@ -70,6 +70,7 @@ public class GameRoom implements GameRoomMediator{
     public void noticeAction(String command) {
         for (Observer client: clients) {
             client.updateObserver(command);
+            System.out.println("send");
         }
     }
 

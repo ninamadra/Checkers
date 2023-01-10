@@ -2,12 +2,13 @@ package org.example.Client.GUIBoard;
 
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import org.example.Client.GameController;
 import org.example.Client.Square;
 
 public class ClassicGUIBoard extends AbstractGUIBoard {
 
-    public ClassicGUIBoard() {
-        super();
+    public ClassicGUIBoard(GameController gc) {
+        super(gc);
         int count = 0;
         double size = 800 / 8;
         for (int j = 0; j < 8; j++) {

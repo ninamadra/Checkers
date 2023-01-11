@@ -26,4 +26,9 @@ public class PolishBoard extends AbstractBoard {
             }
         }
     }
+
+    @Override
+    protected int getNoRows() {
+        return 10;
+    }
 }

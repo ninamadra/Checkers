@@ -19,7 +19,7 @@ public abstract class AbstractBoard {
     public Field getFieldAt(int x, int y) {
         return fields.stream().filter(f -> f.getRow() == x && f.getColumn() == y).findFirst().orElse(null);
     }
-    public void move(int oldX, int oldY, int newX, int newY, Color color) throws illegalMoveException {
+    public void move(int oldX, int oldY, int newX, int newY, Color color) throws illegalMoveException, GameOverException {
         Field oldField = getFieldAt(oldX, oldY);
         Field newField = getFieldAt(newX, newY);
 
@@ -29,15 +29,21 @@ public abstract class AbstractBoard {
         }
 
         if(rules.isCapturingObligatory()) {
-            ArrayList<Field> obligatoryNewFields = findObligatoryMoves(oldField, color);
-            if (obligatoryNewFields.size() > 0 && !obligatoryNewFields.contains(newField)) {
+          //  ArrayList<Field> obligatoryNewFields = findObligatoryMoves(oldField, color);
+           // if (obligatoryNewFields.size() > 0 && !obligatoryNewFields.contains(newField)) {
+               // throw new illegalMoveException();
+          //  }
+            if(isCapturePossible(oldField, color) && capturedFields.size() == 0) {
                 throw new illegalMoveException();
             }
         }
 
         newField.setColor(oldField.getColor());
         oldField.setColor(Color.NONE);
-        newField.setIsKing(oldField.getIsKing());
+        if( (newField.getRow() == 0 && color == Color.WHITE) ||
+                (newField.getRow() == getNoRows()-1 && color == Color.BLACK ) ||
+                (oldField.getIsKing())) {
+        newField.setIsKing(oldField.getIsKing()); }
         oldField.setIsKing(false);
 
         for ( Field field: capturedFields ) {
@@ -45,10 +51,11 @@ public abstract class AbstractBoard {
              field.setIsKing(false);
         }
 
-        if(isGameOver(color)) {
-            turn = Color.NONE;
+        if(isGameOver(color.getOppositeColor())) {
+            throw new GameOverException();
         }
-        else if( capturedFields.size() == 0 || !isCapturePossible(newField, color)) {
+
+        if(capturedFields.size() == 0 || !isCapturePossible(newField, color)) {
             turn = turn.getOppositeColor();
         }
     }
@@ -79,91 +86,26 @@ public abstract class AbstractBoard {
         }
         return capturedFields;
     }
-    protected ArrayList<Field> findObligatoryMoves(Field oldField, Color color) {
-        ArrayList<Field> possibleMoves  = new ArrayList<>();
-        //TODO wyszukanie obligatoryjnych ruchow
+   // protected ArrayList<Field> findObligatoryMoves(Field oldField, Color color) {
+     //   ArrayList<Field> possibleMoves  = new ArrayList<>();
         //wygeneruj possible moves (mozliwe) w zaleznosci od zasad i isKing
         //for each field:possibleMoves
         // if !rules.isMoveValid possibleMoves.remove(field)
                 //policz maksymalna liczbe bic i dodaj te ruchy do listy
-        ArrayList<Field> obligatoryMoves = new ArrayList<>();
-        return obligatoryMoves;
-    }
-    protected boolean isCapturePossible(Field oldField, Color color) {
-        //TODO sprawdzenie czy gracz ma kolejne bicie w swoim ruchu
-        //sprawdz bicie na lewej i prawej przekatnej czy ktores jest valid
-        //albo wszytskie inne mozliwe dla damki
-        if(!oldField.getIsKing()) {
-            Field field1 = fields.stream().filter(f -> f.getColumn() == oldField.getColumn() + 2 && f.getRow() == oldField.getRow() + 2).findFirst().orElse(null);
-            Field captured1 = fields.stream().filter(f -> f.getColumn() == oldField.getColumn() + 1 && f.getRow() == oldField.getRow() + 1).findFirst().orElse(null);
-            ArrayList<Field> capturedList = new ArrayList<>();
-            capturedList.add(captured1);
+      //  ArrayList<Field> obligatoryMoves = new ArrayList<>();
+       // return obligatoryMoves;
+    //}
+    protected boolean isCapturePossible(Field field, Color color) {
 
-            Field field2 = fields.stream().filter(f -> f.getColumn() == oldField.getColumn() - 2 && f.getRow() == oldField.getRow() + 2).findFirst().orElse(null);
-            Field captured2 = fields.stream().filter(f -> f.getColumn() == oldField.getColumn() - 1 && f.getRow() == oldField.getRow() + 1).findFirst().orElse(null);
-            ArrayList<Field> capturedList2 = new ArrayList<>();
-            capturedList2.add(captured2);
-            if (rules.isMoveValid(oldField, field1, capturedList, color) || rules.isMoveValid(oldField, field2, capturedList2, color))
-                return true;
-            return false;
-        }
-
-        return false;
-    }
-    protected boolean isGameOver(Color color) {
-        if (fields.stream().noneMatch(f -> f.getColor() == color.getOppositeColor())) {
-            return true;
-        }
-        return fields.stream().noneMatch(f -> f.getColor() == color.getOppositeColor() && isAnotherMovePossible(f, color.getOppositeColor()));
-    }
-
-    protected boolean isAnotherMovePossible(Field field, Color color) {
-
-        if(field == null) {
-            return false;
-        }
         ArrayList<Field> possibleMoves = new ArrayList<>();
-       if (!field.getIsKing()) {
-           int bias = 1;
-           if (color == Color.WHITE) {
-               bias = -1;
-           }
-           //standard moves
-           possibleMoves.add(getFieldAt(field.getRow()+bias,field.getColumn()-1));
-           possibleMoves.add(getFieldAt(field.getRow()+bias,field.getColumn()+1));
-           //capturing
-           possibleMoves.add(getFieldAt(field.getRow()+2,field.getColumn()-2));
-           possibleMoves.add(getFieldAt(field.getRow()+2,field.getColumn()+2));
-           possibleMoves.add(getFieldAt(field.getRow()-2,field.getColumn()-2));
-           possibleMoves.add(getFieldAt(field.getRow()-2,field.getColumn()+2));
-       }
-       else {
-           //top left
-           Field f = getFieldAt(field.getRow()+1, field.getColumn()-1);
-           while(f != null) {
-               possibleMoves.add(f);
-               f = getFieldAt(f.getRow()+1, f.getColumn()-1);
-           }
-           //top right
-           f = getFieldAt(field.getRow()+1, field.getColumn()+1);
-           while(f != null) {
-               possibleMoves.add(f);
-               f = getFieldAt(f.getRow()+1, f.getColumn()+1);
-           }
-           //down left
-           f = getFieldAt(field.getRow()-1, field.getColumn()-1);
-           while(f != null) {
-               possibleMoves.add(f);
-               f = getFieldAt(f.getRow()-1, f.getColumn()-1);
-           }
-           //down right
-           f = getFieldAt(field.getRow()-1, field.getColumn()+1);
-           while(f != null) {
-               possibleMoves.add(f);
-               f = getFieldAt(f.getRow()-1, f.getColumn()+1);
-           }
+        possibleMoves.add(getFieldAt(field.getRow()+2,field.getColumn()-2));
+        possibleMoves.add(getFieldAt(field.getRow()+2,field.getColumn()+2));
+        possibleMoves.add(getFieldAt(field.getRow()-2,field.getColumn()-2));
+        possibleMoves.add(getFieldAt(field.getRow()-2,field.getColumn()+2));
 
-       }
+        if (field.getIsKing()) {
+            //TODO: dodanie pol w zasiegu bicia damki
+        }
         for (Field f:possibleMoves) {
             if(f != null && rules.isMoveValid(field, f, findCapturedFields(field, f), color)) {
                 return true;
@@ -171,4 +113,42 @@ public abstract class AbstractBoard {
         }
         return false;
     }
+    protected boolean isGameOver(Color color) {
+        if (fields.stream().noneMatch(f -> f.getColor() == color)) {
+            return true;
+        }
+        return fields.stream().noneMatch(f -> f.getColor() == color && isAnotherMovePossible(f, color));
+    }
+
+    protected boolean isAnotherMovePossible(Field field, Color color) {
+
+        if(field == null) {
+            return false;
+        }
+        if (isCapturePossible(field, color)) {
+            return true;
+        }
+        ArrayList<Field> possibleMoves = new ArrayList<>();
+        int bias = 1;
+        if (color == Color.WHITE) {
+               bias = -1;
+        }
+        //standard moves
+        possibleMoves.add(getFieldAt(field.getRow()+bias,field.getColumn()-1));
+        possibleMoves.add(getFieldAt(field.getRow()+bias,field.getColumn()+1));
+
+
+        if(field.getIsKing()) {
+            possibleMoves.add(getFieldAt(field.getRow()-bias,field.getColumn()-1));
+            possibleMoves.add(getFieldAt(field.getRow()-bias,field.getColumn()+1));
+        }
+        for (Field f:possibleMoves) {
+            if(f != null && rules.isMoveValid(field, f, findCapturedFields(field, f), color)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    protected abstract int getNoRows();
 }

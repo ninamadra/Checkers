@@ -4,9 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed7992c-e56c-4ea6-be0b-4e9901cbecd9" name="Changes" comment="Zaimplementowanie komunikacji z serwerem. Rozwiazanie rozpoczynania gry na serwerze i wysylania wiadomosci do klientow. Obsluga zdarzen krancowych dla za malej ilosci graczy">
+    <list default="true" id="5ed7992c-e56c-4ea6-be0b-4e9901cbecd9" name="Changes" comment="Dodanie pionów do planszy i tworzenia odpowiednich typów gier">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/Connection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/GUIBoard/AbstractGUIBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GUIBoard/AbstractGUIBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/GUIBoard/ClassicGUIBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GUIBoard/ClassicGUIBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/GUIBoard/PolishGUIBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GUIBoard/PolishGUIBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/GUIBoard/ThaiGUIBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GUIBoard/ThaiGUIBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Server/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Server/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Server/GameRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Server/GameRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/board/AbstractBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/AbstractBoard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,19 +83,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
-    <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.Client.GUI" />
-      <module name="Checkers" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.Client.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Client.Main" />
       <module name="Checkers" />
@@ -112,7 +110,6 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.GUI" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.Server" />
     </list>
@@ -120,7 +117,6 @@
       <list>
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Server" />
-        <item itemvalue="Application.GUI" />
       </list>
     </recent_temporary>
   </component>
@@ -199,14 +195,7 @@
       <option name="project" value="LOCAL" />
       <updated>1673302450681</updated>
     </task>
-    <task id="LOCAL-00010" summary="Zaimplementowanie komunikacji z serwerem. Rozwiazanie rozpoczynania gry na serwerze i wysylania wiadomosci do klientow. Obsluga zdarzen krancowych dla za malej ilosci graczy">
-      <created>1673386449312</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1673386449312</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,7 +254,6 @@
     <MESSAGE value="Wykonanie przykładowej szachownicy. Poprawa serwera i dodanie wyjątku za małej ilości graczy przy próbie rozpoczęcia" />
     <MESSAGE value="wybor szachownicy, zmiany w square, obrazki" />
     <MESSAGE value="Dodanie pionów do planszy i tworzenia odpowiednich typów gier" />
-    <MESSAGE value="Zaimplementowanie komunikacji z serwerem. Rozwiazanie rozpoczynania gry na serwerze i wysylania wiadomosci do klientow. Obsluga zdarzen krancowych dla za malej ilosci graczy" />
-    <option name="LAST_COMMIT_MESSAGE" value="Zaimplementowanie komunikacji z serwerem. Rozwiazanie rozpoczynania gry na serwerze i wysylania wiadomosci do klientow. Obsluga zdarzen krancowych dla za malej ilosci graczy" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dodanie pionów do planszy i tworzenia odpowiednich typów gier" />
   </component>
 </project>

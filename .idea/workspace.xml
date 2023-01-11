@@ -4,22 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed7992c-e56c-4ea6-be0b-4e9901cbecd9" name="Changes" comment="Implementacja przesyłu wykoanego ruchu do serwera">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/GameOverException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/model/board/ClassicBoardTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/model/board/PolishBoardTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/model/board/ThaiBoardTest.java" afterDir="false" />
+    <list default="true" id="5ed7992c-e56c-4ea6-be0b-4e9901cbecd9" name="Changes" comment="Ogarniecie gita i zrobienie wspolnej podstawy">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/Connection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/GUIBoard/AbstractGUIBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GUIBoard/AbstractGUIBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Server/GameRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Server/GameRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/Square.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/board/AbstractBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/AbstractBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/board/ClassicBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/ClassicBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/board/PolishBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/PolishBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/board/ThaiBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/ThaiBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/model/board/AbstractBoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/model/board/AbstractBoardTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,11 +34,11 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
   }
-}]]></component>
+}</component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
   </component>
@@ -124,14 +116,34 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="board in Checkers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Checkers" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java/org/example/model/board" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="rules in Checkers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Checkers" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java/org/example/model/rules" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.Server" />
+      <item itemvalue="JUnit.board in Checkers" />
+      <item itemvalue="JUnit.rules in Checkers" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Server" />
+        <item itemvalue="JUnit.rules in Checkers" />
+        <item itemvalue="JUnit.board in Checkers" />
       </list>
     </recent_temporary>
   </component>
@@ -146,6 +158,7 @@
       <workItem from="1671030497993" duration="10156000" />
       <workItem from="1671126895137" duration="13384000" />
       <workItem from="1673261578342" duration="9541000" />
+      <workItem from="1673473160970" duration="2045000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1671030585078</created>
@@ -210,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673302450681</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Ogarniecie gita i zrobienie wspolnej podstawy">
+      <created>1673456960090</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1673456960090</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,6 +289,7 @@
     <MESSAGE value="Wykonanie przykładowej szachownicy. Poprawa serwera i dodanie wyjątku za małej ilości graczy przy próbie rozpoczęcia" />
     <MESSAGE value="wybor szachownicy, zmiany w square, obrazki" />
     <MESSAGE value="Dodanie pionów do planszy i tworzenia odpowiednich typów gier" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodanie pionów do planszy i tworzenia odpowiednich typów gier" />
+    <MESSAGE value="Ogarniecie gita i zrobienie wspolnej podstawy" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ogarniecie gita i zrobienie wspolnej podstawy" />
   </component>
 </project>

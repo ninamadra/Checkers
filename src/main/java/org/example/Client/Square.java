@@ -13,7 +13,7 @@ public class Square extends Rectangle {
     private final int column;
     private boolean isKing = false;
     private final GUIBoard board;
-    
+    private org.example.model.Color color;
 
     public Square(int column, int row, double size, GUIBoard board) {
 
@@ -33,21 +33,26 @@ public class Square extends Rectangle {
 
     public void setEmpty() {
         setFill(Color.BLACK);
+        color = org.example.model.Color.NONE;
     }
 
     public void setWhitePawn() {
         setFill(new ImagePattern(new Image("/org.example/redPiece.png")));
+        color = org.example.model.Color.WHITE;
     }
 
     public void setWhiteKing() {
         setFill(new ImagePattern(new Image("/org.example/redQueen.png")));
+        color = org.example.model.Color.WHITE;
     }
 
     public void setBlackPawn() {
         setFill(new ImagePattern(new Image("/org.example/blackPiece.png")));
+        color = org.example.model.Color.BLACK;
     }
     public void setBlackKing() {
         setFill(new ImagePattern(new Image("/org.example/blackQueen.png")));
+        color = org.example.model.Color.BLACK;
     }
 
     public void highlight() {
@@ -71,5 +76,9 @@ public class Square extends Rectangle {
     }
     public void setKing(boolean king) {
         isKing = king;
+    }
+
+    public org.example.model.Color getColor() {
+        return color;
     }
 }

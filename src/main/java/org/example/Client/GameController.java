@@ -31,6 +31,7 @@ public class GameController {
 
     public void makeMove(int oldX, int oldY, int newX, int newY, Color color) {
         gui.displayMove(oldX, oldY, newX, newY, color);
+        game.setTurn(color);
     }
 
     public Color getTurn() {

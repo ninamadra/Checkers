@@ -22,4 +22,7 @@ public class Game {
         return turn;
     }
 
+    public void setTurn(Color color) {
+        turn = color;
+    }
 }

@@ -29,10 +29,10 @@ public abstract class AbstractBoard {
         }
 
         if(rules.isCapturingObligatory()) {
-          //  ArrayList<Field> obligatoryNewFields = findObligatoryMoves(oldField, color);
-           // if (obligatoryNewFields.size() > 0 && !obligatoryNewFields.contains(newField)) {
-               // throw new illegalMoveException();
-          //  }
+            //  ArrayList<Field> obligatoryNewFields = findObligatoryMoves(oldField, color);
+            // if (obligatoryNewFields.size() > 0 && !obligatoryNewFields.contains(newField)) {
+            // throw new illegalMoveException();
+            //  }
             if(isCapturePossible(oldField, color) && capturedFields.size() == 0) {
                 throw new illegalMoveException();
             }
@@ -43,7 +43,7 @@ public abstract class AbstractBoard {
         if( (newField.getRow() == 0 && color == Color.WHITE) ||
                 (newField.getRow() == getNoRows()-1 && color == Color.BLACK ) ||
                 (oldField.getIsKing())) {
-        newField.setIsKing(oldField.getIsKing()); }
+            newField.setIsKing(oldField.getIsKing()); }
         oldField.setIsKing(false);
 
         for ( Field field: capturedFields ) {
@@ -86,14 +86,15 @@ public abstract class AbstractBoard {
         }
         return capturedFields;
     }
-   // protected ArrayList<Field> findObligatoryMoves(Field oldField, Color color) {
-     //   ArrayList<Field> possibleMoves  = new ArrayList<>();
+    //protected ArrayList<Field> findObligatoryMoves(Field oldField, Color color) {
+        //ArrayList<Field> possibleMoves  = new ArrayList<>();
+        //TODO wyszukanie obligatoryjnych ruchow
         //wygeneruj possible moves (mozliwe) w zaleznosci od zasad i isKing
         //for each field:possibleMoves
         // if !rules.isMoveValid possibleMoves.remove(field)
                 //policz maksymalna liczbe bic i dodaj te ruchy do listy
-      //  ArrayList<Field> obligatoryMoves = new ArrayList<>();
-       // return obligatoryMoves;
+        //ArrayList<Field> obligatoryMoves = new ArrayList<>();
+        //return obligatoryMoves;
     //}
     protected boolean isCapturePossible(Field field, Color color) {
 
@@ -111,6 +112,7 @@ public abstract class AbstractBoard {
                 return true;
             }
         }
+
         return false;
     }
     protected boolean isGameOver(Color color) {
@@ -142,6 +144,7 @@ public abstract class AbstractBoard {
             possibleMoves.add(getFieldAt(field.getRow()-bias,field.getColumn()-1));
             possibleMoves.add(getFieldAt(field.getRow()-bias,field.getColumn()+1));
         }
+
         for (Field f:possibleMoves) {
             if(f != null && rules.isMoveValid(field, f, findCapturedFields(field, f), color)) {
                 return true;

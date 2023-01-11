@@ -12,6 +12,7 @@ import org.example.Client.GUIBoard.AbstractGUIBoard;
 import org.example.Client.GUIBoard.ClassicGUIBoard;
 import org.example.Client.GUIBoard.PolishGUIBoard;
 import org.example.Client.GUIBoard.ThaiGUIBoard;
+import org.example.model.Color;
 
 public class GUI extends Application
 {
@@ -30,16 +31,7 @@ public class GUI extends Application
 
         classic.setOnAction(e -> gameController.startGame("CLASSIC"));
         thai.setOnAction(e -> gameController.startGame("THAI"));
-        polish.setOnAction(e -> {
-            gameController.startGame("POLISH");
-
-//            board.updateBoard(6,2,5,3,Color.WHITE);
-//            board.updateBoard(6,6,4,4,Color.WHITE);
-//            board.updateBoard(3,5,6,2,Color.BLACK);
-//            board.updateBoard(6,2,9,5,Color.BLACK);
-//            board.updateBoard(9,5,8,4,Color.BLACK);
-//            board.updateBoard(8,4,5,7,Color.BLACK);
-        });
+        polish.setOnAction(e -> { gameController.startGame("POLISH"); });
         HBox top = new HBox();
         Menu type = new Menu("type");
         type.getItems().addAll(classic, thai, polish);
@@ -61,13 +53,24 @@ public class GUI extends Application
         switch(var) {
             case "THAI" -> board = new ThaiGUIBoard(gameController);
             case "CLASSIC" -> board = new ClassicGUIBoard(gameController);
-            case "POLISH" -> board = new PolishGUIBoard(gameController);
+            case "POLISH" -> {board = new PolishGUIBoard(gameController);
+//            board.updateBoard(6,2,5,3,Color.WHITE);
+//            board.updateBoard(6,6,4,4,Color.WHITE);
+//            board.updateBoard(3,5,6,2,Color.BLACK);
+//            board.updateBoard(6,2,9,5,Color.BLACK);
+//            board.updateBoard(9,5,8,4,Color.BLACK);
+//            board.updateBoard(8,4,5,7,Color.BLACK);
+            }
         }
         Platform.runLater(() -> root.setCenter(board));
     }
 
     public void displayAnnouncement(String msg) {
         Platform.runLater(() -> label.setText(msg));
+    }
+
+    public void displayMove(int oldX, int oldY, int newX, int newY, Color color) {
+        Platform.runLater(() -> board.updateBoard(oldX, oldY, newX, newY, color));
     }
 
     public static void main(String[] args) {

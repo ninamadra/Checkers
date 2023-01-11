@@ -52,14 +52,14 @@ public abstract class AbstractGUIBoard extends GridPane implements GUIBoard {
         oldSquare.setEmpty();
         oldSquare.setKing(false);
 
-        if(color == Color.WHITE) {
+        if(oldSquare.getColor() == Color.WHITE) {
             if (newSquare.isKing() || newSquare.getRow() == 0) {
                 newSquare.setWhiteKing();
                 newSquare.setKing(true);
             }
             else { newSquare.setWhitePawn(); }
         }
-        else if (color == Color.BLACK) {
+        else if (oldSquare.getColor() == Color.BLACK) {
             if (newSquare.isKing() || newSquare.getRow() == getNoRows()-1 ) {
                 newSquare.setBlackKing();
                 newSquare.setKing(true);

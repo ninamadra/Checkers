@@ -112,7 +112,6 @@ class AbstractBoardTest {
 
     @Test
     void isAnotherMovePossible() {
-
         ClassicBoard board = new ClassicBoard();
         //forward moves only
         assertFalse(board.isAnotherMovePossible(board.getFieldAt(0,0), Color.BLACK));
@@ -162,5 +161,4 @@ class AbstractBoardTest {
         assertTrue(board.isAnotherMovePossible(board.getFieldAt(4,4), Color.WHITE));
 
     }
-
 }

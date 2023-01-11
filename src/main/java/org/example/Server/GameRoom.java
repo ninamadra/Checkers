@@ -2,6 +2,7 @@ package org.example.Server;
 
 import org.example.model.Color;
 import org.example.model.Game;
+import org.example.model.board.GameOverException;
 import org.example.model.board.illegalMoveException;
 
 import java.io.IOException;
@@ -95,6 +96,8 @@ public class GameRoom implements GameRoomMediator{
                         noticeAction(game.makeMove(Integer.parseInt(items.get(1)), Integer.parseInt(items.get(2)), Integer.parseInt(items.get(3)), Integer.parseInt(items.get(4)), observer.getColor()));
                     } catch (illegalMoveException e) {
                         observer.updateObserver("FAIL WRONG_MOVE");
+                    } catch (GameOverException e) {
+                        //TODO ZLAPANIE KONCA GRY
                     }
                 }
                 else {

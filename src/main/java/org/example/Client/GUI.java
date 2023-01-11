@@ -12,6 +12,7 @@ import org.example.Client.GUIBoard.AbstractGUIBoard;
 import org.example.Client.GUIBoard.ClassicGUIBoard;
 import org.example.Client.GUIBoard.PolishGUIBoard;
 import org.example.Client.GUIBoard.ThaiGUIBoard;
+import org.example.model.Color;
 
 public class GUI extends Application
 {
@@ -68,6 +69,10 @@ public class GUI extends Application
 
     public void displayAnnouncement(String msg) {
         Platform.runLater(() -> label.setText(msg));
+    }
+
+    public void displayMove(int oldX, int oldY, int newX, int newY, Color color) {
+        Platform.runLater(() -> board.updateBoard(oldX, oldY, newX, newY, color));
     }
 
     public static void main(String[] args) {

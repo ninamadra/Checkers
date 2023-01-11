@@ -26,5 +26,8 @@ public class ClassicBoard extends AbstractBoard {
             }
         }
     }
-
+    @Override
+    protected int getNoRows() {
+        return 8;
+    }
 }

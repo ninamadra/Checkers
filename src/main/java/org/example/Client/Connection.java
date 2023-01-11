@@ -73,7 +73,7 @@ public class Connection {
                             gameController.setType(items.get(1));
                         }
                         case "MOVED" -> {
-                            // TODO: 08.01.2023 implementacja ruchu na planszy
+                            gameController.makeMove(Integer.parseInt(items.get(1)), Integer.parseInt(items.get(2)), Integer.parseInt(items.get(3)), Integer.parseInt(items.get(4)), Color.valueOf(items.get(5)));
                         }
                         case "END" -> {
                             if(Color.valueOf(items.get(1)) == gameController.getColor()) {

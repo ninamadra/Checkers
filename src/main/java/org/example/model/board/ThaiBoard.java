@@ -26,4 +26,8 @@ public class ThaiBoard extends AbstractBoard {
             }
         }
     }
+    @Override
+    protected int getNoRows() {
+        return 8;
+    }
 }

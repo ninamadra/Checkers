@@ -29,6 +29,10 @@ public class GameController {
         con.makeMove(row, column, newRow, newColumn, game.getTurn());
     }
 
+    public void makeMove(int oldX, int oldY, int newX, int newY, Color color) {
+        gui.displayMove(oldX, oldY, newX, newY, color);
+    }
+
     public Color getTurn() {
         return game.getTurn();
     }

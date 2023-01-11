@@ -4,19 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed7992c-e56c-4ea6-be0b-4e9901cbecd9" name="Changes" comment="Dodanie pionów do planszy i tworzenia odpowiednich typów gier">
+    <list default="true" id="5ed7992c-e56c-4ea6-be0b-4e9901cbecd9" name="Changes" comment="Implementacja przesyłu wykoanego ruchu do serwera">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/GameOverException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/model/board/ClassicBoardTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/model/board/PolishBoardTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/model/board/ThaiBoardTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/Connection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/GUIBoard/AbstractGUIBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GUIBoard/AbstractGUIBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/GUIBoard/PolishGUIBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GUIBoard/PolishGUIBoard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Server/GameRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Server/GameRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/board/AbstractBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/AbstractBoard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/board/ClassicBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/ClassicBoard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/board/PolishBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/PolishBoard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/board/ThaiBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/ThaiBoard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/model/board/AbstractBoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/model/board/AbstractBoardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/model/rules/DefaultRulesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/model/rules/DefaultRulesTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,17 +42,30 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="bbb88e7a-e2e1-449c-9316-79a4768d0898" />
+        <option name="url" value="https://github.com/MichalZurawski02/Checkers.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="workspaceImportEnabled" value="true" />
-      </MavenImportingSettings>
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
     </option>
   </component>
   <component name="ProjectId" id="2IuTVdLP0Uuj9zE3wupTj2HiEhd" />

@@ -1,6 +1,7 @@
 package org.example.Client;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
@@ -9,21 +10,21 @@ import org.example.Client.GUIBoard.AbstractGUIBoard;
 import org.example.Client.GUIBoard.ClassicGUIBoard;
 import org.example.Client.GUIBoard.PolishGUIBoard;
 import org.example.Client.GUIBoard.ThaiGUIBoard;
-import org.example.model.Color;
 
 public class GUI extends Application
 {
     AbstractGUIBoard board;
     GameController gameController;
-    BorderPane root = new BorderPane();
+    BorderPane root;
     MenuItem classic = new MenuItem("classic");
     MenuItem thai = new MenuItem("thai");
     MenuItem polish = new MenuItem("polish");
     @Override
     public void start(final Stage primaryStage) {
         gameController = new GameController(this);
+        root = new BorderPane();
+        board = null;
 
-        BorderPane root = new BorderPane();
         classic.setOnAction(e -> {
             gameController.startGame("CLASSIC");
         });
@@ -44,27 +45,26 @@ public class GUI extends Application
         type.getItems().addAll(classic, thai, polish);
         MenuBar menuBar = new MenuBar(type);
         root.setTop(menuBar);
+        root.setCenter(board);
         Scene scene = new Scene(root, 800, 825);
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
         primaryStage.show();
-
         System.out.println(gameController.getColor());
-
     }
-    public void setType(String var) {
-        System.out.println(var);
 
+    public void setType(String var) {
         switch(var) {
             case "THAI" -> board = new ThaiGUIBoard(gameController);
             case "CLASSIC" -> board = new ClassicGUIBoard(gameController);
-            case "POLISH" -> {board = new PolishGUIBoard(gameController);
-            System.out.println(" fx");}
+            case "POLISH" -> board = new PolishGUIBoard(gameController);
         }
-        classic.setOnAction(null);
-        thai.setOnAction(null);
-        polish.setOnAction(null);
-        root.setCenter(board);
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                root.setCenter(board);
+            }
+        });
     }
 
     public static void main(String[] args) {

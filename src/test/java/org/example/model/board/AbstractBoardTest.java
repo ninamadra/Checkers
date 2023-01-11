@@ -2,6 +2,7 @@ package org.example.model.board;
 
 import org.example.model.Color;
 import org.example.model.Field;
+import org.example.model.rules.DefaultRules;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -63,7 +64,7 @@ class AbstractBoardTest {
         assertTrue(board.isGameOver(Color.BLACK));
 
         //pieces with possible moves
-        board.getFieldAt(7,1).setColor(Color.WHITE);
+        board.getFieldAt(7,3).setColor(Color.WHITE);
         assertFalse(board.isGameOver(Color.BLACK));
 
         //pieces without possible moves
@@ -76,6 +77,17 @@ class AbstractBoardTest {
 
     @Test
     void isAnotherMovePossible() {
-        
+        //TODO assert na bicia i damki i poprawienie idk???
+        ClassicBoard board = new ClassicBoard();
+        //forward moves only
+        assertFalse(board.isAnotherMovePossible(board.getFieldAt(0,0), Color.BLACK));
+        assertFalse(board.isAnotherMovePossible(board.getFieldAt(7,3), Color.WHITE));
+        assertTrue(board.isAnotherMovePossible(board.getFieldAt(2,0), Color.BLACK));
+        assertTrue(board.isAnotherMovePossible(board.getFieldAt(2,4), Color.BLACK));
+        assertTrue(board.isAnotherMovePossible(board.getFieldAt(2,2), Color.BLACK));
+
+        board.getFieldAt(4,4).setColor(Color.WHITE);
+        board.getFieldAt(4,6).setColor(Color.BLACK);
+        assertTrue(board.isAnotherMovePossible(board.getFieldAt(3,5), Color.BLACK));
     }
 }

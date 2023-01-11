@@ -17,7 +17,7 @@ public abstract class AbstractBoard {
         return fields;
     }
     public Field getFieldAt(int x, int y) {
-        return fields.stream().filter(f -> f.getColumn() == x && f.getRow() == y).findFirst().orElse(null);
+        return fields.stream().filter(f -> f.getRow() == x && f.getColumn() == y).findFirst().orElse(null);
     }
     public void move(int oldX, int oldY, int newX, int newY, Color color) throws illegalMoveException {
         Field oldField = getFieldAt(oldX, oldY);
@@ -55,6 +55,7 @@ public abstract class AbstractBoard {
 
     protected ArrayList<Field> findCapturedFields (Field oldField, Field newField) {
         ArrayList <Field> capturedFields = new ArrayList<>();
+        if(oldField == null || newField == null) { return capturedFields; }
         int i, j, maxRow, bias = 1;
         if (oldField.getRow() < newField.getRow()) {
             i = oldField.getRow()+1;
@@ -71,7 +72,8 @@ public abstract class AbstractBoard {
         j += bias;
 
         while ( i < maxRow) {
-            capturedFields.add(getFieldAt(i,j));
+            Field temp = getFieldAt(i,j);
+            if (temp != null) { capturedFields.add(temp); }
             i++;
             j+=bias;
         }
@@ -112,26 +114,58 @@ public abstract class AbstractBoard {
         if (fields.stream().noneMatch(f -> f.getColor() == color.getOppositeColor())) {
             return true;
         }
-        return fields.stream().noneMatch(f -> f.getColor() == color && isAnotherMovePossible(f, color));
+        return fields.stream().noneMatch(f -> f.getColor() == color.getOppositeColor() && isAnotherMovePossible(f, color.getOppositeColor()));
     }
 
     protected boolean isAnotherMovePossible(Field field, Color color) {
 
+        if(field == null) {
+            return false;
+        }
         ArrayList<Field> possibleMoves = new ArrayList<>();
        if (!field.getIsKing()) {
+           int bias = 1;
+           if (color == Color.WHITE) {
+               bias = -1;
+           }
            //standard moves
-           possibleMoves.add(getFieldAt(field.getRow()+1,field.getColumn()-1));
-           possibleMoves.add(getFieldAt(field.getRow()+1,field.getColumn()+1));
+           possibleMoves.add(getFieldAt(field.getRow()+bias,field.getColumn()-1));
+           possibleMoves.add(getFieldAt(field.getRow()+bias,field.getColumn()+1));
+           //capturing
            possibleMoves.add(getFieldAt(field.getRow()+2,field.getColumn()-2));
            possibleMoves.add(getFieldAt(field.getRow()+2,field.getColumn()+2));
            possibleMoves.add(getFieldAt(field.getRow()-2,field.getColumn()-2));
            possibleMoves.add(getFieldAt(field.getRow()-2,field.getColumn()+2));
        }
        else {
-           //TODO: dodanie wszytskich mozliwych ruchow dla damki;
+           //top left
+           Field f = getFieldAt(field.getRow()+1, field.getColumn()-1);
+           while(f != null) {
+               possibleMoves.add(f);
+               f = getFieldAt(f.getRow()+1, f.getColumn()-1);
+           }
+           //top right
+           f = getFieldAt(field.getRow()+1, field.getColumn()+1);
+           while(f != null) {
+               possibleMoves.add(f);
+               f = getFieldAt(f.getRow()+1, f.getColumn()+1);
+           }
+           //down left
+           f = getFieldAt(field.getRow()-1, field.getColumn()-1);
+           while(f != null) {
+               possibleMoves.add(f);
+               f = getFieldAt(f.getRow()-1, f.getColumn()-1);
+           }
+           //down right
+           f = getFieldAt(field.getRow()-1, field.getColumn()+1);
+           while(f != null) {
+               possibleMoves.add(f);
+               f = getFieldAt(f.getRow()-1, f.getColumn()+1);
+           }
+
        }
         for (Field f:possibleMoves) {
-            if(rules.isMoveValid(field, f, findCapturedFields(field, f), color)) {
+            if(f != null && rules.isMoveValid(field, f, findCapturedFields(field, f), color)) {
                 return true;
             }
         }

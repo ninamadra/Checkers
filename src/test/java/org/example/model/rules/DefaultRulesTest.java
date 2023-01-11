@@ -61,6 +61,11 @@ class DefaultRulesTest {
         //attempt to multi-capture without space between
         assertFalse(rules.isMoveValid(oldField, newField3, capturedFields, Color.BLACK));
 
+        ArrayList<Field> arr = new ArrayList<>();
+        Field oldField1 = new Field(2,0, Color.BLACK);
+        Field newField1 = new Field(3,1, Color.NONE);
+        assertTrue(rules.isMoveValid(oldField1, newField1, arr, Color.BLACK));
+
     }
 
     @Test

@@ -10,7 +10,7 @@ public class PolishBoard extends AbstractBoard {
         for (int i = 0; i < 4; i++) {
             int k = i%2;
             for ( int j = k; j < 10; j+=2) {
-                fields.add(new Field(i, j, Color.WHITE));
+                fields.add(new Field(i, j, Color.BLACK));
             }
         }
         for (int i = 4; i < 6; i++) {
@@ -22,7 +22,7 @@ public class PolishBoard extends AbstractBoard {
         for (int i = 6; i < 10; i++) {
             int k = i%2;
             for ( int j = k; j < 10; j+=2) {
-                fields.add(new Field(i, j, Color.BLACK));
+                fields.add(new Field(i, j, Color.WHITE));
             }
         }
     }

@@ -11,6 +11,12 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/GUIBoard/AbstractGUIBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GUIBoard/AbstractGUIBoard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/GUIBoard/PolishGUIBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GUIBoard/PolishGUIBoard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/board/AbstractBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/AbstractBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/board/ClassicBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/ClassicBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/board/PolishBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/PolishBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/board/ThaiBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/ThaiBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/model/board/AbstractBoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/model/board/AbstractBoardTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/model/rules/DefaultRulesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/model/rules/DefaultRulesTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +130,6 @@
       <workItem from="1671030497993" duration="10156000" />
       <workItem from="1671126895137" duration="13384000" />
       <workItem from="1673261578342" duration="9541000" />
-      <workItem from="1673426271065" duration="4624000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1671030585078</created>
@@ -206,7 +211,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="Server" />
+                        <option value="origin/Server" />
                       </list>
                     </value>
                   </entry>

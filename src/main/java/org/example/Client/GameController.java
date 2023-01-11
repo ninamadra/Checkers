@@ -25,7 +25,7 @@ public class GameController {
         con.startGame(variant);
     }
 
-    public void notifyAboutMove(int row, int column, int newRow, int newColumn) {
+    public void tryMove(int row, int column, int newRow, int newColumn) {
         con.makeMove(row, column, newRow, newColumn, game.getTurn());
     }
 
@@ -36,6 +36,7 @@ public class GameController {
     public void setType(String var) {
         gui.setType(var);
     }
+    public void displayMsg(String msg) {
+        gui.displayAnnouncement(msg);
+    }
 }
-
-// TODO: metoda do startgame: odebranie wariantu i connect do serwera

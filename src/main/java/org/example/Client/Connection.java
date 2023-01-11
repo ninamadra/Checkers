@@ -56,17 +56,16 @@ public class Connection {
                         case "FAIL" -> {
                             switch (items.get(1)) {
                                 case "GAME_EXISTS" -> {
-                                    // TODO: 09.01.2023 zobaczymy czy potrzebne
+                                    gameController.displayMsg("Gra jest już rozpoczęta");
                                 }
                                 case "TOO_LITTLE_PLAYERS" -> {
-                                    // TODO: 09.01.2023 informuj GUI, wyswietlnie komunikatu
-                                    Platform.exit();
+                                    gameController.displayMsg("Poczekaj na drugiego gracza");
                                 }
                                 case "WRONG_MOVE" -> {
-
+                                    gameController.displayMsg("Ruch niepoprawny. Wykonaj go raz jeszcze.");
                                 }
                                 case "NOT_YOUR_TURN" -> {
-
+                                    gameController.displayMsg("Poczekaj na swoją kolej");
                                 }
                             }
                         }

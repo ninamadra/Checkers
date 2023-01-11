@@ -77,7 +77,7 @@ public abstract class AbstractGUIBoard extends GridPane implements GUIBoard {
         else {
             if(this.clicked != null) {
                 if(gameController.getColor() == gameController.getTurn()) {
-                    gameController.notifyAboutMove(this.clicked.getRow(), this.clicked.getColumn(), clicked.getRow(), clicked.getColumn());
+                    gameController.tryMove(this.clicked.getRow(), this.clicked.getColumn(), clicked.getRow(), clicked.getColumn());
                     this.clicked.unhighlight();
                     this.clicked = null;
 

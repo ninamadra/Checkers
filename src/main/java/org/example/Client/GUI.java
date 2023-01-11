@@ -2,9 +2,11 @@ package org.example.Client;
 
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import org.example.Client.GUIBoard.AbstractGUIBoard;
 import org.example.Client.GUIBoard.ClassicGUIBoard;
@@ -19,18 +21,15 @@ public class GUI extends Application
     MenuItem classic = new MenuItem("classic");
     MenuItem thai = new MenuItem("thai");
     MenuItem polish = new MenuItem("polish");
+    Label label;
     @Override
     public void start(final Stage primaryStage) {
         gameController = new GameController(this);
         root = new BorderPane();
-        board = null;
+        label = new Label("" + gameController.getColor());
 
-        classic.setOnAction(e -> {
-            gameController.startGame("CLASSIC");
-        });
-        thai.setOnAction(e -> {
-            gameController.startGame("THAI");
-        });
+        classic.setOnAction(e -> gameController.startGame("CLASSIC"));
+        thai.setOnAction(e -> gameController.startGame("THAI"));
         polish.setOnAction(e -> {
             gameController.startGame("POLISH");
 
@@ -41,10 +40,15 @@ public class GUI extends Application
 //            board.updateBoard(9,5,8,4,Color.BLACK);
 //            board.updateBoard(8,4,5,7,Color.BLACK);
         });
+        HBox top = new HBox();
         Menu type = new Menu("type");
         type.getItems().addAll(classic, thai, polish);
         MenuBar menuBar = new MenuBar(type);
-        root.setTop(menuBar);
+        top.getChildren().add(0, menuBar);
+        top.getChildren().add(1, label);
+        top.setSpacing(10);
+        top.setAlignment(Pos.CENTER_LEFT);
+        root.setTop(top);
         root.setCenter(board);
         Scene scene = new Scene(root, 800, 825);
         primaryStage.setResizable(false);
@@ -59,12 +63,11 @@ public class GUI extends Application
             case "CLASSIC" -> board = new ClassicGUIBoard(gameController);
             case "POLISH" -> board = new PolishGUIBoard(gameController);
         }
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                root.setCenter(board);
-            }
-        });
+        Platform.runLater(() -> root.setCenter(board));
+    }
+
+    public void displayAnnouncement(String msg) {
+        Platform.runLater(() -> label.setText(msg));
     }
 
     public static void main(String[] args) {

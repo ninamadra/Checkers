@@ -49,8 +49,13 @@ public abstract class AbstractBoard {
         }
 
         if(rules.isCapturingObligatory()) {
-            if(isAnyCapture(color) && capturedFields.size() == 0) {
-                throw new illegalMoveException();
+            if(isAnyCapture(color)) {
+                if(capturedFields.size() == 0) {
+                    throw new illegalMoveException();
+                }
+                if(capturedFields.stream().noneMatch(f -> f.getColor() == color.getOppositeColor())) {
+                    throw new illegalMoveException();
+                }
             }
         }
 
@@ -60,7 +65,7 @@ public abstract class AbstractBoard {
                 (newField.getRow() == getNoRows()-1 && color == Color.BLACK ) ||
                 (oldField.getIsKing())) {
             newField.setIsKing(true); }
-        oldField.setIsKing(false);
+
 
         for ( Field field: capturedFields ) {
              field.setColor(Color.NONE);
@@ -75,9 +80,10 @@ public abstract class AbstractBoard {
             turn = turn.getOppositeColor();
         }
 
-        if(capturedFields.size() == 0 || !isCapturePossible(newField, color)) {
+        else if(capturedFields.size() == 0 || !isCapturePossible(newField, color)) {
             turn = turn.getOppositeColor();
         }
+        oldField.setIsKing(false);
     }
 
     /**
@@ -178,7 +184,9 @@ public abstract class AbstractBoard {
         }
         for (Field f:possibleMoves) {
             if(f != null && rules.isMoveValid(field, f, findCapturedFields(field, f), color)) {
-                return true;
+                if(!findCapturedFields(field,f).stream().allMatch(fi -> fi.getColor() == Color.NONE)) {
+                    return true;
+                }
             }
         }
 

@@ -102,6 +102,8 @@ class AbstractBoardTest {
         field.setIsKing(true);
         assertTrue(board.isCapturePossible(board.getFieldAt(6,0), Color.WHITE));
 
+
+
     }
 
     @Test

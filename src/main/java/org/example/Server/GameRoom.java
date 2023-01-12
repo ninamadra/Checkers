@@ -141,11 +141,10 @@ public class GameRoom implements GameRoomMediator{
                     observer.updateObserver("FAIL NOT_YOUR_TURN");
                 }
             }
-            //TODO ending the game
-            case "LEAVE" -> {
-                detachObserver(observer);
-                noticeAction("END");
-            }
+//            case "LEAVE" -> {
+//                detachObserver(observer);
+//                noticeAction("END");
+//            }
         }
     }
 }

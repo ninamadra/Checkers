@@ -85,13 +85,16 @@ public class Connection {
                         }
                         case "MOVED" -> {
                             gameController.makeMove(Integer.parseInt(items.get(1)), Integer.parseInt(items.get(2)), Integer.parseInt(items.get(3)), Integer.parseInt(items.get(4)), Color.valueOf(items.get(5)));
+                            gameController.displayMsg("Ruch: " + items.get(5));
                         }
                         case "END" -> {
                             if(Color.valueOf(items.get(1)) == gameController.getColor()) {
-                                // TODO: 09.01.2023 win
+                                gameController.displayMsg("YOU WIN");
+                                gameController.stop();
                             }
                             else{
-                                // TODO: 09.01.2023 lose
+                                gameController.displayMsg("YOU LOSE");
+                                gameController.stop();
                             }
 
                         }

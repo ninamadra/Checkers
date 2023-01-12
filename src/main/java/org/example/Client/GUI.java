@@ -89,6 +89,10 @@ public class GUI extends Application
         Platform.runLater(() -> board.updateBoard(oldX, oldY, newX, newY, color));
     }
 
+    public void disable() {
+        Platform.runLater(() -> root.setCenter(null));
+    }
+
     public static void main(String[] args) {
         launch(args);
     }

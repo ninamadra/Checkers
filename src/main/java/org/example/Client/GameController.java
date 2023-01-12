@@ -80,4 +80,7 @@ public class GameController {
     public void displayMsg(String msg) {
         gui.displayAnnouncement(msg);
     }
+    public void stop() {
+        gui.disable();
+    }
 }

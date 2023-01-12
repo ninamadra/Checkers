@@ -97,7 +97,7 @@ public class GameRoom implements GameRoomMediator{
                     } catch (illegalMoveException e) {
                         observer.updateObserver("FAIL WRONG_MOVE");
                     } catch (GameOverException e) {
-                        //TODO ZLAPANIE KONCA GRY
+                        noticeAction("END " + game.getTurn());
                     }
                 }
                 else {

@@ -35,14 +35,20 @@ public class DefaultRules implements Rules {
         if (capturedFields.size() == 1 && capturedFields.get(0).getColor() != playerColor.getOppositeColor()) {
             return false;
         }
-
+        int counter = 0;
         if (oldField.getRow() < newField.getRow()) {
             for (int i = 0; i < capturedFields.size() - 1; i++) {
                 if (capturedFields.get(i).getColor() == playerColor) {
                     return false;
                 }
-                if (capturedFields.get(i).getColor() == playerColor.getOppositeColor() && capturedFields.get(i + 1).getColor() != Color.NONE) {
-                    return false;
+               // if (capturedFields.get(i).getColor() == playerColor.getOppositeColor() && capturedFields.get(i + 1).getColor() != Color.NONE) {
+                //    return false;
+               // }
+                if(capturedFields.get(i).getColor() == playerColor.getOppositeColor()) {
+                    counter++;
+                    if(counter > 1) {
+                        return false;
+                    }
                 }
             }
         }
@@ -51,8 +57,14 @@ public class DefaultRules implements Rules {
                 if (capturedFields.get(i).getColor() == playerColor) {
                     return false;
                 }
-                if (capturedFields.get(i).getColor() == playerColor.getOppositeColor() && capturedFields.get(i - 1).getColor() != Color.NONE) {
-                    return false;
+                //if (capturedFields.get(i).getColor() == playerColor.getOppositeColor() && capturedFields.get(i - 1).getColor() != Color.NONE) {
+                 //   return false;
+               // }
+                if(capturedFields.get(i).getColor() == playerColor.getOppositeColor()) {
+                    counter++;
+                    if(counter > 1) {
+                        return false;
+                    }
                 }
             }
         }

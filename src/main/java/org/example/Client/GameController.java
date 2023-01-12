@@ -17,6 +17,7 @@ public class GameController {
     public Color getColor() {
         return game.getClientColor();
     }
+
     public void setColor(String color) {
         game.setClientColor(color);
     }
@@ -41,6 +42,7 @@ public class GameController {
     public void setType(String var) {
         gui.setType(var);
     }
+
     public void displayMsg(String msg) {
         gui.displayAnnouncement(msg);
     }

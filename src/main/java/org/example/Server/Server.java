@@ -42,6 +42,9 @@ public class Server {
         }
     }
 
+    public GameRoom getGameRoom() {
+        return gameRoom;
+    }
     public static void main(String[] args) {
         getInstance().run();
     }

@@ -16,6 +16,7 @@ public class Game {
     }
     //TODO implement makeMove via part of chain of responsibility
     public String makeMove(int oldX, int oldY, int newX, int newY, Color color) throws illegalMoveException, GameOverException {
+        System.out.println(oldX + " " + oldY + " " + newX + " " + newY + " " + color);
             try {
                 board.move(oldX, oldY, newX, newY, getTurn());
             }

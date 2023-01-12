@@ -17,6 +17,7 @@ public abstract class AbstractGUIBoard extends GridPane implements GUIBoard {
         gameController = gc;
     }
     public void updateBoard(int oldX, int oldY, int newX, int newY, Color color) {
+
         Square oldSquare = squares.stream().filter(f -> f.getRow() == oldX && f.getColumn() == oldY).findFirst().orElse(null);
         Square newSquare = squares.stream().filter(f -> f.getRow() == newX && f.getColumn() == newY).findFirst().orElse(null);
 
@@ -49,23 +50,23 @@ public abstract class AbstractGUIBoard extends GridPane implements GUIBoard {
 
         newSquare.setKing(oldSquare.isKing());
 
-        oldSquare.setEmpty();
-        oldSquare.setKing(false);
-
         if(oldSquare.getColor() == Color.WHITE) {
-            if (newSquare.isKing() || newSquare.getRow() == 0) {
+            if (oldSquare.isKing() || newSquare.getRow() == 0) {
                 newSquare.setWhiteKing();
                 newSquare.setKing(true);
             }
             else { newSquare.setWhitePawn(); }
         }
         else if (oldSquare.getColor() == Color.BLACK) {
-            if (newSquare.isKing() || newSquare.getRow() == getNoRows()-1 ) {
+            if (oldSquare.isKing() || newSquare.getRow() == getNoRows()-1 ) {
                 newSquare.setBlackKing();
                 newSquare.setKing(true);
             }
             else { newSquare.setBlackPawn(); }
         }
+
+        oldSquare.setEmpty();
+        oldSquare.setKing(false);
 
     }
 

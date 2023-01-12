@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import org.example.Client.GUIBoard.AbstractGUIBoard;
 import org.example.Client.GUIBoard.ClassicGUIBoard;
@@ -53,14 +54,7 @@ public class GUI extends Application
         switch(var) {
             case "THAI" -> board = new ThaiGUIBoard(gameController);
             case "CLASSIC" -> board = new ClassicGUIBoard(gameController);
-            case "POLISH" -> {board = new PolishGUIBoard(gameController);
-//            board.updateBoard(6,2,5,3,Color.WHITE);
-//            board.updateBoard(6,6,4,4,Color.WHITE);
-//            board.updateBoard(3,5,6,2,Color.BLACK);
-//            board.updateBoard(6,2,9,5,Color.BLACK);
-//            board.updateBoard(9,5,8,4,Color.BLACK);
-//            board.updateBoard(8,4,5,7,Color.BLACK);
-            }
+            case "POLISH" -> board = new PolishGUIBoard(gameController);
         }
         Platform.runLater(() -> root.setCenter(board));
     }

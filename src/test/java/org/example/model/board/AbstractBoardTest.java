@@ -3,6 +3,7 @@ package org.example.model.board;
 import org.example.model.Color;
 import org.example.model.Field;
 import org.example.model.rules.DefaultRules;
+import org.example.model.rules.Rules;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -13,6 +14,38 @@ class AbstractBoardTest {
 
     @Test
     void move() {
+        ClassicBoard board = new ClassicBoard();
+        assertDoesNotThrow( () -> board.move(2,4,3,3, Color.BLACK) , "illegal move");
+        assertDoesNotThrow( () -> board.move(5,3,4,2, Color.WHITE), "illegal move");
+        assertDoesNotThrow( () -> board.move(4,2,2,4, Color.WHITE), "illegal move");
+
+        //field is changed after capturing
+        assertSame(board.getFieldAt(3,3).getColor(), Color.NONE);
+
+        //fields are changed after king's capturing
+        board.getFieldAt(1,5).setIsKing(true);
+        assertDoesNotThrow( () -> board.move(1,5,4,2, Color.BLACK) , "illegal move");
+        assertSame(board.getFieldAt(2,4).getColor(), Color.NONE);
+
+        //exception is thrown when illegal moves are being played
+        assertThrows(illegalMoveException.class, () -> board.move(0,0,1,1, Color.BLACK));
+        assertThrows(illegalMoveException.class, () -> board.move(6,2,4,4, Color.WHITE));
+
+        //exception when there is an obligatory capture
+        assertTrue(board.isCapturePossible(board.getFieldAt(5,1), Color.WHITE));
+        assertThrows(illegalMoveException.class, () -> board.move(5,5,4,4, Color.WHITE));
+
+        //game over exception
+        ClassicBoard board2 = new ClassicBoard();
+        for (Field field: board2.getFields()) {
+            if(field.getColor() == Color.WHITE) {
+                field.setColor(Color.NONE);
+            }
+        }
+        assertTrue(board2.isGameOver(Color.WHITE));
+        assertThrows(GameOverException.class, () -> board2.move(2,4,3,5, Color.BLACK));
+
+
     }
 
     @Test
@@ -57,10 +90,19 @@ class AbstractBoardTest {
         assertTrue(board.isCapturePossible(board.getFieldAt(5,7), Color.WHITE));
 
         //black king captures
-
+        Field field = board.getFieldAt(2,4);
+        field.setIsKing(true);
+        assertTrue(board.isCapturePossible(field, Color.BLACK));
+        board.getFieldAt(5,1).setColor(Color.NONE);
+        board.getFieldAt(3,3).setColor(Color.NONE);
+        board.getFieldAt(4,2).setColor(Color.WHITE);
+        assertTrue(board.isCapturePossible(field, Color.BLACK));
 
         //white king captures
-
+        board.getFieldAt(4,2).setColor(Color.BLACK);
+        field = board.getFieldAt(6,0);
+        field.setIsKing(true);
+        assertTrue(board.isCapturePossible(board.getFieldAt(6,0), Color.WHITE));
 
     }
 

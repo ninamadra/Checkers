@@ -108,6 +108,7 @@ class DefaultRulesTest {
         assertTrue(rules.isInCaptureRange(initialField, field3));
         assertTrue(rules.isInCaptureRange(initialField, field4));
         assertFalse(rules.isInCaptureRange(initialField, fieldNotInRange));
+
     }
 
     @Test

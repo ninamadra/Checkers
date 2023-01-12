@@ -18,7 +18,7 @@ public class ClassicGUIBoard extends AbstractGUIBoard {
                 rectangle.setFill(Color.WHITESMOKE);
                 if (count % 2 == 0) {
                     rectangle = new Square(i, 7-j, size, this);
-                    //squares.add((Square)rectangle);
+                    squares.add((Square)rectangle);
                     if(j < 3) {
                         ((Square) rectangle).setWhitePawn();
                     }

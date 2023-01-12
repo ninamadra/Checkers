@@ -26,10 +26,24 @@ public class DefaultRules implements Rules {
             return false;
         }
 
-        for ( int i = 0; i < capturedFields.size()-1; i++) {
-            if(capturedFields.get(i).getColor() == playerColor) { return false; }
-            if (capturedFields.get(i).getColor() == playerColor.getOppositeColor() && capturedFields.get(i+1).getColor() != Color.NONE) {
-                return false;
+        if (oldField.getRow() < newField.getRow()) {
+            for (int i = 0; i < capturedFields.size() - 1; i++) {
+                if (capturedFields.get(i).getColor() == playerColor) {
+                    return false;
+                }
+                if (capturedFields.get(i).getColor() == playerColor.getOppositeColor() && capturedFields.get(i + 1).getColor() != Color.NONE) {
+                    return false;
+                }
+            }
+        }
+        else {
+            for (int i = capturedFields.size() - 1; i > 0; i--) {
+                if (capturedFields.get(i).getColor() == playerColor) {
+                    return false;
+                }
+                if (capturedFields.get(i).getColor() == playerColor.getOppositeColor() && capturedFields.get(i - 1).getColor() != Color.NONE) {
+                    return false;
+                }
             }
         }
 

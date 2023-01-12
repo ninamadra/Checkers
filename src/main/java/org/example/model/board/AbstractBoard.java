@@ -29,11 +29,7 @@ public abstract class AbstractBoard {
         }
 
         if(rules.isCapturingObligatory()) {
-            //  ArrayList<Field> obligatoryNewFields = findObligatoryMoves(oldField, color);
-            // if (obligatoryNewFields.size() > 0 && !obligatoryNewFields.contains(newField)) {
-            // throw new illegalMoveException();
-            //  }
-            if(isCapturePossible(oldField, color) && capturedFields.size() == 0) {
+            if(isAnyCapture(color) && capturedFields.size() == 0) {
                 throw new illegalMoveException();
             }
         }
@@ -86,16 +82,14 @@ public abstract class AbstractBoard {
         }
         return capturedFields;
     }
-    //protected ArrayList<Field> findObligatoryMoves(Field oldField, Color color) {
-        //ArrayList<Field> possibleMoves  = new ArrayList<>();
-        //TODO wyszukanie obligatoryjnych ruchow
-        //wygeneruj possible moves (mozliwe) w zaleznosci od zasad i isKing
-        //for each field:possibleMoves
-        // if !rules.isMoveValid possibleMoves.remove(field)
-                //policz maksymalna liczbe bic i dodaj te ruchy do listy
-        //ArrayList<Field> obligatoryMoves = new ArrayList<>();
-        //return obligatoryMoves;
-    //}
+    protected boolean isAnyCapture(Color color) {
+        for (Field field:fields) {
+            if( field.getColor() == color && isCapturePossible(field, color)) {
+                return true;
+            }
+        }
+        return false;
+    }
     protected boolean isCapturePossible(Field field, Color color) {
 
         ArrayList<Field> possibleMoves = new ArrayList<>();
@@ -105,7 +99,42 @@ public abstract class AbstractBoard {
         possibleMoves.add(getFieldAt(field.getRow()-2,field.getColumn()+2));
 
         if (field.getIsKing()) {
-            //TODO: dodanie pol w zasiegu bicia damki
+            int i = field.getRow()+1;
+            int j = field.getColumn()-1;
+            Field f = getFieldAt(i, j);
+            while (f != null) {
+                possibleMoves.add(f);
+                i++;
+                j--;
+                f = getFieldAt(i, j);
+            }
+            i = field.getRow()+1;
+            j = field.getColumn()+1;
+            f = getFieldAt(i,j);
+            while (f != null) {
+                possibleMoves.add(f);
+                i++;
+                j++;
+                f = getFieldAt(i, j);
+            }
+            i = field.getRow()-1;
+            j = field.getColumn()-1;
+            f = getFieldAt(i,j);
+            while (f != null) {
+                possibleMoves.add(f);
+                i--;
+                j--;
+                f = getFieldAt(i, j);
+            }
+            i = field.getRow()-1;
+            j = field.getColumn()+1;
+            f = getFieldAt(i,j);
+            while (f != null) {
+                possibleMoves.add(f);
+                i--;
+                j++;
+                f = getFieldAt(i, j);
+            }
         }
         for (Field f:possibleMoves) {
             if(f != null && rules.isMoveValid(field, f, findCapturedFields(field, f), color)) {

@@ -3,6 +3,9 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * A class which implements the host server. It listens for clients commands and send back some information
+ */
 public class Server {
     private static Server instance = null;
     private ServerSocket serverSocket;
@@ -12,6 +15,10 @@ public class Server {
     public Server() {
     }
 
+    /**
+     * Method which implements singleton design pattern
+     * @return instance of server
+     */
     public static Server getInstance() {
         if(instance == null) {
             synchronized (Server.class) {
@@ -23,6 +30,9 @@ public class Server {
         return instance;
     }
 
+    /**
+     * A method which is responsible for listing via port and accepting clients
+     */
     public void run() {
 
         try {

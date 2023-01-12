@@ -2,8 +2,6 @@ package org.example.model.board;
 
 import org.example.model.Color;
 import org.example.model.Field;
-import org.example.model.rules.DefaultRules;
-import org.example.model.rules.Rules;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

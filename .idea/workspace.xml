@@ -4,14 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed7992c-e56c-4ea6-be0b-4e9901cbecd9" name="Changes" comment="Ogarniecie gita i zrobienie wspolnej podstawy">
+    <list default="true" id="5ed7992c-e56c-4ea6-be0b-4e9901cbecd9" name="Changes" comment="Javadoc dla modelu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/GUIBoard/AbstractGUIBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GUIBoard/AbstractGUIBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/Square.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Color.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Field.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/board/AbstractBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/AbstractBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/board/ClassicBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/ClassicBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/board/GameOverException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/GameOverException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/board/PolishBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/PolishBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/board/ThaiBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/ThaiBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/board/illegalMoveException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/illegalMoveException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/rules/DefaultRules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/rules/DefaultRules.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/rules/Rules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/rules/Rules.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/model/board/AbstractBoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/model/board/AbstractBoardTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673456960090</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Javadoc dla modelu">
+      <created>1673494016706</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1673494016706</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,6 +302,7 @@
     <MESSAGE value="wybor szachownicy, zmiany w square, obrazki" />
     <MESSAGE value="Dodanie pionów do planszy i tworzenia odpowiednich typów gier" />
     <MESSAGE value="Ogarniecie gita i zrobienie wspolnej podstawy" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ogarniecie gita i zrobienie wspolnej podstawy" />
+    <MESSAGE value="Javadoc dla modelu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Javadoc dla modelu" />
   </component>
 </project>

@@ -6,6 +6,9 @@ import org.example.model.rules.Rules;
 
 import java.util.ArrayList;
 
+/**
+ * A class which contains fields on the board and rules. It performs moves "on the board" if valid
+ */
 public abstract class AbstractBoard {
 
     protected Rules rules;
@@ -16,9 +19,26 @@ public abstract class AbstractBoard {
     public ArrayList<Field> getFields() {
         return fields;
     }
+
+    /**
+     * @param x number of row
+     * @param y number of column
+     * @return field on a given position
+     */
     public Field getFieldAt(int x, int y) {
         return fields.stream().filter(f -> f.getRow() == x && f.getColumn() == y).findFirst().orElse(null);
     }
+
+    /**
+     * Changing fields according to given move coordinates if valid
+     * @param oldX number of row from which piece is being removed
+     * @param oldY number of column from which piece is being removed
+     * @param newX number of row of desired new piece location
+     * @param newY number of column of desired new piece location
+     * @param color color of player who made a move
+     * @throws illegalMoveException if move is invalid
+     * @throws GameOverException if game is over
+     */
     public void move(int oldX, int oldY, int newX, int newY, Color color) throws illegalMoveException, GameOverException {
         Field oldField = getFieldAt(oldX, oldY);
         Field newField = getFieldAt(newX, newY);
@@ -39,7 +59,7 @@ public abstract class AbstractBoard {
         if( (newField.getRow() == 0 && color == Color.WHITE) ||
                 (newField.getRow() == getNoRows()-1 && color == Color.BLACK ) ||
                 (oldField.getIsKing())) {
-            newField.setIsKing(oldField.getIsKing()); }
+            newField.setIsKing(true); }
         oldField.setIsKing(false);
 
         for ( Field field: capturedFields ) {
@@ -51,11 +71,20 @@ public abstract class AbstractBoard {
             throw new GameOverException();
         }
 
+        if(oldField.getIsKing() && capturedFields.stream().allMatch(f -> f.getColor() == Color.NONE)) {
+            turn = turn.getOppositeColor();
+        }
+
         if(capturedFields.size() == 0 || !isCapturePossible(newField, color)) {
             turn = turn.getOppositeColor();
         }
     }
 
+    /**
+     * @param oldField field from which the piece is being removed
+     * @param newField desired location of the piece
+     * @return list of fields captured on the way
+     */
     protected ArrayList<Field> findCapturedFields (Field oldField, Field newField) {
         ArrayList <Field> capturedFields = new ArrayList<>();
         if(oldField == null || newField == null) { return capturedFields; }
@@ -82,6 +111,11 @@ public abstract class AbstractBoard {
         }
         return capturedFields;
     }
+
+    /**
+     * @param color color of pieces to be checked
+     * @return true if there's a possible capture, false otherwise
+     */
     protected boolean isAnyCapture(Color color) {
         for (Field field:fields) {
             if( field.getColor() == color && isCapturePossible(field, color)) {
@@ -90,6 +124,12 @@ public abstract class AbstractBoard {
         }
         return false;
     }
+
+    /**
+     * @param field field from which the piece is being removed
+     * @param color color of player who made a move
+     * @return true, if there is a capture from given field, false otherwise
+     */
     protected boolean isCapturePossible(Field field, Color color) {
 
         ArrayList<Field> possibleMoves = new ArrayList<>();
@@ -144,6 +184,11 @@ public abstract class AbstractBoard {
 
         return false;
     }
+
+    /**
+     * @param color color of pieces to be checked
+     * @return true, if there is no other move for given color, false otherwise
+     */
     protected boolean isGameOver(Color color) {
         if (fields.stream().noneMatch(f -> f.getColor() == color)) {
             return true;
@@ -151,6 +196,11 @@ public abstract class AbstractBoard {
         return fields.stream().noneMatch(f -> f.getColor() == color && isAnotherMovePossible(f, color));
     }
 
+    /**
+     * @param field field from which piece is being removed
+     * @param color color of player who made the move
+     * @return true, if there is any move from given field to do, false otherwise
+     */
     protected boolean isAnotherMovePossible(Field field, Color color) {
 
         if(field == null) {
@@ -182,5 +232,8 @@ public abstract class AbstractBoard {
         return false;
     }
 
+    /**
+     * @return number of rows of the board
+     */
     protected abstract int getNoRows();
 }

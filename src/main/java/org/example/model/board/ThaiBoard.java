@@ -4,7 +4,13 @@ import org.example.model.Color;
 import org.example.model.Field;
 import org.example.model.rules.DefaultRules;
 
+/**
+ * Implementation of Board with proper ctor (8X8 Board with 3 rows of pieces)
+ */
 public class ThaiBoard extends AbstractBoard {
+    /**
+     * Ctor adjusted to type, generates fields and adds them to private ArrayList
+     */
     public ThaiBoard() {
         this.rules = new DefaultRules();
         for (int i = 0; i < 2; i++) {
@@ -26,6 +32,10 @@ public class ThaiBoard extends AbstractBoard {
             }
         }
     }
+
+    /**
+     * @return number of rows in the board
+     */
     @Override
     protected int getNoRows() {
         return 8;

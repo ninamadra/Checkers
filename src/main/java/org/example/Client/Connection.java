@@ -12,11 +12,19 @@ import java.net.Socket;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Class responsible for connection and communication with the game server.
+ */
 public class Connection {
     private BufferedReader clientInput;
     private PrintWriter clientOutput;
     private Socket clientSocket;
     private GameController gameController;
+
+    /**
+     * Constructor connects to server, stabilize communication channel and gets players color
+     * @param gc main client controller
+     */
     public Connection(GameController gc) {
         try {
             clientSocket = new Socket("localhost",2137);
@@ -45,6 +53,9 @@ public class Connection {
         listen();
     }
 
+    /**
+     * Method which creates new thread to listen for commands from server
+     */
     public void listen() {
         new Thread(() -> {
             while(true) {
@@ -92,11 +103,23 @@ public class Connection {
         }).start();
     }
 
+    /**
+     * Method that sends notification about move to the server
+     * @param row
+     * @param column
+     * @param newRow
+     * @param newColumn
+     * @param turn
+     */
     public void makeMove(int row, int column, int newRow, int newColumn, Color turn) {
         String command = "MOVE " + row + " " + column + " " + newRow + " " + newColumn + " " + turn;
         clientOutput.println(command);
     }
 
+    /**
+     * Method that sends request to start a game to the server
+     * @param variant
+     */
     public void startGame(String variant) {
         String command = "START " + variant;
         clientOutput.println(command);

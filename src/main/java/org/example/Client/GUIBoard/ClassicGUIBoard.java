@@ -5,8 +5,15 @@ import javafx.scene.shape.Rectangle;
 import org.example.Client.GameController;
 import org.example.Client.Square;
 
+/**
+ * Implementation of classic variant board
+ */
 public class ClassicGUIBoard extends AbstractGUIBoard {
 
+    /**
+     * Constructor which sets up classic board, pawns etc.
+     * @param gc main game controller
+     */
     public ClassicGUIBoard(GameController gc) {
         super(gc);
         int count = 0;

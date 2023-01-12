@@ -7,6 +7,9 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import org.example.Client.GUIBoard.GUIBoard;
 
+/**
+ * A class which extends JavaFX's Rectangle to simulate one square on the board
+ */
 public class Square extends Rectangle {
 
     private final int row;
@@ -15,6 +18,13 @@ public class Square extends Rectangle {
     private final GUIBoard board;
     private org.example.model.Color color;
 
+    /**
+     * Basic constructor with setting view of class in GUI
+     * @param column column address on board
+     * @param row row address on board
+     * @param size of square
+     * @param board to set on
+     */
     public Square(int column, int row, double size, GUIBoard board) {
 
         this.row = row;
@@ -31,6 +41,9 @@ public class Square extends Rectangle {
         });
     }
 
+    /**
+     * Method clears view from image component and color
+     */
     public void setEmpty() {
         setFill(Color.BLACK);
         color = org.example.model.Color.NONE;
@@ -55,10 +68,15 @@ public class Square extends Rectangle {
         color = org.example.model.Color.BLACK;
     }
 
+    /**
+     * Method which highlight the borders of square
+     */
     public void highlight() {
         setStroke(Color.GOLD);
     }
-
+    /**
+     * Method which unhighlight the borders of square
+     */
     public void unhighlight() {
         setStroke(Color.BLACK);
     }

@@ -4,8 +4,14 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import org.example.Client.GameController;
 import org.example.Client.Square;
-
+/**
+ * Implementation of thai variant board
+ */
 public class ThaiGUIBoard extends AbstractGUIBoard {
+    /**
+     * Constructor which sets up thai board, pawns etc.
+     * @param gc main game controller
+     */
     public ThaiGUIBoard(GameController gc) {
         super(gc);
         int count = 0;

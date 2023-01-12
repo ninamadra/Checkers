@@ -7,15 +7,30 @@ import org.example.model.Color;
 
 import java.util.ArrayList;
 
+/**
+ * Class which represent view of board
+ */
 public abstract class AbstractGUIBoard extends GridPane implements GUIBoard {
     protected ArrayList<Square> squares;
     protected Square clicked;
     protected GameController gameController;
 
+    /**
+     * Basic constructor with injection
+     * @param gc
+     */
     public AbstractGUIBoard(GameController gc) {
         squares = new ArrayList<>();
         gameController = gc;
     }
+
+    /**Method for proper updating board view. Removing taken pawns and moving
+     * @param oldX old x-axis cord
+     * @param oldY old y-axis cord
+     * @param newX new x-axis cord
+     * @param newY new y-axis cord
+     * @param color
+     */
     public void updateBoard(int oldX, int oldY, int newX, int newY, Color color) {
 
         Square oldSquare = squares.stream().filter(f -> f.getRow() == oldX && f.getColumn() == oldY).findFirst().orElse(null);
@@ -70,6 +85,10 @@ public abstract class AbstractGUIBoard extends GridPane implements GUIBoard {
 
     }
 
+    /**
+     * Method which provides proper behavior while clicking
+     * @param clicked
+     */
     public void respondToClick(Square clicked) {
         if (this.clicked == clicked) {
             this.clicked.unhighlight();
@@ -83,9 +102,6 @@ public abstract class AbstractGUIBoard extends GridPane implements GUIBoard {
                     this.clicked = null;
 
                 }
-                else {
-                    // TODO: 10.01.2023 popup?
-                }
             }
             else {
                 clicked.highlight();
@@ -94,5 +110,8 @@ public abstract class AbstractGUIBoard extends GridPane implements GUIBoard {
         }
     }
 
+    /**
+     * @return number of current's board rows
+     */
     protected abstract int getNoRows();
 }

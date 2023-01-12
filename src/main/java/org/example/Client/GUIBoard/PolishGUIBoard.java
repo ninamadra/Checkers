@@ -5,7 +5,14 @@ import javafx.scene.shape.Rectangle;
 import org.example.Client.GameController;
 import org.example.Client.Square;
 
+/**
+ * Implementation of polish variant board
+ */
 public class PolishGUIBoard extends AbstractGUIBoard {
+    /**
+     * Constructor which sets up polish board, pawns etc.
+     * @param gc main game controller
+     */
     public PolishGUIBoard(GameController gc) {
         super(gc);
         int count = 0;

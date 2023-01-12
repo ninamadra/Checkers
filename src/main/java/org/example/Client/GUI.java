@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import org.example.Client.GUIBoard.AbstractGUIBoard;
 import org.example.Client.GUIBoard.ClassicGUIBoard;
@@ -15,6 +14,9 @@ import org.example.Client.GUIBoard.PolishGUIBoard;
 import org.example.Client.GUIBoard.ThaiGUIBoard;
 import org.example.model.Color;
 
+/**
+ * Class for graphical user interface
+ */
 public class GUI extends Application
 {
     AbstractGUIBoard board;
@@ -24,6 +26,11 @@ public class GUI extends Application
     MenuItem thai = new MenuItem("thai");
     MenuItem polish = new MenuItem("polish");
     Label label;
+
+    /**
+     * Starts thread with gui view
+     * @param primaryStage
+     */
     @Override
     public void start(final Stage primaryStage) {
         gameController = new GameController(this);
@@ -50,6 +57,10 @@ public class GUI extends Application
         System.out.println(gameController.getColor());
     }
 
+    /**
+     * Method sets proper type of game and updates view
+     * @param var type of game
+     */
     public void setType(String var) {
         switch(var) {
             case "THAI" -> board = new ThaiGUIBoard(gameController);
@@ -59,10 +70,21 @@ public class GUI extends Application
         Platform.runLater(() -> root.setCenter(board));
     }
 
+    /**
+     * Method displays message to user in GUI
+     * @param msg
+     */
     public void displayAnnouncement(String msg) {
         Platform.runLater(() -> label.setText(msg));
     }
 
+    /** Method updates view and position after accepted move
+     * @param oldX
+     * @param oldY
+     * @param newX
+     * @param newY
+     * @param color
+     */
     public void displayMove(int oldX, int oldY, int newX, int newY, Color color) {
         Platform.runLater(() -> board.updateBoard(oldX, oldY, newX, newY, color));
     }

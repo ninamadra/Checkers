@@ -41,9 +41,9 @@ public class DefaultRules implements Rules {
                 if (capturedFields.get(i).getColor() == playerColor) {
                     return false;
                 }
-               // if (capturedFields.get(i).getColor() == playerColor.getOppositeColor() && capturedFields.get(i + 1).getColor() != Color.NONE) {
-                //    return false;
-               // }
+                if (capturedFields.get(i).getColor() == playerColor.getOppositeColor() && capturedFields.get(i + 1).getColor() != Color.NONE) {
+                    return false;
+                }
                 if(capturedFields.get(i).getColor() == playerColor.getOppositeColor()) {
                     counter++;
                     if(counter > 1) {
@@ -57,9 +57,9 @@ public class DefaultRules implements Rules {
                 if (capturedFields.get(i).getColor() == playerColor) {
                     return false;
                 }
-                //if (capturedFields.get(i).getColor() == playerColor.getOppositeColor() && capturedFields.get(i - 1).getColor() != Color.NONE) {
-                 //   return false;
-               // }
+                if (capturedFields.get(i).getColor() == playerColor.getOppositeColor() && capturedFields.get(i - 1).getColor() != Color.NONE) {
+                    return false;
+                }
                 if(capturedFields.get(i).getColor() == playerColor.getOppositeColor()) {
                     counter++;
                     if(counter > 1) {

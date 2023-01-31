@@ -5,6 +5,7 @@ import org.example.model.Field;
 import org.example.model.rules.Rules;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * A class which contains fields on the board and rules. It performs moves "on the board" if valid
@@ -66,24 +67,23 @@ public abstract class AbstractBoard {
                 (oldField.getIsKing())) {
             newField.setIsKing(true); }
 
-
-        for ( Field field: capturedFields ) {
-             field.setColor(Color.NONE);
-             field.setIsKing(false);
-        }
-
         if(isGameOver(color.getOppositeColor())) {
             throw new GameOverException();
         }
-
+        boolean flag = false; //change turn only once and clear captured fields in between
         if(oldField.getIsKing() && capturedFields.stream().allMatch(f -> f.getColor() == Color.NONE)) {
             turn = turn.getOppositeColor();
-        }
-
-        else if(capturedFields.size() == 0 || !isCapturePossible(newField, color)) {
-            turn = turn.getOppositeColor();
+            flag = true;
         }
         oldField.setIsKing(false);
+        for ( Field field: capturedFields ) {
+            field.setColor(Color.NONE);
+            field.setIsKing(false);
+        }
+        if(!flag && (capturedFields.size() == 0 || !isCapturePossible(newField, color))) {
+            turn = turn.getOppositeColor();
+        }
+
     }
 
     /**
@@ -133,11 +133,9 @@ public abstract class AbstractBoard {
 
     /**
      * @param field field from which the piece is being removed
-     * @param color color of player who made a move
-     * @return true, if there is a capture from given field, false otherwise
+     * @return list of possible captures
      */
-    protected boolean isCapturePossible(Field field, Color color) {
-
+    protected ArrayList<Field> getPossibleCapturesList(Field field) {
         ArrayList<Field> possibleMoves = new ArrayList<>();
         possibleMoves.add(getFieldAt(field.getRow()+2,field.getColumn()-2));
         possibleMoves.add(getFieldAt(field.getRow()+2,field.getColumn()+2));
@@ -145,8 +143,8 @@ public abstract class AbstractBoard {
         possibleMoves.add(getFieldAt(field.getRow()-2,field.getColumn()+2));
 
         if (field.getIsKing()) {
-            int i = field.getRow()+1;
-            int j = field.getColumn()-1;
+            int i = field.getRow()+3;
+            int j = field.getColumn()-3;
             Field f = getFieldAt(i, j);
             while (f != null) {
                 possibleMoves.add(f);
@@ -154,8 +152,8 @@ public abstract class AbstractBoard {
                 j--;
                 f = getFieldAt(i, j);
             }
-            i = field.getRow()+1;
-            j = field.getColumn()+1;
+            i = field.getRow()+3;
+            j = field.getColumn()+3;
             f = getFieldAt(i,j);
             while (f != null) {
                 possibleMoves.add(f);
@@ -163,8 +161,8 @@ public abstract class AbstractBoard {
                 j++;
                 f = getFieldAt(i, j);
             }
-            i = field.getRow()-1;
-            j = field.getColumn()-1;
+            i = field.getRow()-3;
+            j = field.getColumn()-3;
             f = getFieldAt(i,j);
             while (f != null) {
                 possibleMoves.add(f);
@@ -172,8 +170,8 @@ public abstract class AbstractBoard {
                 j--;
                 f = getFieldAt(i, j);
             }
-            i = field.getRow()-1;
-            j = field.getColumn()+1;
+            i = field.getRow()-3;
+            j = field.getColumn()+3;
             f = getFieldAt(i,j);
             while (f != null) {
                 possibleMoves.add(f);
@@ -182,6 +180,18 @@ public abstract class AbstractBoard {
                 f = getFieldAt(i, j);
             }
         }
+        return possibleMoves;
+    }
+
+    /**
+     * @param field field from which the piece is being removed
+     * @param color color of player who made a move
+     * @return true, if there is a capture from given field, false otherwise
+     */
+    protected boolean isCapturePossible(Field field, Color color) {
+
+        ArrayList<Field> possibleMoves = getPossibleCapturesList(field);
+
         for (Field f:possibleMoves) {
             if(f != null && rules.isMoveValid(field, f, findCapturedFields(field, f), color)) {
                 if(!findCapturedFields(field,f).stream().allMatch(fi -> fi.getColor() == Color.NONE)) {
@@ -206,6 +216,30 @@ public abstract class AbstractBoard {
 
     /**
      * @param field field from which piece is being removed
+     * @param color  color of player who made the move
+     * @return list of fields in standard move range
+     */
+    protected ArrayList<Field> getPossibleStandardMovesList(Field field, Color color) {
+        ArrayList<Field> possibleMoves = new ArrayList<>();
+        int bias = 1;
+        if (color == Color.WHITE) {
+            bias = -1;
+        }
+        //standard moves
+        possibleMoves.add(getFieldAt(field.getRow()+bias,field.getColumn()-1));
+        possibleMoves.add(getFieldAt(field.getRow()+bias,field.getColumn()+1));
+
+
+        if(field.getIsKing()) {
+            possibleMoves.add(getFieldAt(field.getRow()-bias,field.getColumn()-1));
+            possibleMoves.add(getFieldAt(field.getRow()-bias,field.getColumn()+1));
+        }
+        return possibleMoves;
+
+    }
+
+    /**
+     * @param field field from which piece is being removed
      * @param color color of player who made the move
      * @return true, if there is any move from given field to do, false otherwise
      */
@@ -217,25 +251,8 @@ public abstract class AbstractBoard {
         if (isCapturePossible(field, color)) {
             return true;
         }
-        ArrayList<Field> possibleMoves = new ArrayList<>();
-        int bias = 1;
-        if (color == Color.WHITE) {
-               bias = -1;
-        }
-        //standard moves
-        possibleMoves.add(getFieldAt(field.getRow()+bias,field.getColumn()-1));
-        possibleMoves.add(getFieldAt(field.getRow()+bias,field.getColumn()+1));
-
-
-        if(field.getIsKing()) {
-            possibleMoves.add(getFieldAt(field.getRow()-bias,field.getColumn()-1));
-            possibleMoves.add(getFieldAt(field.getRow()-bias,field.getColumn()+1));
-        }
-
-        for (Field f:possibleMoves) {
-            if(f != null && rules.isMoveValid(field, f, findCapturedFields(field, f), color)) {
-                return true;
-            }
+        if (isStandardMovePossible(field, color)) {
+            return true;
         }
         return false;
     }
@@ -244,4 +261,71 @@ public abstract class AbstractBoard {
      * @return number of rows of the board
      */
     protected abstract int getNoRows();
+
+    /**
+     * @return random field of a given color
+     */
+    protected Field getRandomField(Color color) {
+        Random random = new Random();
+        Field f = getFieldAt(random.nextInt(getNoRows()), random.nextInt(getNoRows()));
+        while(f.getColor() != color) {
+            f = getFieldAt(random.nextInt(getNoRows()), random.nextInt(getNoRows()));
+        }
+        return  f;
+    }
+
+    /**
+     * @param color color of a player who's supposed to make a move
+     * @return list of coordinates: oldX, oldY, newX, newY
+     */
+    public ArrayList<Integer> getMove(Color color) {
+        ArrayList<Integer> cords = new ArrayList<>();
+        Field randomField = getRandomField(color);
+        if(isAnyCapture(color)) {
+            while(!isCapturePossible(randomField, color)) {
+                randomField = getRandomField(color);
+            }
+            cords.add(randomField.getRow(), randomField.getColumn());
+            ArrayList<Field> possibleMoves = getPossibleCapturesList(randomField);
+            Random random = new Random();
+            Field f = possibleMoves.get(random.nextInt(possibleMoves.size()));
+            if(f == null || !rules.isMoveValid(randomField, f, findCapturedFields(randomField, f), color) || findCapturedFields(randomField,f).stream().allMatch(fi -> fi.getColor() == Color.NONE) ) {
+                f = possibleMoves.get(random.nextInt(possibleMoves.size()));
+            }
+            cords.add(f.getRow(), f.getColumn());
+
+        }
+        else {
+            ArrayList<Field> possibleMoves = getPossibleStandardMovesList(randomField, color);
+            Random random = new Random();
+            while(!isStandardMovePossible(randomField, color)) {
+                randomField = getRandomField(color);
+            }
+            Field f = possibleMoves.get(random.nextInt(possibleMoves.size()));
+            cords.add(randomField.getRow(), randomField.getColumn());
+
+            while (!rules.isMoveValid(randomField, f, findCapturedFields(randomField, f), color)) {
+                f = possibleMoves.get(random.nextInt(possibleMoves.size()));
+            }
+            cords.add(f.getRow(), f.getColumn());
+        }
+
+        return cords;
+    }
+
+    /**
+     * @param field field from which the piece is being removed
+     * @param color color of a player who made a move
+     * @return true if there is a standard move to make, false otherwise
+     */
+    protected boolean isStandardMovePossible(Field field, Color color) {
+        ArrayList<Field> possibleMoves = getPossibleStandardMovesList(field, color);
+
+        for (Field f:possibleMoves) {
+            if(f != null && rules.isMoveValid(field, f, findCapturedFields(field, f), color)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

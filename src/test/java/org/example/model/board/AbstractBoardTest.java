@@ -203,4 +203,56 @@ class AbstractBoardTest {
         assertTrue(board.isAnotherMovePossible(board.getFieldAt(4,4), Color.WHITE));
 
     }
+
+    @Test
+    void getMove() {
+        ClassicBoard board = new ClassicBoard();
+
+        for(int i = 0; i < 8; i += 2) {
+            board.getFieldAt(4,i).setColor(Color.WHITE);
+        }
+        board.getFieldAt(3,1).setColor(Color.WHITE);
+        board.getFieldAt(3,7).setColor(Color.WHITE);
+        ArrayList<ArrayList<Integer>> validMoves = new ArrayList<>();
+        ArrayList<Integer> option1 = new ArrayList<>();
+        option1.add(2);
+        option1.add(2);
+        option1.add(3);
+        option1.add(3);
+        ArrayList<Integer> option2 = new ArrayList<>();
+        option2.add(2);
+        option2.add(4);
+        option2.add(3);
+        option2.add(3);
+        ArrayList<Integer> option3 = new ArrayList<>();
+        option3.add(2);
+        option3.add(4);
+        option3.add(3);
+        option3.add(5);
+        ArrayList<Integer> option4 = new ArrayList<>();
+        option4.add(2);
+        option4.add(6);
+        option4.add(3);
+        option4.add(5);
+        validMoves.add(option1);
+        validMoves.add(option2);
+        validMoves.add(option3);
+        validMoves.add(option4);
+        ArrayList<Integer> cords = board.getMove(Color.BLACK);
+        assertTrue(validMoves.get(0).equals(cords) ||
+                validMoves.get(1).equals(cords) ||
+                validMoves.get(2).equals(cords) ||
+                validMoves.get(3).equals(cords));
+
+        //capturing check
+        board.getFieldAt(4,2).setColor(Color.NONE);
+        ArrayList<Integer> answer = new ArrayList<>();
+        answer.add(2);
+        answer.add(0);
+        answer.add(4);
+        answer.add(2);
+        ArrayList<Integer> arr =  board.getMove(Color.BLACK);
+        assertTrue(arr.equals(answer));
+    }
+
 }

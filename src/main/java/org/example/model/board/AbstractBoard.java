@@ -5,6 +5,7 @@ import org.example.model.Field;
 import org.example.model.rules.Rules;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 /**
@@ -268,7 +269,7 @@ public abstract class AbstractBoard {
     protected Field getRandomField(Color color) {
         Random random = new Random();
         Field f = getFieldAt(random.nextInt(getNoRows()), random.nextInt(getNoRows()));
-        while(f.getColor() != color) {
+        while(f == null || f.getColor() != color) {
             f = getFieldAt(random.nextInt(getNoRows()), random.nextInt(getNoRows()));
         }
         return  f;
@@ -282,32 +283,54 @@ public abstract class AbstractBoard {
         ArrayList<Integer> cords = new ArrayList<>();
         Field randomField = getRandomField(color);
         if(isAnyCapture(color)) {
+            //System.out.println("JEST MOZLIWE BICIE");
             while(!isCapturePossible(randomField, color)) {
                 randomField = getRandomField(color);
+                //System.out.println("wyszukiwanie pola z biciem");
             }
-            cords.add(randomField.getRow(), randomField.getColumn());
+           // System.out.println("ZNALEZIONO POLE Z MOZLIWYM BICIEM "+randomField.getRow()+" "+randomField.getColumn());
+            cords.add(randomField.getRow());
+            cords.add(randomField.getColumn());
             ArrayList<Field> possibleMoves = getPossibleCapturesList(randomField);
             Random random = new Random();
+            possibleMoves.removeAll(Collections.singleton(null));
             Field f = possibleMoves.get(random.nextInt(possibleMoves.size()));
+            //if (f!= null) {System.out.println("pierwszy guess"+f.getRow()+" "+f.getColumn());}
             if(f == null || !rules.isMoveValid(randomField, f, findCapturedFields(randomField, f), color) || findCapturedFields(randomField,f).stream().allMatch(fi -> fi.getColor() == Color.NONE) ) {
+               // System.out.println("wyszukiwanie legalnego bicia "+f.getRow()+" "+f.getColumn());
+                possibleMoves.remove(f);
                 f = possibleMoves.get(random.nextInt(possibleMoves.size()));
             }
-            cords.add(f.getRow(), f.getColumn());
+            //System.out.println(possibleMoves.size());
+            //System.out.println("ZNALEZIONO BICIE"+f.getRow()+" "+f.getColumn());
+            cords.add(f.getRow());
+            cords.add(f.getColumn());
 
         }
         else {
-            ArrayList<Field> possibleMoves = getPossibleStandardMovesList(randomField, color);
+            //System.out.println("NIE MA BICIA");
             Random random = new Random();
             while(!isStandardMovePossible(randomField, color)) {
                 randomField = getRandomField(color);
+                //System.out.println(randomField.getRow()+ " "+ randomField.getColumn()+ " wyszukiwanie pola z legalnym ruchem");
             }
+            //System.out.println("ZNALEZIONO POLE Z LEGALNYM RUCHEM: "+randomField.getRow()+" "+randomField.getColumn());
+            ArrayList<Field> possibleMoves = getPossibleStandardMovesList(randomField, color);
+
             Field f = possibleMoves.get(random.nextInt(possibleMoves.size()));
-            cords.add(randomField.getRow(), randomField.getColumn());
+            cords.add(randomField.getRow());
+            cords.add(randomField.getColumn());
 
             while (!rules.isMoveValid(randomField, f, findCapturedFields(randomField, f), color)) {
+                //System.out.println("ruch na "+f.getRow()+" "+f.getColumn());
+                possibleMoves.remove(f);
                 f = possibleMoves.get(random.nextInt(possibleMoves.size()));
+
+                //System.out.println("wyszukiwanie legalnego ruchu");
             }
-            cords.add(f.getRow(), f.getColumn());
+            //System.out.println("ZNALEZIONO LEGALNY RUCH");
+            cords.add(f.getRow());
+            cords.add(f.getColumn());
         }
 
         return cords;

@@ -141,6 +141,11 @@ public class GameRoom implements GameRoomMediator{
                     observer.updateObserver("FAIL NOT_YOUR_TURN");
                 }
             }
+            case "BOTMOVE" -> {
+                if(observer.getColor().equals(game.getTurn())) {
+                    game.makeBotMove(observer.getColor());
+                }
+            }
 //            case "LEAVE" -> {
 //                detachObserver(observer);
 //                noticeAction("END");

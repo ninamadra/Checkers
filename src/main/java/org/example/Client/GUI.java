@@ -25,6 +25,7 @@ public class GUI extends Application
     MenuItem classic = new MenuItem("classic");
     MenuItem thai = new MenuItem("thai");
     MenuItem polish = new MenuItem("polish");
+    MenuItem bot = new MenuItem("Play with computer");
     Label label;
 
     /**
@@ -40,10 +41,13 @@ public class GUI extends Application
         classic.setOnAction(e -> gameController.startGame("CLASSIC"));
         thai.setOnAction(e -> gameController.startGame("THAI"));
         polish.setOnAction(e -> { gameController.startGame("POLISH"); });
+        bot.setOnAction(e -> { System.out.println("bot"); });
         HBox top = new HBox();
         Menu type = new Menu("type");
+        Menu options = new Menu("options");
         type.getItems().addAll(classic, thai, polish);
-        MenuBar menuBar = new MenuBar(type);
+        options.getItems().add(bot);
+        MenuBar menuBar = new MenuBar(type, options);
         top.getChildren().add(0, menuBar);
         top.getChildren().add(1, label);
         top.setSpacing(10);

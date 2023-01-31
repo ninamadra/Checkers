@@ -2,6 +2,8 @@ package org.example.model;
 
 import org.example.model.board.*;
 
+import java.util.ArrayList;
+
 
 /**
  * A class which holds information about concrete game and performs action on it
@@ -54,5 +56,10 @@ public class Game {
      */
     public Color getTurn() {
         return board.getTurn();
+    }
+
+    public String makeBotMove(Color color) {
+        ArrayList<Integer> cords = board.getMove(color);
+        return "MOVED " + cords.get(0) + " " + cords.get(1) + " " + cords.get(2) + " " + cords.get(3) + " " + getTurn();
     }
 }

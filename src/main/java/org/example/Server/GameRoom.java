@@ -62,15 +62,15 @@ public class GameRoom implements GameRoomMediator{
      * @throws capacityException
      */
     public synchronized void createGame(String gameType) throws creationException, capacityException {
-        if(clients.size() < 2) {
-            throw new capacityException();
-        }
         if(game == null) {
             game = new Game();
             game.setVariant(gameType);
         }
         else
             throw new creationException();
+        if(clients.size() < 2) {
+            attachObserver(new Bot(this));
+        }
     }
 
     /**
@@ -143,7 +143,13 @@ public class GameRoom implements GameRoomMediator{
             }
             case "BOTMOVE" -> {
                 if(observer.getColor().equals(game.getTurn())) {
-                    game.makeBotMove(observer.getColor());
+                    try {
+                        noticeAction(game.makeBotMove(observer.getColor()));
+                    } catch (illegalMoveException e) {
+                        throw new RuntimeException(e);
+                    } catch (GameOverException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
             }
 //            case "LEAVE" -> {

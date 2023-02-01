@@ -41,10 +41,8 @@ public class Game {
                 board.move(oldX, oldY, newX, newY, getTurn());
             }
             catch(illegalMoveException moveException) {
-                System.out.println("move");
                 throw moveException;
             } catch (GameOverException gameOverException) {
-                System.out.println("over");
                 throw gameOverException;
             }
             return "MOVED " + oldX + " " + oldY + " " + newX + " " + newY + " " + getTurn();
@@ -58,8 +56,8 @@ public class Game {
         return board.getTurn();
     }
 
-    public String makeBotMove(Color color) {
+    public String makeBotMove(Color color) throws illegalMoveException, GameOverException {
         ArrayList<Integer> cords = board.getMove(color);
-        return "MOVED " + cords.get(0) + " " + cords.get(1) + " " + cords.get(2) + " " + cords.get(3) + " " + getTurn();
+        return makeMove(cords.get(0), cords.get(1), cords.get(2), cords.get(3), color);
     }
 }

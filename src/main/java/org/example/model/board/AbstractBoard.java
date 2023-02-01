@@ -234,6 +234,7 @@ public abstract class AbstractBoard {
         if(field.getIsKing()) {
             possibleMoves.add(getFieldAt(field.getRow()-bias,field.getColumn()-1));
             possibleMoves.add(getFieldAt(field.getRow()-bias,field.getColumn()+1));
+            //TODO dodac inne pola
         }
         return possibleMoves;
 

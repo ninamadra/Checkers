@@ -25,7 +25,7 @@ public class GUI extends Application
     MenuItem classic = new MenuItem("classic");
     MenuItem thai = new MenuItem("thai");
     MenuItem polish = new MenuItem("polish");
-    MenuItem bot = new MenuItem("Play with computer");
+    MenuItem bot = new MenuItem("Odtworz partie");
     Label label;
 
     /**
@@ -41,7 +41,7 @@ public class GUI extends Application
         classic.setOnAction(e -> gameController.startGame("CLASSIC"));
         thai.setOnAction(e -> gameController.startGame("THAI"));
         polish.setOnAction(e -> { gameController.startGame("POLISH"); });
-        bot.setOnAction(e -> { System.out.println("bot"); });
+        bot.setOnAction(e -> { gameController.startGame("BOT"); });
         HBox top = new HBox();
         Menu type = new Menu("type");
         Menu options = new Menu("options");

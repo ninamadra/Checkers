@@ -11,14 +11,21 @@ public class Bot implements Observer  {
 
     public Bot(GameRoom gameRoom) {
         this.gameRoom = gameRoom;
-        this.gameRoom.attachObserver(this);
         color = gameRoom.getColorToSet();
     }
     @Override
     public void updateObserver(String message) {
         List<String> items = Arrays.asList(message.split(" "));
-        if (items.get(0) == "MOVED") {
-            gameRoom.performAction("BOTMOVE", this);
+        System.out.println(items.get(0));
+        switch (items.get(0)) {
+            case "MOVED" ->  {
+                switch(items.get(5)) {
+                    case "BLACK" -> {
+                        System.out.println("BOT MOVE");
+                        gameRoom.performAction("BOTMOVE", this);
+                    }
+                }
+            }
         }
     }
 

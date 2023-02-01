@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed7992c-e56c-4ea6-be0b-4e9901cbecd9" name="Changes" comment="uproszczono architekturę serwera. Usunieto niepotrzebny controller i wproawadzono szkielet łańcucha odpowiedzialności dla obsługi zadań przychodzących do serwera i jego odpwoiedzi zwrotnych.">
+    <list default="true" id="5ed7992c-e56c-4ea6-be0b-4e9901cbecd9" name="Changes" comment="Javadoc dla modelu">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Database/DBHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Database/GameDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Database/MoveDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/GameDTO.hbm.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/MoveDTO.hbm.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Server/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Server/Bot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Server/GameRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Server/GameRoom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/board/AbstractBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/board/AbstractBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,19 +24,28 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Client" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="bbb88e7a-e2e1-449c-9316-79a4768d0898" />
+        <option name="url" value="https://github.com/MichalZurawski02/Checkers.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -47,35 +58,50 @@
     </option>
   </component>
   <component name="ProjectId" id="2IuTVdLP0Uuj9zE3wupTj2HiEhd" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "last_opened_file_path": "/home/zuraw/java/patterns/Checkers/src/main/resources/org.example",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.example.Server" />
       <recent name="org.example.model.board" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/org.example" />
+      <recent name="$PROJECT_DIR$/src/main/java/org/example/Client" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/" />
+    </key>
+    <key name="ImportMappingsDialog.RecentPackages">
+      <recent name="org.example.model" />
+    </key>
   </component>
-  <component name="RunManager" selected="JUnit.AbstractBoardTest.getMove">
-    <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.Client.GUI" />
+  <component name="RunManager" selected="Application.DBHandler">
+    <configuration name="DBHandler" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Database.DBHandler" />
       <module name="Checkers" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.Client.*" />
+          <option name="PATTERN" value="org.example.Database.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -109,7 +135,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AbstractBoardTest.getMove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AbstractBoardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Checkers" />
       <extension name="coverage">
         <pattern>
@@ -119,24 +145,40 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.example.model.board" />
       <option name="MAIN_CLASS_NAME" value="org.example.model.board.AbstractBoardTest" />
-      <option name="METHOD_NAME" value="getMove" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DefaultRulesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Checkers" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.model.rules.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.model.rules" />
+      <option name="MAIN_CLASS_NAME" value="org.example.model.rules.DefaultRulesTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.GUI" />
+      <item itemvalue="Application.DBHandler" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.Server" />
-      <item itemvalue="JUnit.AbstractBoardTest.getMove" />
+      <item itemvalue="JUnit.AbstractBoardTest" />
+      <item itemvalue="JUnit.DefaultRulesTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AbstractBoardTest.getMove" />
+        <item itemvalue="Application.DBHandler" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Server" />
-        <item itemvalue="Application.GUI" />
+        <item itemvalue="JUnit.AbstractBoardTest" />
+        <item itemvalue="JUnit.DefaultRulesTest" />
       </list>
     </recent_temporary>
   </component>
@@ -150,7 +192,9 @@
       <updated>1671030496651</updated>
       <workItem from="1671030497993" duration="10156000" />
       <workItem from="1671126895137" duration="13384000" />
-      <workItem from="1675244844226" duration="6818000" />
+      <workItem from="1673261578342" duration="9541000" />
+      <workItem from="1673473160970" duration="2045000" />
+      <workItem from="1675161393241" duration="20203000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1671030585078</created>
@@ -194,7 +238,42 @@
       <option name="project" value="LOCAL" />
       <updated>1671135448982</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Wykonanie przykładowej szachownicy. Poprawa serwera i dodanie wyjątku za małej ilości graczy przy próbie rozpoczęcia">
+      <created>1673287157356</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1673287157356</updated>
+    </task>
+    <task id="LOCAL-00008" summary="wybor szachownicy, zmiany w square, obrazki">
+      <created>1673299004041</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1673299004041</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Dodanie pionów do planszy i tworzenia odpowiednich typów gier">
+      <created>1673302450681</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1673302450681</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Ogarniecie gita i zrobienie wspolnej podstawy">
+      <created>1673456960090</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1673456960090</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Javadoc dla modelu">
+      <created>1673494016706</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1673494016706</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,7 +290,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/Server" />
+                        <option value="Database" />
                       </list>
                     </value>
                   </entry>
@@ -222,14 +301,40 @@
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="Server" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="initial commit" />
     <MESSAGE value="work branches" />
     <MESSAGE value="added GameRoomController as mediator between gameRoom and Clients. Classes for client, gameroom and their interfaces have been created." />
     <MESSAGE value="dodano metode tworzaca odpowiedni typ gry na podstawie stringa od klienta" />
     <MESSAGE value="dodano przekazywanie stringa do clientów dotyczącego wykoanengo ruchu" />
     <MESSAGE value="uproszczono architekturę serwera. Usunieto niepotrzebny controller i wproawadzono szkielet łańcucha odpowiedzialności dla obsługi zadań przychodzących do serwera i jego odpwoiedzi zwrotnych." />
-    <option name="LAST_COMMIT_MESSAGE" value="uproszczono architekturę serwera. Usunieto niepotrzebny controller i wproawadzono szkielet łańcucha odpowiedzialności dla obsługi zadań przychodzących do serwera i jego odpwoiedzi zwrotnych." />
+    <MESSAGE value="Wykonanie przykładowej szachownicy. Poprawa serwera i dodanie wyjątku za małej ilości graczy przy próbie rozpoczęcia" />
+    <MESSAGE value="wybor szachownicy, zmiany w square, obrazki" />
+    <MESSAGE value="Dodanie pionów do planszy i tworzenia odpowiednich typów gier" />
+    <MESSAGE value="Ogarniecie gita i zrobienie wspolnej podstawy" />
+    <MESSAGE value="Javadoc dla modelu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Javadoc dla modelu" />
   </component>
 </project>

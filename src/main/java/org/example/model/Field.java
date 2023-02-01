@@ -1,9 +1,15 @@
 package org.example.model;
 
+/**
+ * Component of board, contains information about its location and piece which occupies it
+ */
 public class Field {
 
     private final int row;
     private final int column;
+    /**
+     * color of player whose piece stands on this field
+     */
     private Color color;
     private boolean isKing = false;
 
@@ -11,12 +17,6 @@ public class Field {
         this.row = row;
         this.column = column;
         this.color = color;
-    }
-
-    public  Field(int row, int column) {
-        this.row = row;
-        this.column = column;
-        color = Color.NONE;
     }
 
     public Color getColor() {

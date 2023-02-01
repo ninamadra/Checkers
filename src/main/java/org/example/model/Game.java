@@ -1,42 +1,65 @@
 package org.example.model;
 
-import org.example.Server.GameRoom;
-import org.example.model.board.AbstractBoard;
-import org.example.model.board.illegalMoveException;
-import org.example.model.factory.AbstractVarFactory;
-import org.example.model.factory.ClassicFactory;
-import org.example.model.factory.PolishFactory;
-import org.example.model.factory.ThaiFactory;
-import org.example.model.rules.AbstractRules;
+import org.example.model.board.*;
 
+import java.util.ArrayList;
+
+
+/**
+ * A class which holds information about concrete game and performs action on it
+ */
 public class Game {
     private AbstractBoard board;
-    private AbstractRules rules;
 
+    /**
+     * Creates board according to chosen variant
+     * @param variant game variant
+     */
     public void setVariant(String variant) {
-        AbstractVarFactory factory = null;
+
         switch (variant) {
-            case "CLASSIC":
-                factory = new ClassicFactory();
-                break;
-            case "THAI":
-                factory = new ThaiFactory();
-                break;
-            case "POLISH":
-                factory = new PolishFactory();
-                break;
+            case "CLASSIC" -> board = new ClassicBoard();
+            case "THAI" -> board = new ThaiBoard();
+            case "POLISH" -> board = new PolishBoard();
         }
-        rules = factory.createRules();
-        board = factory.createBoard();
-    }
-    //TODO implement makeMove via part of chain of responsibility
-    public String makeMove(int oldX, int oldY, int newX, int newY, Color color) throws illegalMoveException {
-            board.move(oldX, oldY, newX, newY, color);
-            return "MOVED " + oldX + " " + oldY + " " + newX + " " + newY + " " + color;
 
     }
 
+    /**
+     * @param oldX number of row from which piece is being removed
+     * @param oldY number of column from which piece is being removed
+     * @param newX number of row of desired new piece location
+     * @param newY number of column of desired new piece location
+     * @param color color of player who made a move
+     * @return prepared string with feedback to the server
+     * @throws illegalMoveException if move is invalid
+     * @throws GameOverException if game is over
+     */
+    public String makeMove(int oldX, int oldY, int newX, int newY, Color color) throws illegalMoveException, GameOverException {
+        System.out.println(oldX + " " + oldY + " " + newX + " " + newY + " " + color);
+            try {
+                board.move(oldX, oldY, newX, newY, getTurn());
+            }
+            catch(illegalMoveException moveException) {
+                System.out.println("move");
+                throw moveException;
+            } catch (GameOverException gameOverException) {
+                System.out.println("over");
+                throw gameOverException;
+            }
+            return "MOVED " + oldX + " " + oldY + " " + newX + " " + newY + " " + getTurn();
+
+    }
+
+    /**
+     * @return color of player who will make move next
+     */
     public Color getTurn() {
         return board.getTurn();
+    }
+
+    public String makeBotMove(Color color) {
+        ArrayList<Integer> cords = board.getMove(color);
+        return "MOVED " + cords.get(0) + " " + cords.get(1) + " " + cords.get(2) + " " + cords.get(3) + " " + getTurn();
     }
 }

@@ -2,103 +2,353 @@ package org.example.model.board;
 
 import org.example.model.Color;
 import org.example.model.Field;
-import org.example.model.rules.AbstractRules;
+import org.example.model.rules.Rules;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
 
-import static java.lang.Math.max;
-import static java.lang.Math.min;
-
+/**
+ * A class which contains fields on the board and rules. It performs moves "on the board" if valid
+ */
 public abstract class AbstractBoard {
 
-    protected AbstractRules rules;
-    protected ArrayList<Field> fields;
+    protected Rules rules;
+    protected ArrayList<Field> fields = new ArrayList<>();
     protected Color turn = Color.WHITE;
 
     public Color getTurn() { return turn; }
     public ArrayList<Field> getFields() {
         return fields;
     }
+
+    /**
+     * @param x number of row
+     * @param y number of column
+     * @return field on a given position
+     */
     public Field getFieldAt(int x, int y) {
-        return fields.stream().filter(f -> f.getColumn() == x && f.getRow() == y).findFirst().orElse(null);
+        return fields.stream().filter(f -> f.getRow() == x && f.getColumn() == y).findFirst().orElse(null);
     }
-    public void move(int oldX, int oldY, int newX, int newY, Color color) throws illegalMoveException {
-        Field oldField = fields.stream().filter(f -> f.getColumn() == oldX && f.getRow() == oldY).findFirst().orElse(null);
-        Field newField = fields.stream().filter(f -> f.getColumn() == newX && f.getRow() == newY).findFirst().orElse(null);
 
-        ArrayList <Field> capturedFields = new ArrayList<>();
-        int i = min(oldX, newX) + 1;
-        int j = min(oldY, newY) + 1;
-        while ( i < max(oldX, newX)) {
-            int finalI1 = i;
-            int finalJ1 = j;
-            capturedFields.add(fields.stream().filter(f -> f.getColumn() == finalI1 && f.getRow() == finalJ1).findFirst().orElse(null));
-            i++;
-            j++;
-        }
+    /**
+     * Changing fields according to given move coordinates if valid
+     * @param oldX number of row from which piece is being removed
+     * @param oldY number of column from which piece is being removed
+     * @param newX number of row of desired new piece location
+     * @param newY number of column of desired new piece location
+     * @param color color of player who made a move
+     * @throws illegalMoveException if move is invalid
+     * @throws GameOverException if game is over
+     */
+    public void move(int oldX, int oldY, int newX, int newY, Color color) throws illegalMoveException, GameOverException {
+        Field oldField = getFieldAt(oldX, oldY);
+        Field newField = getFieldAt(newX, newY);
 
+        ArrayList <Field> capturedFields = findCapturedFields(oldField, newField);
         if(!rules.isMoveValid(oldField, newField, capturedFields, color)) {
             throw new illegalMoveException();
         }
 
-
-        ArrayList<Field> obligatoryNewFields = findObligatoryMoves(oldField, color);
-        if(obligatoryNewFields.size() > 0 && !obligatoryNewFields.contains(newField)) {
-            throw new illegalMoveException();
+        if(rules.isCapturingObligatory()) {
+            if(isAnyCapture(color)) {
+                if(capturedFields.size() == 0) {
+                    throw new illegalMoveException();
+                }
+                if(capturedFields.stream().noneMatch(f -> f.getColor() == color.getOppositeColor())) {
+                    throw new illegalMoveException();
+                }
+            }
         }
 
         newField.setColor(oldField.getColor());
         oldField.setColor(Color.NONE);
-        newField.setIsKing(oldField.getIsKing());
+        if( (newField.getRow() == 0 && color == Color.WHITE) ||
+                (newField.getRow() == getNoRows()-1 && color == Color.BLACK ) ||
+                (oldField.getIsKing())) {
+            newField.setIsKing(true); }
+
+        if(isGameOver(color.getOppositeColor())) {
+            throw new GameOverException();
+        }
+        boolean flag = false; //change turn only once and clear captured fields in between
+        if(oldField.getIsKing() && capturedFields.stream().allMatch(f -> f.getColor() == Color.NONE)) {
+            turn = turn.getOppositeColor();
+            flag = true;
+        }
         oldField.setIsKing(false);
-
         for ( Field field: capturedFields ) {
-             field.setColor(Color.NONE);
-             field.setIsKing(false);
+            field.setColor(Color.NONE);
+            field.setIsKing(false);
         }
-
-        if(isGameOver()) {
-            turn = Color.NONE;
-        }
-        else if( capturedFields.size() == 0 || !isCapturePossible(newField, color)) {
+        if(!flag && (capturedFields.size() == 0 || !isCapturePossible(newField, color))) {
             turn = turn.getOppositeColor();
         }
+
     }
 
-    protected ArrayList<Field> findObligatoryMoves(Field oldField, Color color) {
-        ArrayList<Field> possibleMoves  = new ArrayList<>();
-        //TODO wyszukanie obligatoryjnych ruchow
-        //wygeneruj possible moves (mozliwe) w zaleznosci od zasad i isKing
-        //for each field:possibleMoves
-        // if !rules.isMoveValid possibleMoves.remove(field)
-                //policz maksymalna liczbe bic i dodaj te ruchy do listy
-        ArrayList<Field> obligatoryMoves = new ArrayList<>();
-        return obligatoryMoves;
+    /**
+     * @param oldField field from which the piece is being removed
+     * @param newField desired location of the piece
+     * @return list of fields captured on the way
+     */
+    protected ArrayList<Field> findCapturedFields (Field oldField, Field newField) {
+        ArrayList <Field> capturedFields = new ArrayList<>();
+        if(oldField == null || newField == null) { return capturedFields; }
+        int i, j, maxRow, bias = 1;
+        if (oldField.getRow() < newField.getRow()) {
+            i = oldField.getRow()+1;
+            maxRow = newField.getRow();
+            j = oldField.getColumn();
+            if ( j > newField.getColumn()) { bias = -1; }
+        }
+        else {
+            i = newField.getRow()+1;
+            maxRow = oldField.getRow();
+            j = newField.getColumn();
+            if ( j > oldField.getColumn()) { bias = -1; }
+        }
+        j += bias;
+
+        while ( i < maxRow) {
+            Field temp = getFieldAt(i,j);
+            if (temp != null) { capturedFields.add(temp); }
+            i++;
+            j+=bias;
+        }
+        return capturedFields;
     }
-    protected boolean isCapturePossible(Field oldField, Color color) {
-        //TODO sprawdzenie czy gracz ma kolejne bicie w swoim ruchu
-        //sprawdz bicie na lewej i prawej przekatnej czy ktores jest valid
-        //albo wszytskie inne mozliwe dla damki
-        return false;
-    }
-    protected boolean isGameOver() {
-        //TODO sprawdzenie czy przeciwnik nie ma juz swojego koloru na planszy albo zadnego ruchu dla kazdego piona
+
+    /**
+     * @param color color of pieces to be checked
+     * @return true if there's a possible capture, false otherwise
+     */
+    protected boolean isAnyCapture(Color color) {
+        for (Field field:fields) {
+            if( field.getColor() == color && isCapturePossible(field, color)) {
+                return true;
+            }
+        }
         return false;
     }
 
+    /**
+     * @param field field from which the piece is being removed
+     * @return list of possible captures
+     */
+    protected ArrayList<Field> getPossibleCapturesList(Field field) {
+        ArrayList<Field> possibleMoves = new ArrayList<>();
+        possibleMoves.add(getFieldAt(field.getRow()+2,field.getColumn()-2));
+        possibleMoves.add(getFieldAt(field.getRow()+2,field.getColumn()+2));
+        possibleMoves.add(getFieldAt(field.getRow()-2,field.getColumn()-2));
+        possibleMoves.add(getFieldAt(field.getRow()-2,field.getColumn()+2));
+
+        if (field.getIsKing()) {
+            int i = field.getRow()+3;
+            int j = field.getColumn()-3;
+            Field f = getFieldAt(i, j);
+            while (f != null) {
+                possibleMoves.add(f);
+                i++;
+                j--;
+                f = getFieldAt(i, j);
+            }
+            i = field.getRow()+3;
+            j = field.getColumn()+3;
+            f = getFieldAt(i,j);
+            while (f != null) {
+                possibleMoves.add(f);
+                i++;
+                j++;
+                f = getFieldAt(i, j);
+            }
+            i = field.getRow()-3;
+            j = field.getColumn()-3;
+            f = getFieldAt(i,j);
+            while (f != null) {
+                possibleMoves.add(f);
+                i--;
+                j--;
+                f = getFieldAt(i, j);
+            }
+            i = field.getRow()-3;
+            j = field.getColumn()+3;
+            f = getFieldAt(i,j);
+            while (f != null) {
+                possibleMoves.add(f);
+                i--;
+                j++;
+                f = getFieldAt(i, j);
+            }
+        }
+        return possibleMoves;
+    }
+
+    /**
+     * @param field field from which the piece is being removed
+     * @param color color of player who made a move
+     * @return true, if there is a capture from given field, false otherwise
+     */
+    protected boolean isCapturePossible(Field field, Color color) {
+
+        ArrayList<Field> possibleMoves = getPossibleCapturesList(field);
+
+        for (Field f:possibleMoves) {
+            if(f != null && rules.isMoveValid(field, f, findCapturedFields(field, f), color)) {
+                if(!findCapturedFields(field,f).stream().allMatch(fi -> fi.getColor() == Color.NONE)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * @param color color of pieces to be checked
+     * @return true, if there is no other move for given color, false otherwise
+     */
+    protected boolean isGameOver(Color color) {
+        if (fields.stream().noneMatch(f -> f.getColor() == color)) {
+            return true;
+        }
+        return fields.stream().noneMatch(f -> f.getColor() == color && isAnotherMovePossible(f, color));
+    }
+
+    /**
+     * @param field field from which piece is being removed
+     * @param color  color of player who made the move
+     * @return list of fields in standard move range
+     */
+    protected ArrayList<Field> getPossibleStandardMovesList(Field field, Color color) {
+        ArrayList<Field> possibleMoves = new ArrayList<>();
+        int bias = 1;
+        if (color == Color.WHITE) {
+            bias = -1;
+        }
+        //standard moves
+        possibleMoves.add(getFieldAt(field.getRow()+bias,field.getColumn()-1));
+        possibleMoves.add(getFieldAt(field.getRow()+bias,field.getColumn()+1));
+
+
+        if(field.getIsKing()) {
+            possibleMoves.add(getFieldAt(field.getRow()-bias,field.getColumn()-1));
+            possibleMoves.add(getFieldAt(field.getRow()-bias,field.getColumn()+1));
+        }
+        return possibleMoves;
+
+    }
+
+    /**
+     * @param field field from which piece is being removed
+     * @param color color of player who made the move
+     * @return true, if there is any move from given field to do, false otherwise
+     */
     protected boolean isAnotherMovePossible(Field field, Color color) {
-        //TODO sprawdzenie isCapturePossible a potem zwycajnych ruchow
 
+        if(field == null) {
+            return false;
+        }
+        if (isCapturePossible(field, color)) {
+            return true;
+        }
+        if (isStandardMovePossible(field, color)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * @return number of rows of the board
+     */
+    protected abstract int getNoRows();
+
+    /**
+     * @return random field of a given color
+     */
+    protected Field getRandomField(Color color) {
+        Random random = new Random();
+        Field f = getFieldAt(random.nextInt(getNoRows()), random.nextInt(getNoRows()));
+        while(f == null || f.getColor() != color) {
+            f = getFieldAt(random.nextInt(getNoRows()), random.nextInt(getNoRows()));
+        }
+        return  f;
+    }
+
+    /**
+     * @param color color of a player who's supposed to make a move
+     * @return list of coordinates: oldX, oldY, newX, newY
+     */
+    public ArrayList<Integer> getMove(Color color) {
+        ArrayList<Integer> cords = new ArrayList<>();
+        Field randomField = getRandomField(color);
+        if(isAnyCapture(color)) {
+            //System.out.println("JEST MOZLIWE BICIE");
+            while(!isCapturePossible(randomField, color)) {
+                randomField = getRandomField(color);
+                //System.out.println("wyszukiwanie pola z biciem");
+            }
+           // System.out.println("ZNALEZIONO POLE Z MOZLIWYM BICIEM "+randomField.getRow()+" "+randomField.getColumn());
+            cords.add(randomField.getRow());
+            cords.add(randomField.getColumn());
+            ArrayList<Field> possibleMoves = getPossibleCapturesList(randomField);
+            Random random = new Random();
+            possibleMoves.removeAll(Collections.singleton(null));
+            Field f = possibleMoves.get(random.nextInt(possibleMoves.size()));
+            //if (f!= null) {System.out.println("pierwszy guess"+f.getRow()+" "+f.getColumn());}
+            if(f == null || !rules.isMoveValid(randomField, f, findCapturedFields(randomField, f), color) || findCapturedFields(randomField,f).stream().allMatch(fi -> fi.getColor() == Color.NONE) ) {
+               // System.out.println("wyszukiwanie legalnego bicia "+f.getRow()+" "+f.getColumn());
+                possibleMoves.remove(f);
+                f = possibleMoves.get(random.nextInt(possibleMoves.size()));
+            }
+            //System.out.println(possibleMoves.size());
+            //System.out.println("ZNALEZIONO BICIE"+f.getRow()+" "+f.getColumn());
+            cords.add(f.getRow());
+            cords.add(f.getColumn());
+
+        }
+        else {
+            //System.out.println("NIE MA BICIA");
+            Random random = new Random();
+            while(!isStandardMovePossible(randomField, color)) {
+                randomField = getRandomField(color);
+                //System.out.println(randomField.getRow()+ " "+ randomField.getColumn()+ " wyszukiwanie pola z legalnym ruchem");
+            }
+            //System.out.println("ZNALEZIONO POLE Z LEGALNYM RUCHEM: "+randomField.getRow()+" "+randomField.getColumn());
+            ArrayList<Field> possibleMoves = getPossibleStandardMovesList(randomField, color);
+
+            Field f = possibleMoves.get(random.nextInt(possibleMoves.size()));
+            cords.add(randomField.getRow());
+            cords.add(randomField.getColumn());
+
+            while (!rules.isMoveValid(randomField, f, findCapturedFields(randomField, f), color)) {
+                //System.out.println("ruch na "+f.getRow()+" "+f.getColumn());
+                possibleMoves.remove(f);
+                f = possibleMoves.get(random.nextInt(possibleMoves.size()));
+
+                //System.out.println("wyszukiwanie legalnego ruchu");
+            }
+            //System.out.println("ZNALEZIONO LEGALNY RUCH");
+            cords.add(f.getRow());
+            cords.add(f.getColumn());
+        }
+
+        return cords;
+    }
+
+    /**
+     * @param field field from which the piece is being removed
+     * @param color color of a player who made a move
+     * @return true if there is a standard move to make, false otherwise
+     */
+    protected boolean isStandardMovePossible(Field field, Color color) {
+        ArrayList<Field> possibleMoves = getPossibleStandardMovesList(field, color);
+
+        for (Field f:possibleMoves) {
+            if(f != null && rules.isMoveValid(field, f, findCapturedFields(field, f), color)) {
+                return true;
+            }
+        }
         return false;
     }
 }
-
-//TODO IMPORTANT!!!!!!!!!!!!!!!
-// trzeba sie zastanwoic czy nie wywalic fabryki abstrakcyjnej na rzecz metody wytworczej dla Board,
-//         -> wtedy Abstract Rules zamienic na interfejs a obecna implementacje na defaultRules
-//         -> przypisanie defaultRules w konstruktorze konkretnej planszy
-//         -> spoko wyjscie, bo w tych co wybralismy wariantach te same zasady, a nawet jesli by nie byly mozna nadpisac
-//                  i nwm mozna dodac jakies pole static czy bicie obowiazkoawe i wtedy w board.move(..) jesli rules.getIsCapturingObligatory to sprawdzac tylko ale idk
-//            QUESTION: czy to ze w intefejsie rules sprawdza sie tylko poprawnosc ruchu i static obowiazek bicia jest ok???
-//                  imo chyba tak, bo zasady tylko sprawdzaja czy cos jest poprawne wtedy jak to zasady,
-//                  a to board mowi jakie obowiazkowe ruchy sa bo on ma wiedze jak wyglada plansza (nwm imo irl jest tak wlasnie wiec chyba moze byc)

@@ -3,6 +3,9 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * A class which implements the host server. It listens for clients commands and send back some information
+ */
 public class Server {
     private static Server instance = null;
     private ServerSocket serverSocket;
@@ -12,6 +15,10 @@ public class Server {
     public Server() {
     }
 
+    /**
+     * Method which implements singleton design pattern
+     * @return instance of server
+     */
     public static Server getInstance() {
         if(instance == null) {
             synchronized (Server.class) {
@@ -23,6 +30,9 @@ public class Server {
         return instance;
     }
 
+    /**
+     * A method which is responsible for listing via port and accepting clients
+     */
     public void run() {
 
         try {
@@ -31,8 +41,10 @@ public class Server {
 
             while(true) {
                 Socket socket = serverSocket.accept();
-                Client client = new Client(socket, gameRoom);
-                client.updateObserver("COLOR " + client.getColor());
+                Runnable client = new Client(socket, gameRoom);
+                ((Client)client).updateObserver("COLOR " + ((Client)client).getColor());
+                Thread thread = new Thread(client);
+                thread.start();
             }
         }
         catch(IOException ex) {
@@ -40,6 +52,9 @@ public class Server {
         }
     }
 
+    public GameRoom getGameRoom() {
+        return gameRoom;
+    }
     public static void main(String[] args) {
         getInstance().run();
     }

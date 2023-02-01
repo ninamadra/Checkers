@@ -72,7 +72,7 @@ public abstract class AbstractBoard {
             throw new GameOverException();
         }
         boolean flag = false; //change turn only once and clear captured fields in between
-        if(oldField.getIsKing() && capturedFields.stream().allMatch(f -> f.getColor() == Color.NONE)) {
+        if(capturedFields.stream().allMatch(f -> f.getColor() == Color.NONE)) {
             turn = turn.getOppositeColor();
             flag = true;
         }
@@ -195,7 +195,7 @@ public abstract class AbstractBoard {
 
         for (Field f:possibleMoves) {
             if(f != null && rules.isMoveValid(field, f, findCapturedFields(field, f), color)) {
-                if(!findCapturedFields(field,f).stream().allMatch(fi -> fi.getColor() == Color.NONE)) {
+                if(!findCapturedFields(field,f).stream().allMatch(fi -> fi.getColor() == Color.NONE) && findCapturedFields(field,f).stream().noneMatch(fi -> fi.getColor() == color)) {
                     return true;
                 }
             }
@@ -231,10 +231,43 @@ public abstract class AbstractBoard {
         possibleMoves.add(getFieldAt(field.getRow()+bias,field.getColumn()+1));
 
 
-        if(field.getIsKing()) {
-            possibleMoves.add(getFieldAt(field.getRow()-bias,field.getColumn()-1));
-            possibleMoves.add(getFieldAt(field.getRow()-bias,field.getColumn()+1));
-            //TODO dodac inne pola
+        if (field.getIsKing()) {
+            int i = field.getRow() + 2;
+            int j = field.getColumn() - 2;
+            Field f = getFieldAt(i, j);
+            while (f != null) {
+                possibleMoves.add(f);
+                i++;
+                j--;
+                f = getFieldAt(i, j);
+            }
+            i = field.getRow() + 2;
+            j = field.getColumn() + 2;
+            f = getFieldAt(i, j);
+            while (f != null) {
+                possibleMoves.add(f);
+                i++;
+                j++;
+                f = getFieldAt(i, j);
+            }
+            i = field.getRow() - 2;
+            j = field.getColumn() - 2;
+            f = getFieldAt(i, j);
+            while (f != null) {
+                possibleMoves.add(f);
+                i--;
+                j--;
+                f = getFieldAt(i, j);
+            }
+            i = field.getRow() - 2;
+            j = field.getColumn() + 2;
+            f = getFieldAt(i, j);
+            while (f != null) {
+                possibleMoves.add(f);
+                i--;
+                j++;
+                f = getFieldAt(i, j);
+            }
         }
         return possibleMoves;
 
@@ -251,9 +284,11 @@ public abstract class AbstractBoard {
             return false;
         }
         if (isCapturePossible(field, color)) {
+            System.out.println("MOZLIWE BICIE: "+field.getRow()+" "+field.getColumn());
             return true;
         }
         if (isStandardMovePossible(field, color)) {
+            System.out.println("MOZLIWY RUCH: "+field.getRow()+" "+field.getColumn());
             return true;
         }
         return false;
@@ -289,21 +324,20 @@ public abstract class AbstractBoard {
                 randomField = getRandomField(color);
                 //System.out.println("wyszukiwanie pola z biciem");
             }
-           // System.out.println("ZNALEZIONO POLE Z MOZLIWYM BICIEM "+randomField.getRow()+" "+randomField.getColumn());
+            System.out.println("ZNALEZIONO POLE Z MOZLIWYM BICIEM "+randomField.getRow()+" "+randomField.getColumn());
             cords.add(randomField.getRow());
             cords.add(randomField.getColumn());
             ArrayList<Field> possibleMoves = getPossibleCapturesList(randomField);
             Random random = new Random();
             possibleMoves.removeAll(Collections.singleton(null));
             Field f = possibleMoves.get(random.nextInt(possibleMoves.size()));
-            //if (f!= null) {System.out.println("pierwszy guess"+f.getRow()+" "+f.getColumn());}
-            if(f == null || !rules.isMoveValid(randomField, f, findCapturedFields(randomField, f), color) || findCapturedFields(randomField,f).stream().allMatch(fi -> fi.getColor() == Color.NONE) ) {
-               // System.out.println("wyszukiwanie legalnego bicia "+f.getRow()+" "+f.getColumn());
+            while(!rules.isMoveValid(randomField, f, findCapturedFields(randomField, f), color) || findCapturedFields(randomField,f).stream().allMatch(fi -> fi.getColor() == Color.NONE) ) {
+                //System.out.println("wyszukiwanie legalnego bicia "+f.getRow()+" "+f.getColumn());
                 possibleMoves.remove(f);
                 f = possibleMoves.get(random.nextInt(possibleMoves.size()));
             }
             //System.out.println(possibleMoves.size());
-            //System.out.println("ZNALEZIONO BICIE"+f.getRow()+" "+f.getColumn());
+            System.out.println("ZNALEZIONO BICIE"+f.getRow()+" "+f.getColumn());
             cords.add(f.getRow());
             cords.add(f.getColumn());
 
@@ -315,9 +349,9 @@ public abstract class AbstractBoard {
                 randomField = getRandomField(color);
                 //System.out.println(randomField.getRow()+ " "+ randomField.getColumn()+ " wyszukiwanie pola z legalnym ruchem");
             }
-            //System.out.println("ZNALEZIONO POLE Z LEGALNYM RUCHEM: "+randomField.getRow()+" "+randomField.getColumn());
+            System.out.println("ZNALEZIONO POLE Z LEGALNYM RUCHEM: "+randomField.getRow()+" "+randomField.getColumn());
             ArrayList<Field> possibleMoves = getPossibleStandardMovesList(randomField, color);
-
+            possibleMoves.removeAll(Collections.singleton(null));
             Field f = possibleMoves.get(random.nextInt(possibleMoves.size()));
             cords.add(randomField.getRow());
             cords.add(randomField.getColumn());
@@ -329,7 +363,7 @@ public abstract class AbstractBoard {
 
                 //System.out.println("wyszukiwanie legalnego ruchu");
             }
-            //System.out.println("ZNALEZIONO LEGALNY RUCH");
+            System.out.println("ZNALEZIONO LEGALNY RUCH"+f.getRow()+" "+f.getColumn());
             cords.add(f.getRow());
             cords.add(f.getColumn());
         }

@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed7992c-e56c-4ea6-be0b-4e9901cbecd9" name="Changes" comment="Javadoc dla modelu">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Database/DBHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Database/GameDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Database/MoveDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/GameDTO.hbm.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/MoveDTO.hbm.xml" afterDir="false" />
+    <list default="true" id="5ed7992c-e56c-4ea6-be0b-4e9901cbecd9" name="Changes" comment="Implementacja działania zapisywania ruchów do bazy i odtwarzania z bazy.(Hibernate)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Database/GameDBOpertor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Database/DBHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Database/DBHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Server/GameRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Server/GameRoom.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -109,6 +106,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Client.GUI" />
+      <module name="Checkers" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.Client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Client.Main" />
       <module name="Checkers" />
@@ -150,35 +160,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DefaultRulesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Checkers" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.model.rules.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example.model.rules" />
-      <option name="MAIN_CLASS_NAME" value="org.example.model.rules.DefaultRulesTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.DBHandler" />
+      <item itemvalue="Application.GUI" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.Server" />
       <item itemvalue="JUnit.AbstractBoardTest" />
-      <item itemvalue="JUnit.DefaultRulesTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.DBHandler" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Server" />
+        <item itemvalue="Application.GUI" />
         <item itemvalue="JUnit.AbstractBoardTest" />
-        <item itemvalue="JUnit.DefaultRulesTest" />
       </list>
     </recent_temporary>
   </component>
@@ -273,7 +268,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673494016706</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Implementacja działania zapisywania ruchów do bazy i odtwarzania z bazy.(Hibernate)">
+      <created>1675289746572</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1675289746572</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -335,6 +337,7 @@
     <MESSAGE value="Dodanie pionów do planszy i tworzenia odpowiednich typów gier" />
     <MESSAGE value="Ogarniecie gita i zrobienie wspolnej podstawy" />
     <MESSAGE value="Javadoc dla modelu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Javadoc dla modelu" />
+    <MESSAGE value="Implementacja działania zapisywania ruchów do bazy i odtwarzania z bazy.(Hibernate)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementacja działania zapisywania ruchów do bazy i odtwarzania z bazy.(Hibernate)" />
   </component>
 </project>

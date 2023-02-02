@@ -1,5 +1,7 @@
 package org.example.Server;
 
+import org.example.Database.DBHandler;
+import org.example.Database.GameDBOpertor;
 import org.example.model.Color;
 import org.example.model.Game;
 import org.example.model.board.GameOverException;
@@ -19,6 +21,7 @@ public class GameRoom implements GameRoomMediator{
     private Game game = null;
     private final ArrayList<Observer> clients;
     private final List<Color> colors;
+    private GameDBOpertor opertor;
 
     /**
      * An implementation of singleton design pattern
@@ -107,6 +110,11 @@ public class GameRoom implements GameRoomMediator{
         }
     }
 
+    public void startDB(int id){
+        opertor = new GameDBOpertor();
+        opertor.Initialize(id);
+    }
+
 
     /**
      * A method that actually executes command and redirects it to the proper handling
@@ -118,6 +126,13 @@ public class GameRoom implements GameRoomMediator{
         switch (items.get(0)) {
             case "START" -> {
                 try {
+                    if(items.get(1).equals("DB")) {
+                        startDB(Integer.parseInt(items.get(2)));
+                    }
+                    else {
+                        createGame(items.get(1));
+                        noticeAction("STARTED " + items.get(1));
+                    }
                     createGame(items.get(1));
                     noticeAction("STARTED " + items.get(1));
                 } catch (creationException e) {
@@ -152,10 +167,9 @@ public class GameRoom implements GameRoomMediator{
                     }
                 }
             }
-//            case "LEAVE" -> {
-//                detachObserver(observer);
-//                noticeAction("END");
-//            }
+            case "DB" -> {
+                observer.updateObserver(opertor.getNext());
+            }
         }
     }
 }

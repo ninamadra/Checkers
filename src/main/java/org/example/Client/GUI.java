@@ -22,10 +22,12 @@ public class GUI extends Application
     AbstractGUIBoard board;
     GameController gameController;
     BorderPane root;
+    Menu type = new Menu("type");
     MenuItem classic = new MenuItem("classic");
     MenuItem thai = new MenuItem("thai");
     MenuItem polish = new MenuItem("polish");
-    MenuItem db = new MenuItem("Odtworz partie");
+    CheckBox cb = new CheckBox("Zapisz do bazy");
+
     Label label;
 
     /**
@@ -37,20 +39,30 @@ public class GUI extends Application
         gameController = new GameController(this);
         root = new BorderPane();
         label = new Label("" + gameController.getColor());
+        cb.setIndeterminate(false);
 
-        classic.setOnAction(e -> gameController.startGame("CLASSIC"));
-        thai.setOnAction(e -> gameController.startGame("THAI DB"));
-        polish.setOnAction(e -> { gameController.startGame("POLISH"); });
-        db.setOnAction(e -> { gameController.startGame("THAI DB"); });
+        classic.setOnAction(e -> {
+            String command = "CLASSIC";
+            if(cb.isSelected()){
+                command += " DB";}
+            gameController.startGame(command); });
+        thai.setOnAction(e -> {
+            String command = "THAI";
+            if(cb.isSelected()){
+                command += " DB";}
+            gameController.startGame(command); });
+        polish.setOnAction(e -> {
+            String command = "POLISH";
+            if(cb.isSelected()){
+                command += " DB";}
+            gameController.startGame(command); });
 
         HBox top = new HBox();
-        Menu type = new Menu("type");
-        Menu options = new Menu("options");
         type.getItems().addAll(classic, thai, polish);
-        options.getItems().add(db);
-        MenuBar menuBar = new MenuBar(type, options);
+        MenuBar menuBar = new MenuBar(type);
         top.getChildren().add(0, menuBar);
         top.getChildren().add(1, label);
+        top.getChildren().add(2, cb);
         top.setSpacing(10);
         top.setAlignment(Pos.CENTER_LEFT);
         root.setTop(top);
@@ -72,6 +84,8 @@ public class GUI extends Application
             case "CLASSIC" -> board = new ClassicGUIBoard(gameController);
             case "POLISH" -> board = new PolishGUIBoard(gameController);
         }
+        cb.setIndeterminate(false);
+        cb.setVisible(false);
         Platform.runLater(() -> root.setCenter(board));
     }
 

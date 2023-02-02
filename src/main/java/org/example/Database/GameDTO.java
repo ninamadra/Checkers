@@ -1,8 +1,11 @@
 package org.example.Database;
 
+import java.util.List;
+
 public class GameDTO {
     private int id;
     private String type;
+    private List<MoveDTO> moves;
 
     public GameDTO(String type) {
         this.type = type;
@@ -26,5 +29,13 @@ public class GameDTO {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public List<MoveDTO> getMoves() {
+        return moves;
+    }
+
+    public void setMoves(List<MoveDTO> moves) {
+        this.moves = moves;
     }
 }

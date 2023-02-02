@@ -10,7 +10,12 @@
     <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="connection.username">checkers</property>
     <property name="connection.password">checkers</property>
-    <mapping resource = "GameDTO.hbm.xml"/>
+
+    <property name="show_sql">true</property>
+    <property name="format_sql">true</property>
+    <property name="use_sql_comments">true</property>
     <mapping resource = "MoveDTO.hbm.xml"/>
+    <mapping resource = "GameDTO.hbm.xml"/>
+
   </session-factory>
 </hibernate-configuration>

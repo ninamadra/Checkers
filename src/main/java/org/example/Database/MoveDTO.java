@@ -1,6 +1,9 @@
 package org.example.Database;
 
+import org.example.model.Color;
+
 public class MoveDTO {
+    private  int ID;
     private int gameID;
 
     private int number;
@@ -8,14 +11,16 @@ public class MoveDTO {
     private int oldY;
     private int newX;
     private int newY;
+    private String color;
 
-    public MoveDTO(int gameID, int number, int oldX, int oldY, int newX, int newY) {
+    public MoveDTO(int gameID, int number, int oldX, int oldY, int newX, int newY, String color) {
         this.gameID = gameID;
         this.number = number;
         this.oldX = oldX;
         this.oldY = oldY;
         this.newX = newX;
         this.newY = newY;
+        this.color = color;
     }
     public MoveDTO() {}
 
@@ -65,5 +70,21 @@ public class MoveDTO {
 
     public void setNewY(int newY) {
         this.newY = newY;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
     }
 }

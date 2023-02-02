@@ -1,10 +1,9 @@
 package org.example.Database;
 
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import org.example.model.Color;
+import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
 
@@ -51,12 +50,12 @@ public class DBHandler {
         return session.createQuery(statement, GameDTO.class).getResultList();
     }
 
-    public void addMove(int gameID, int number, int oldX, int oldY, int newX, int newY) {
+    public void addMove(int gameID, int number, int oldX, int oldY, int newX, int newY, String color) {
         Session session = sessionFactory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            MoveDTO move = new MoveDTO(gameID, number, oldX, oldY, newX, newY);
+            MoveDTO move = new MoveDTO(gameID, number, oldX, oldY, newX, newY, color);
             session.save(move);
             tx.commit();
         } catch (HibernateException e) {
@@ -66,9 +65,13 @@ public class DBHandler {
             session.close();
         }
     }
+    // TODO jakis shit to zwraca
     public List<MoveDTO> getMoves(int GameID) {
         Session session = sessionFactory.openSession();
-        String statement = "SELECT a FROM MoveDTO a WHERE a.gameID=" + GameID;
+        String statement = "SELECT a FROM MoveDTO a" ;
         return session.createQuery(statement, MoveDTO.class).getResultList();
+        //Criteria cr = session.createCriteria(MoveDTO.class);
+        //cr.add(Restrictions.eq("gameID", GameID));
+        //return cr.list();
     }
 }

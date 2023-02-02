@@ -9,12 +9,15 @@
         <meta attribute = "class-description">
             This class contains the move detail.
         </meta>
-
-        <id name = "gameID" type = "int" column = "GameID"></id>
+        <id name = "ID" type = "int" column = "ID">
+            <generator class="native"/>
+        </id>
+        <property name = "gameID" column = "GameID" type = "int"/>
         <property name = "number" column = "number" type = "int"/>
         <property name = "newX" column = "newX" type = "int"/>
         <property name = "newY" column = "newY" type = "int"/>
         <property name = "oldX" column = "oldX" type = "int"/>
         <property name = "oldY" column = "oldY" type = "int"/>
+        <property name = "color" column = "color" type = "string"/>
     </class>
 </hibernate-mapping>

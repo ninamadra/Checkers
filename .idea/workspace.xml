@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ed7992c-e56c-4ea6-be0b-4e9901cbecd9" name="Changes" comment="Implementacja działania zapisywania ruchów do bazy i odtwarzania z bazy.(Hibernate)">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Database/GameDBOpertor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Database/DBHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Database/DBHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Server/GameRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Server/GameRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Database/GameDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Database/GameDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Database/MoveDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Database/MoveDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/MoveDTO.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MoveDTO.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,15 +65,18 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "/home/zuraw/java/patterns/Checkers/src/main/resources/org.example",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
-      "mysql"
+      "mysql",
+      "mariadb"
     ]
   }
 }]]></component>
@@ -190,6 +194,7 @@
       <workItem from="1673261578342" duration="9541000" />
       <workItem from="1673473160970" duration="2045000" />
       <workItem from="1675161393241" duration="20203000" />
+      <workItem from="1675321250292" duration="5506000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1671030585078</created>

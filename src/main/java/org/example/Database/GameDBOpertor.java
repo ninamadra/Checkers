@@ -15,11 +15,9 @@ public class GameDBOpertor {
     }
     public void Initialize(int id) {
         List<GameDTO> item = db.getGame(id);
-        game = item.get(0);
+        game = item.get(id);
         moves = db.getMoves(id);
         moves.sort(Comparator.comparing(MoveDTO::getNumber));
-        System.out.println(moves.get(0).getNumber());
-        System.out.println(moves.get(1).getNumber());
     }
 
     public void saveMove(int oldX, int oldY, int newX, int newY, String color) {

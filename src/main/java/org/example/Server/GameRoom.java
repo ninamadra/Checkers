@@ -1,7 +1,6 @@
 package org.example.Server;
 
 import org.example.Database.GameDBOpertor;
-import org.example.Database.MoveDTO;
 import org.example.model.Color;
 import org.example.model.Game;
 import org.example.model.board.GameOverException;
@@ -129,7 +128,6 @@ public class GameRoom implements GameRoomMediator{
      * @param observer client who sended
      */
     public void performAction(String command, Observer observer) {
-        System.out.println(command);
         List<String> items = Arrays.asList(command.split(" "));
         switch (items.get(0)) {
             case "START" -> {
@@ -176,31 +174,13 @@ public class GameRoom implements GameRoomMediator{
                 }
             }
             case "DB" -> {
-                String type = startDB(Integer.parseInt(items.get(1)));
-                observer.updateObserver("STARTED " + type + " RET");
-                switch (items.get(2)) {
-                    case("NEXT"): {
-                        MoveDTO move = opertor.getNext();
-                        switch (move.getColor()) {
-                            case("WHITE"): {
-                                try {
-                                    game.makeMove(move.getOldX(), move.getOldY(), move.getNewX(), move.getNewY(), Color.WHITE );
-                                } catch (illegalMoveException e) {
-                                    throw new RuntimeException(e);
-                                } catch (GameOverException e) {
-                                    throw new RuntimeException(e);
-                                }
-                            }
-                            case("BLACK"): {
-                                try {
-                                    game.makeMove(move.getOldX(), move.getOldY(), move.getNewX(), move.getNewY(), Color.WHITE );
-                                } catch (illegalMoveException e) {
-                                    throw new RuntimeException(e);
-                                } catch (GameOverException e) {
-                                    throw new RuntimeException(e);
-                                }
-                            }
-                        }
+                switch (items.get(1)){
+                    case "NEXT" -> {
+                    
+                    }
+                    default -> {
+                        String type = startDB(Integer.parseInt(items.get(1)));
+                        observer.updateObserver("STARTED " + type + " RET");
                     }
                 }
             }

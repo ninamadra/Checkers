@@ -69,8 +69,8 @@ public class GameController {
      * Method passes request to generate proper board and start the game by setting its type
      * @param var  of the game
      */
-    public void setType(String var) {
-        gui.setType(var);
+    public void setType(String var, boolean db) {
+        gui.setType(var, db);
     }
 
     /**
@@ -82,5 +82,9 @@ public class GameController {
     }
     public void stop() {
         gui.disable();
+    }
+    
+    public void retrieveGame(String command) {
+        con.retrieveGame(command);
     }
 }

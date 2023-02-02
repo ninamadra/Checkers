@@ -23,6 +23,7 @@ public class GameDBOpertor {
 
     public void saveMove(int oldX, int oldY, int newX, int newY, String color) {
         db.addMove(game.getId(), counter, oldX, oldY, newX, newY, color);
+        counter++;
     }
 
     public void saveNewGame(String type) {

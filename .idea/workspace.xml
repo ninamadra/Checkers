@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ed7992c-e56c-4ea6-be0b-4e9901cbecd9" name="Changes" comment="Implementacja działania zapisywania ruchów do bazy i odtwarzania z bazy.(Hibernate)">
+    <list default="true" id="5ed7992c-e56c-4ea6-be0b-4e9901cbecd9" name="Changes" comment="idk">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Client/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client/GUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Database/DBHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Database/DBHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Database/GameDBOpertor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Database/GameDBOpertor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Database/GameDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Database/GameDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Database/MoveDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Database/MoveDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/MoveDTO.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MoveDTO.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Server/GameRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Server/GameRoom.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +96,7 @@
       <recent name="org.example.model" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.DBHandler">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="DBHandler" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Database.DBHandler" />
       <module name="Checkers" />
@@ -173,9 +173,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.DBHandler" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Server" />
+        <item itemvalue="Application.DBHandler" />
         <item itemvalue="Application.GUI" />
         <item itemvalue="JUnit.AbstractBoardTest" />
       </list>
@@ -194,7 +194,7 @@
       <workItem from="1673261578342" duration="9541000" />
       <workItem from="1673473160970" duration="2045000" />
       <workItem from="1675161393241" duration="20203000" />
-      <workItem from="1675321250292" duration="5506000" />
+      <workItem from="1675321250292" duration="10589000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1671030585078</created>
@@ -280,7 +280,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675289746572</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="idk">
+      <created>1675330427676</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1675330427676</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -343,6 +350,7 @@
     <MESSAGE value="Ogarniecie gita i zrobienie wspolnej podstawy" />
     <MESSAGE value="Javadoc dla modelu" />
     <MESSAGE value="Implementacja działania zapisywania ruchów do bazy i odtwarzania z bazy.(Hibernate)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementacja działania zapisywania ruchów do bazy i odtwarzania z bazy.(Hibernate)" />
+    <MESSAGE value="idk" />
+    <option name="LAST_COMMIT_MESSAGE" value="idk" />
   </component>
 </project>

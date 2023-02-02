@@ -39,9 +39,9 @@ public class GUI extends Application
         label = new Label("" + gameController.getColor());
 
         classic.setOnAction(e -> gameController.startGame("CLASSIC"));
-        thai.setOnAction(e -> gameController.startGame("THAI"));
+        thai.setOnAction(e -> gameController.startGame("THAI DB"));
         polish.setOnAction(e -> { gameController.startGame("POLISH"); });
-        db.setOnAction(e -> { gameController.startGame("DB 1"); });
+        db.setOnAction(e -> { gameController.startGame("THAI DB"); });
 
         HBox top = new HBox();
         Menu type = new Menu("type");

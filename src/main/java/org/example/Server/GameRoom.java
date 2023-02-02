@@ -22,6 +22,7 @@ public class GameRoom implements GameRoomMediator{
     private final ArrayList<Observer> clients;
     private final List<Color> colors;
     private GameDBOpertor opertor;
+    private int savingFlag = 0;
 
     /**
      * An implementation of singleton design pattern
@@ -114,6 +115,11 @@ public class GameRoom implements GameRoomMediator{
         opertor = new GameDBOpertor();
         opertor.Initialize(id);
     }
+    public void saveDB(String type) {
+        savingFlag = 1;
+        opertor = new GameDBOpertor();
+        opertor.saveNewGame(type);
+    }
 
 
     /**
@@ -122,18 +128,15 @@ public class GameRoom implements GameRoomMediator{
      * @param observer client who sended
      */
     public void performAction(String command, Observer observer) {
+        System.out.println(command);
         List<String> items = Arrays.asList(command.split(" "));
         switch (items.get(0)) {
             case "START" -> {
                 try {
-                    if(items.get(1).equals("DB")) {
-                        startDB(Integer.parseInt(items.get(2)));
-                    }
-                    else {
-                        createGame(items.get(1));
-                        noticeAction("STARTED " + items.get(1));
-                    }
                     createGame(items.get(1));
+                    if(items.size() == 3 & items.get(2).equals("DB")) {
+                        saveDB(items.get(1));
+                    }
                     noticeAction("STARTED " + items.get(1));
                 } catch (creationException e) {
                     observer.updateObserver("FAIL GAME_EXISTS");
@@ -145,7 +148,11 @@ public class GameRoom implements GameRoomMediator{
             case "MOVE" -> {
                 if(observer.getColor().equals(game.getTurn())) {
                     try {
-                        noticeAction(game.makeMove(Integer.parseInt(items.get(1)), Integer.parseInt(items.get(2)), Integer.parseInt(items.get(3)), Integer.parseInt(items.get(4)), observer.getColor()));
+                        String out = game.makeMove(Integer.parseInt(items.get(1)), Integer.parseInt(items.get(2)), Integer.parseInt(items.get(3)), Integer.parseInt(items.get(4)), observer.getColor());
+                        noticeAction(out);
+                        if(savingFlag == 1) {
+                            opertor.saveMove(Integer.parseInt(items.get(1)), Integer.parseInt(items.get(2)), Integer.parseInt(items.get(3)), Integer.parseInt(items.get(4)), observer.getColor().toString());
+                        }
                     } catch (illegalMoveException e) {
                         observer.updateObserver("FAIL WRONG_MOVE");
                     } catch (GameOverException e) {
@@ -166,9 +173,6 @@ public class GameRoom implements GameRoomMediator{
                         throw new RuntimeException(e);
                     }
                 }
-            }
-            case "DB" -> {
-                observer.updateObserver(opertor.getNext());
             }
         }
     }

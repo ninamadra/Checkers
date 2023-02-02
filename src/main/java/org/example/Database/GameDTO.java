@@ -1,5 +1,6 @@
 package org.example.Database;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GameDTO {
@@ -9,10 +10,11 @@ public class GameDTO {
 
     public GameDTO(String type) {
         this.type = type;
+        moves = new ArrayList<>();
     }
 
     public GameDTO() {
-
+        moves = new ArrayList<>();
     }
 
     public int getId() {

@@ -20,11 +20,9 @@ public class DBHandler {
     }
     public static void main(String[] args) {
         DBHandler dbHandler = new DBHandler();
-        List<MoveDTO> x = dbHandler.getMoves(1);
-        System.out.println(x.size());
-        for (MoveDTO var : x) {
-            System.out.println(var.getGameID() + " " + var.getNumber() + " " + var.getOldX() + " " + var.getOldY() + " " + var.getNewX() + " " + var.getGameID());
-        }
+        List<GameDTO> gameDTO = dbHandler.getGame(6);
+
+        dbHandler.addMove(gameDTO.get(0).getId(), 1, 0, 0, 1, 1, "WHITE");
     }
     public int addGame(String type){
         Session session = sessionFactory.openSession();

@@ -6,7 +6,7 @@ import java.util.List;
 public class GameDBOpertor {
     private DBHandler db;
     private GameDTO game;
-    private int counter = 0;
+    private int counter = 1;
     private List<MoveDTO> moves;
 
     public GameDBOpertor() {
@@ -21,9 +21,13 @@ public class GameDBOpertor {
         System.out.println(moves.get(1).getNumber());
     }
 
-    public String getNext() {
-        MoveDTO curr = moves.get(counter);
-        counter++;
-        return curr.getOldX() + " " + curr.getOldY() + " " + curr.getNewX() + " " + curr.getNewY() ;
+    public void saveMove(int oldX, int oldY, int newX, int newY, String color) {
+        db.addMove(game.getId(), counter, oldX, oldY, newX, newY, color);
+    }
+
+    public void saveNewGame(String type) {
+        int id = db.addGame(type);
+        game = db.getGame(id).get(0);
+        System.out.println(game.getId()+game.getType());
     }
 }

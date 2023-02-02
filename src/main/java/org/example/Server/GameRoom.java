@@ -1,6 +1,5 @@
 package org.example.Server;
 
-import org.example.Database.DBHandler;
 import org.example.Database.GameDBOpertor;
 import org.example.model.Color;
 import org.example.model.Game;
@@ -111,9 +110,10 @@ public class GameRoom implements GameRoomMediator{
         }
     }
 
-    public void startDB(int id){
+    public String startDB(int id){
         opertor = new GameDBOpertor();
         opertor.Initialize(id);
+        return opertor.getType();
     }
     public void saveDB(String type) {
         savingFlag = 1;
@@ -173,6 +173,10 @@ public class GameRoom implements GameRoomMediator{
                         throw new RuntimeException(e);
                     }
                 }
+            }
+            case "DB" -> {
+                String type = startDB(Integer.parseInt(items.get(1)));
+                observer.updateObserver("STARTED " + type + " RET");
             }
         }
     }

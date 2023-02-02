@@ -31,4 +31,8 @@ public class GameDBOpertor {
         game = db.getGame(id).get(0);
         System.out.println(game.getId()+game.getType());
     }
+
+    public String getType() {
+        return game.getType();
+    }
 }

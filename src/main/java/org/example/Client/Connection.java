@@ -81,7 +81,11 @@ public class Connection {
                             }
                         }
                         case "STARTED" -> {
-                            gameController.setType(items.get(1));
+                           boolean db = false;
+                            if(items.size() == 3)  {
+                                db = true;
+                            }
+                            gameController.setType(items.get(1), db);
                         }
                         case "MOVED" -> {
                             gameController.makeMove(Integer.parseInt(items.get(1)), Integer.parseInt(items.get(2)), Integer.parseInt(items.get(3)), Integer.parseInt(items.get(4)), Color.valueOf(items.get(5)));
@@ -125,6 +129,11 @@ public class Connection {
      */
     public void startGame(String variant) {
         String command = "START " + variant;
+        clientOutput.println(command);
+    }
+    
+    public void retrieveGame(String id) {
+        String command = "DB " + id;
         clientOutput.println(command);
     }
 }

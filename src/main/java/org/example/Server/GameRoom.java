@@ -128,7 +128,6 @@ public class GameRoom implements GameRoomMediator{
      * @param observer client who sended
      */
     public void performAction(String command, Observer observer) {
-        System.out.println(command);
         List<String> items = Arrays.asList(command.split(" "));
         switch (items.get(0)) {
             case "START" -> {
@@ -175,8 +174,15 @@ public class GameRoom implements GameRoomMediator{
                 }
             }
             case "DB" -> {
-                String type = startDB(Integer.parseInt(items.get(1)));
-                observer.updateObserver("STARTED " + type + " RET");
+                switch (items.get(1)){
+                    case "NEXT" -> {
+                    
+                    }
+                    default -> {
+                        String type = startDB(Integer.parseInt(items.get(1)));
+                        observer.updateObserver("STARTED " + type + " RET");
+                    }
+                }
             }
         }
     }

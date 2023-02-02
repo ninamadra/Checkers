@@ -1,5 +1,6 @@
 package org.example.Database;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
@@ -34,5 +35,9 @@ public class GameDBOpertor {
 
     public String getType() {
         return game.getType();
+    }
+
+    public MoveDTO getNext() {
+        return moves.get(counter);
     }
 }

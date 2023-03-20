@@ -9,7 +9,7 @@ client/server desktop checkers game
 
 ## Features
 - 3 different checkers variants
-- Playing against another player or simple bot
+- Playing against another player or a simple bot
 - Saving a game to the database
 - Retrieving the game from the database
 

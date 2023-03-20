@@ -22,3 +22,4 @@ to do:
 - [x] saving to the database
 - [ ] testing of game retrieving
 - [ ] creating a better GUI
+- [ ] bot development

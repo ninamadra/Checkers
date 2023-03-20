@@ -16,7 +16,7 @@ client/server desktop checkers game
 ![Screenshot](/src/main/resources/example.png)
 
 ## Project status
-in progress
+*in progress*
 to do:
 - [x] adding the option to play with bot
 - [x] saving to the database
